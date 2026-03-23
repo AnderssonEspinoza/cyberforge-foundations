@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>CyberForge | Fundamentos de Ciberseguridad</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            term: { bg: "#050505", panel: "#101012", prim: "#00ff41", acc: "#00d4ff", text: "#e5e7eb", mut: "#71717a", warn: "#f59e0b", err: "#fb7185" }
+          },
+          fontFamily: { mono: ['"JetBrains Mono"', '"Fira Code"', "monospace"] }
+        }
+      }
+    };
+  </script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/history@5.3.0/umd/history.production.min.js"></script>
+  <script src="https://unpkg.com/react-router@6.3.0/umd/react-router.production.min.js"></script>
+  <script src="https://unpkg.com/react-router-dom@6.3.0/umd/react-router-dom.production.min.js"></script>
+  <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { background: radial-gradient(circle at top, rgba(0,212,255,.10), transparent 28%), #050505; color: #e5e7eb; font-family: "JetBrains Mono", monospace; -webkit-tap-highlight-color: transparent; }
+    .glass-panel { background: rgba(16,16,18,.84); backdrop-filter: blur(12px); border: 1px solid rgba(113,113,122,.25); }
+    .crt-overlay { pointer-events:none; position:fixed; inset:0; background:linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,.16) 50%), linear-gradient(90deg, rgba(255,0,0,.04), rgba(0,255,0,.02), rgba(0,0,255,.04)); background-size:100% 2px, 3px 100%; opacity:.12; z-index:50; }
+    .prose-custom p { margin-bottom: 1rem; line-height: 1.8; }
+    .prose-custom h3 { color: #00ff41; margin: 1.3rem 0 .6rem; font-weight: 700; }
+    .prose-custom strong { color: #00d4ff; }
+    .prose-custom code { background: rgba(255,255,255,.06); padding: .12rem .32rem; border-radius: .32rem; color: #fbbf24; font-size: .92em; }
+    .tech-tooltip { border-bottom: 1px dashed #00d4ff; cursor: help; }
+    .hide-scrollbar::-webkit-scrollbar { display:none; }
+    .hide-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
+    .perspective-1000 { perspective:1000px; }
+    .transform-style-3d { transform-style:preserve-3d; }
+    .backface-hidden { backface-visibility:hidden; }
+    .rotate-y-180 { transform:rotateY(180deg); }
+  </style>
+</head>
+<body>
+  <div class="crt-overlay"></div>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useEffect, useMemo, useState } = React;
+    const { HashRouter, Routes, Route, Link, useLocation, useNavigate, useParams } = ReactRouterDOM;
+    const { motion, AnimatePresence } = window.Motion;
+
+    const STORAGE_KEY = "cyberforge_foundations_v3";
+    const LESSON_STATES = ["confundido", "repasar", "entendido", "dominado"];
+    const GLOSSARY = [
+      { term: "CVE", def: "Identificador publico de una vulnerabilidad conocida." },
+      { term: "RCE", def: "Remote Code Execution, ejecucion remota de codigo." },
+      { term: "LPE", def: "Local Privilege Escalation, escalada local de privilegios." },
+      { term: "MITM", def: "Intercepcion o manipulacion de una comunicacion entre dos extremos." },
+      { term: "TTP", def: "Tactics, Techniques and Procedures de un adversario." },
+      { term: "IOC", def: "Indicador observable de posible compromiso." },
+      { term: "Kerberoasting", def: "Solicitud de tickets de servicio Kerberos para crackeo offline." },
+      { term: "SSRF", def: "Server-Side Request Forgery." },
+      { term: "XSS", def: "Ejecucion de JavaScript malicioso en el navegador de la victima." },
+      { term: "SQLi", def: "Inyeccion SQL sobre entradas no validadas." },
+      { term: "SUID", def: "Bit especial de Linux que ejecuta con permisos del propietario." },
+      { term: "C2", def: "Infraestructura de mando y control de un atacante." },
+      { term: "WAF", def: "Firewall de aplicacion web." },
+      { term: "IDS", def: "Sistema de deteccion de intrusiones." },
+      { term: "IPS", def: "Sistema de prevencion de intrusiones." },
+      { term: "IAM", def: "Gestion de identidades y accesos, muy importante en nube." }
+    ];
+
+    const LEVELS = [
+      { id: "nivel-0", title: "Nivel 0", focus: "Vocabulario, redes, sistema operativo, leer noticias sin perderte." },
+      { id: "fundamentos", title: "Fundamentos", focus: "Protocolos, autenticacion, web, hardening, logs y metodo." },
+      { id: "junior", title: "Junior", focus: "Labs guiados, analisis, deteccion y priorizacion aplicada." },
+      { id: "intermedio", title: "Intermedio", focus: "Relacionar identidad, cloud, vulnerabilidades y respuesta." }
+    ];
+
+    const STUDY_GUIDE = [
+      { title: "Como estudiar", points: ["Empieza por redes, sistemas, identidad y web.", "No persigas herramientas antes de entender fundamentos.", "Lee una leccion, haz un mini lab y escribe lo que entendiste con tus palabras."] },
+      { title: "Que leer primero", points: ["Fundamentos estables: red, sistema operativo, autenticacion, control de acceso, logs y metodologias.", "Guias oficiales, glosario, laboratorios pequenos y writeups explicados.", "Recursos que te permitan conectar teoria con comportamiento real."] },
+      { title: "Que ignorar al inicio", points: ["Hype sin contexto.", "Listas infinitas de herramientas.", "Noticias sin relacion con activos o fundamentos.", "La necesidad de aprender cinco ramas al mismo tiempo."] },
+      { title: "Como no perderte", points: ["Usa la ruta por niveles y no saltes a modulos avanzados solo por curiosidad.", "Si una noticia te abruma, traducela a un fundamento: identidad, control de acceso, secretos, segmentacion o deteccion.", "Si no puedes explicarlo sencillo, vuelve un paso atras y repasa."] },
+      { title: "Como filtrar noticias", points: ["Mira fuente, fecha, producto afectado y explotacion activa.", "Cruza el aviso con tu inventario y exposicion.", "Relaciona cada noticia con un fundamento estable.", "Pregunta siempre: nos afecta, esta expuesto, hay mitigacion, hay evidencia de abuso real."] },
+      { title: "Como pasar de teoria a practica", points: ["Lee una leccion, haz el mini lab y responde las preguntas antes de seguir.", "Escribe una nota corta: que entendi, que me confundio y que debo repasar.", "Luego revisa una noticia relacionada y trata de explicarla usando lo aprendido."] },
+      { title: "Rutina recomendada de 20 a 30 minutos", points: ["10-12 min de lectura guiada.", "5-8 min de mini lab o reflexion aplicada.", "3-5 min de flashcards.", "3-5 min de una noticia o advisory relacionado."] },
+      { title: "Como saber si avanzar de nivel", points: ["Puedes explicar conceptos sin leer la pantalla.", "Relacionas una noticia con un fundamento sin perderte.", "Respondes bien quizzes basicos y aplicados, no solo por memoria.", "Tus notas muestran menos confusion y mas criterio."] }
+    ];
+
+    const ROLE_TRACKS = [
+      { id: "blue", title: "Quiero Blue Team", focus: "Logs, deteccion, hardening, hunting e IR.", recommended: ["m1", "m2", "m8", "m9", "m10"] },
+      { id: "pentest", title: "Quiero Pentesting", focus: "Redes, web, sistemas y metodologia.", recommended: ["m1", "m2", "m4", "m5", "m9"] },
+      { id: "appsec", title: "Quiero AppSec", focus: "Web, autenticacion, control de acceso y SDLC.", recommended: ["m3", "m4", "m5", "m10"] },
+      { id: "cloud", title: "Quiero Cloud Security", focus: "Identidad, secretos, permisos y priorizacion.", recommended: ["m3", "m8", "m9", "m10"] }
+    ];
+
+    const R = {
+      redes: {
+        official: [{ title: "Cloudflare Learning Center", url: "https://www.cloudflare.com/learning/network-layer/what-is-the-osi-model/" }],
+        practical: [{ title: "Wireshark Guide", url: "https://www.wireshark.org/docs/wsug_html_chunked/" }],
+        optional: [{ title: "Cisco NetAcad", url: "https://www.netacad.com/" }]
+      },
+      sistemas: {
+        official: [{ title: "Microsoft Learn Security", url: "https://learn.microsoft.com/windows/security/" }],
+        practical: [{ title: "GTFOBins", url: "https://gtfobins.github.io/" }],
+        optional: [{ title: "Linux Journey", url: "https://linuxjourney.com/" }]
+      },
+      cripto: {
+        official: [{ title: "NIST Cryptography", url: "https://www.nist.gov/cryptography" }],
+        practical: [{ title: "OWASP Cryptographic Failures", url: "https://owasp.org/Top10/es/A02_2021-Cryptographic_Failures/" }],
+        optional: [{ title: "CyberChef", url: "https://gchq.github.io/CyberChef/" }]
+      },
+      web: {
+        official: [{ title: "OWASP Top 10", url: "https://owasp.org/Top10/2021/es/" }],
+        practical: [{ title: "PortSwigger Academy", url: "https://portswigger.net/web-security" }],
+        optional: [{ title: "OWASP Cheat Sheets", url: "https://cheatsheetseries.owasp.org/" }]
+      },
+      pentest: {
+        official: [{ title: "PTES", url: "http://www.pentest-standard.org/" }],
+        practical: [{ title: "OWASP WSTG", url: "https://owasp.org/www-project-web-security-testing-guide/" }],
+        optional: [{ title: "Nmap Book", url: "https://nmap.org/book/" }]
+      },
+      malware: {
+        official: [{ title: "CISA Advisories", url: "https://www.cisa.gov/news-events/cybersecurity-advisories" }],
+        practical: [{ title: "ANY.RUN", url: "https://any.run/" }],
+        optional: [{ title: "Ghidra", url: "https://ghidra-sre.org/" }]
+      },
+      social: {
+        official: [{ title: "CISA Phishing Guidance", url: "https://www.cisa.gov/topics/cybersecurity-best-practices/phishing-guidance-stopping-attack-cycle-at-phase-one" }],
+        practical: [{ title: "Google Phishing Quiz", url: "https://phishingquiz.withgoogle.com/" }],
+        optional: [{ title: "FIDO Alliance", url: "https://fidoalliance.org/" }]
+      },
+      blue: {
+        official: [{ title: "MITRE ATT&CK", url: "https://attack.mitre.org/" }],
+        practical: [{ title: "Sigma Rules", url: "https://github.com/SigmaHQ/sigma" }],
+        optional: [{ title: "NIST 800-61", url: "https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final" }]
+      },
+      ad: {
+        official: [{ title: "Microsoft AD Overview", url: "https://learn.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview" }],
+        practical: [{ title: "PingCastle", url: "https://www.pingcastle.com/" }],
+        optional: [{ title: "Defender for Identity", url: "https://learn.microsoft.com/defender-for-identity/" }]
+      },
+      cloud: {
+        official: [{ title: "AWS Security Pillar", url: "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html" }],
+        practical: [{ title: "CISA KEV", url: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog" }],
+        optional: [{ title: "NVD", url: "https://nvd.nist.gov/" }]
+      }
+    };
+
+    const L = (id, title, summary, content, lab, mistakes, sources) => ({ id, title, summary, content, lab, mistakes, sources });
+
+    const MODULES = [
+      {
+        id: "m1", title: "Fundamentos de Redes", stage: "nivel-0", desc: "OSI, TCP/IP, puertos, DNS y segmentacion.",
+        lessons: [
+          L("m1l1", "Capas, TCP y puertos", "Aprende a leer la red por capas y a no confundir servicio con riesgo.", `
+            <h3>Leer la red por capas</h3>
+            <p>El modelo por capas te ayuda a ubicar controles y fallos. Si hablas de direccionamiento o gateways, estas en red; si hablas de HTTP o autenticacion web, estas en aplicacion. Esta separacion evita mezclar sintomas con causas.</p>
+            <h3>TCP, UDP y puertos</h3>
+            <p>TCP mantiene estado y por eso es clave para SSH, SMB, RDP o HTTP. UDP sacrifica estado por rapidez y aparece en DNS o streaming. Un puerto no hace seguro a un servicio; solo te da una pista inicial sobre que vive detras.</p>
+          `, { title: "Mini lab", steps: ["Elige 8 puertos comunes y escribe su servicio esperado.", "Marca cuales deberian estar restringidos a VPN o red interna."], questions: ["¿Por que un puerto no estandar no elimina el riesgo?", "¿Que diferencia practica aporta TCP frente a UDP?"] }, ["Pensar que cambiar de puerto equivale a proteger.", "Creer que un control de red arregla una vulnerabilidad web."], R.redes),
+          L("m1l2", "DNS, ARP, DHCP y segmentacion", "La red local sigue importando mucho en oficinas, labs y entornos mixtos.", `
+            <h3>DNS como mapa de arquitectura</h3>
+            <p>DNS resuelve nombres, pero tambien revela proveedores, subdominios, correo y dependencias. Para defensa, un patron raro de consultas puede delatar abuso o exfiltracion.</p>
+            <h3>ARP, DHCP y confianza local</h3>
+            <p>ARP y DHCP son piezas basicas de la red local. Cuando no hay segmentacion ni higiene, pueden facilitar desvio de trafico, ${GLOSSARY.find(x => x.term === "MITM").term} y exposicion innecesaria. La defensa real combina segmentacion, WiFi bien configurado y visibilidad.</p>
+          `, { title: "Mini lab", steps: ["Dibuja una red pequena con router, DNS, DHCP y 4 equipos.", "Marca que cambiaria si separas invitados, oficina y administracion."], questions: ["¿Que problema resuelve la segmentacion?", "¿Por que la red local no es automaticamente confiable?"] }, ["Subestimar DNS y la red local.", "Creer que todo lo interno ya es seguro."], R.redes)
+        ],
+        flashcards: [{ q: "¿Que te da un puerto abierto?", a: "Una pista del servicio, no una garantia sobre su seguridad." }, { q: "¿Que reduce mucho el impacto de problemas locales como desvio de trafico?", a: "La segmentacion." }],
+        quizzes: {
+          basico: [{ q: "¿Que describe mejor a TCP?", options: ["Sin estado", "Orientado a conexion", "No usa puertos", "Solo sirve para correo"], correct: 1, explanation: "TCP mantiene una conversacion y usa puertos y estados." }],
+          aplicado: [{ q: "Si ves DNS raro hacia dominios poco comunes, ¿que hipotesis inicial vale la pena revisar?", options: ["Exfiltracion o uso anomalo", "Solo pantalla azul", "Solo temperatura", "Cambio de wallpaper"], correct: 0, explanation: "DNS tambien sirve para deteccion y no solo para resolucion." }],
+          escenario: [{ q: "Una oficina plana sin segmentacion recibe un dispositivo desconocido y usuarios ven paginas extranas. ¿Que fundamento explica mejor el riesgo?", options: ["Confianza local y red mal segmentada", "Solo HTML", "Solo backup", "Solo mouse"], correct: 0, explanation: "El problema nace del diseno de red y la confianza local." }]
+        }
+      },
+      {
+        id: "m2", title: "Sistemas Operativos", stage: "nivel-0", desc: "Permisos, procesos, servicios, registro y minimo privilegio.",
+        lessons: [
+          L("m2l1", "Linux: permisos y escalada", "La mayoria de escaladas locales nacen de mal diseno o exceso de privilegios.", `
+            <h3>Permisos con contexto</h3>
+            <p>En Linux importan owner, grupo, permisos, procesos y automatizaciones. Un cron de root editable, un binario con ${GLOSSARY.find(x => x.term === "SUID").term} o un <code>sudo -l</code> permisivo pueden abrir rutas de escalada sin necesidad de un fallo complejo.</p>
+            <h3>Lo que debes aprender</h3>
+            <p>No memorices solo comandos. Pregunta siempre que usuario ejecuta una tarea, con que permisos y que archivos toca. Ese razonamiento vale mas que una lista enorme de tecnicas.</p>
+          `, { title: "Mini lab", steps: ["Piensa en /etc, /var/log y /home.", "Escribe que daño causaria escritura indebida en cada uno."], questions: ["¿Por que escribir duele mas que leer en muchas rutas?", "¿Que riesgo tiene un cron de root mal protegido?"] }, ["Confundir saber comandos con entender privilegios.", "Usar root por comodidad."], R.sistemas),
+          L("m2l2", "Windows: servicios, registro e identidad local", "Windows exige pensar en tokens, servicios y objetos, no solo en archivos.", `
+            <h3>Windows se lee distinto</h3>
+            <p>Servicios, tareas programadas, registro, cuentas locales y eventos del sistema son piezas criticas. Una ruta sin comillas o un servicio con permisos de escritura indebidos pueden ser tan peligrosos como un binario vulnerable.</p>
+            <h3>Minimo privilegio</h3>
+            <p>El objetivo no es solo autenticar; es limitar el alcance si una cuenta o servicio cae. En seguridad real importa tanto la contrasena como el blast radius que tiene esa identidad.</p>
+          `, { title: "Mini lab", steps: ["Imagina un servicio que corre como SYSTEM.", "Pregunta quien puede editar su ruta o directorio."], questions: ["¿Que mezcla es peligrosa en un servicio?", "¿Por que la cuenta de ejecucion importa tanto?"] }, ["Pensar que una cuenta fuerte compensa privilegios excesivos.", "Ignorar con que usuario corre un servicio."], R.sistemas)
+        ],
+        flashcards: [{ q: "¿Que comando suele revelar abusos de sudo?", a: "sudo -l" }, { q: "¿Que debes preguntar siempre sobre un servicio?", a: "Con que cuenta corre, que ruta usa y quien puede modificarlo." }],
+        quizzes: {
+          basico: [{ q: "¿Que reduce mejor el dano de una cuenta robada?", options: ["Mas privilegios", "Minimo privilegio", "Mas procesos", "Mas escritorio remoto"], correct: 1, explanation: "Menos privilegios implican menor alcance." }],
+          aplicado: [{ q: "Un script ejecutado por root es editable por usuarios. ¿Que aparece?", options: ["Escalada por automatizacion", "Mejor backup", "Menos logs", "Mas MFA"], correct: 0, explanation: "La automatizacion privilegiada se vuelve un vector directo." }],
+          escenario: [{ q: "Una empresa guarda credenciales admin en scripts compartidos. ¿Que rompe?", options: ["Solo DNS", "Control de secretos y minimo acceso", "Solo HTML", "Solo TCP"], correct: 1, explanation: "El problema es de gestion de secretos y privilegios." }]
+        }
+      },
+      {
+        id: "m3", title: "Criptografia", stage: "fundamentos", desc: "Cifrado, hashing, TLS y gestion de secretos.",
+        lessons: [
+          L("m3l1", "Cifrado, hashing y errores conceptuales", "Diferenciar funciones criptograficas evita muchos errores de principiante.", `
+            <h3>Funciones distintas</h3>
+            <p>El cifrado protege confidencialidad, el hashing crea huellas y la derivacion de contrasenas busca resistir crackeo offline. Confundir hash con cifrado o usar un hash rapido para passwords sigue siendo un error muy comun.</p>
+            <h3>La clave suele ser el problema</h3>
+            <p>Un algoritmo fuerte no compensa una clave expuesta en un repositorio o un token sin expiracion. La seguridad criptografica depende tanto del manejo operativo como de la matematica.</p>
+          `, { title: "Mini lab", steps: ["Haz una tabla con AES, RSA, SHA-256 y Argon2.", "Escribe un uso correcto e incorrecto para dos de ellos."], questions: ["¿Por que un hash rapido no sirve para contrasenas?", "¿Que vale mas cuidar: el algoritmo o la clave?"] }, ["Confundir hash con cifrado.", "Pensar que el algoritmo compensa una mala gestion del secreto."], R.cripto),
+          L("m3l2", "TLS, certificados y secretos", "HTTPS ayuda mucho, pero no convierte una app vulnerable en una app segura.", `
+            <h3>TLS si, magia no</h3>
+            <p>TLS protege el canal si validas certificados y contexto correctamente. Si aceptas cualquier certificado, abres la puerta a ${GLOSSARY.find(x => x.term === "MITM").term}. El candado no dice nada sobre autorizacion o logica rota.</p>
+            <h3>Secretos y rotacion</h3>
+            <p>Tokens, API keys y certificados deben rotar, expirar y vivir en el menor numero de lugares posible. La disciplina de secretos vale en apps, sistemas y cloud.</p>
+          `, { title: "Mini lab", steps: ["Piensa en una app con HTTPS pero sin control de acceso correcto.", "Escribe tres riesgos que seguirian existiendo."], questions: ["¿Que protege HTTPS y que no?", "¿Por que un secreto olvidado es tan peligroso?"] }, ["Pensar que HTTPS = app segura.", "No planear expiracion ni revocacion de secretos."], R.cripto)
+        ],
+        flashcards: [{ q: "¿Que se usa hoy para contrasenas: SHA-1 o Argon2?", a: "Argon2 o bcrypt." }, { q: "¿Que no garantiza HTTPS?", a: "Que la logica de la aplicacion sea segura." }],
+        quizzes: {
+          basico: [{ q: "¿Que deberias usar para contrasenas?", options: ["MD5", "Argon2 o bcrypt", "Base64", "RSA"], correct: 1, explanation: "Se necesitan funciones lentas y adaptativas." }],
+          aplicado: [{ q: "Una app acepta cualquier certificado TLS. ¿Que falla central tiene?", options: ["Mas puertos", "Canal sin autenticidad real", "DNS roto", "Mas hashing"], correct: 1, explanation: "Sin validacion del certificado no hay autenticidad confiable." }],
+          escenario: [{ q: "Una clave privada de produccion aparece en el repo. ¿Que hacer?", options: ["Dejarla si el repo es privado", "Rotarla y revisar alcance", "Solo ocultar el commit", "Cambiar nombre"], correct: 1, explanation: "Un secreto expuesto debe asumirse comprometido." }]
+        }
+      },
+      {
+        id: "m4", title: "Seguridad Web", stage: "fundamentos", desc: "Entradas, sesiones, autorizacion, XSS y APIs.",
+        lessons: [
+          L("m4l1", "Entradas hostiles e inyeccion", "La aplicacion debe asumir que toda entrada puede ser manipulada.", `
+            <h3>No confies en la entrada</h3>
+            <p>Formularios, cookies, headers, JSON y parametros pueden ser manipulados. ${GLOSSARY.find(x => x.term === "SQLi").term} es el ejemplo clasico, pero la idea grande es separar datos de instrucciones y validar por contexto.</p>
+            <h3>Backend como frontera real</h3>
+            <p>El frontend no es un control de seguridad. Si el backend confia en el cliente, la inyeccion o la manipulacion terminan apareciendo tarde o temprano.</p>
+          `, { title: "Mini lab", steps: ["Lista todas las entradas de una app simple: login, busqueda, perfil.", "Marca cuales podrian terminar en DB, logs o shell."], questions: ["¿Por que el frontend no basta?", "¿Que significa validar por contexto?"] }, ["Creer que validar en JS es suficiente.", "Pensar que inyeccion solo significa SQL."], R.web),
+          L("m4l2", "Autorizacion, sesiones y navegador", "Muchos fallos graves vienen de autorizar mal, no solo de autenticar mal.", `
+            <h3>Autenticacion no es autorizacion</h3>
+            <p>Una sesion valida no significa acceso correcto a cualquier recurso. Si cambiando un ID ves datos ajenos, el problema es control de acceso roto. Los JWT tampoco arreglan esto por si solos.</p>
+            <h3>XSS y CSRF</h3>
+            <p>${GLOSSARY.find(x => x.term === "XSS").term} importa porque roba contexto del navegador. CSRF explota que el navegador envia estado automaticamente. Para entender web de verdad debes entender tambien como piensa el navegador.</p>
+          `, { title: "Mini lab", steps: ["Imagina /api/facturas/1005 y cambialo a 1006.", "Escribe que debe verificar el backend antes de responder."], questions: ["¿Donde vive la autorizacion real?", "¿Que vuelve peligrosa a una sesion robada?"] }, ["Pensar que login correcto implica acceso correcto.", "Creer que JWT elimina la necesidad de revisar permisos por recurso."], R.web)
+        ],
+        flashcards: [{ q: "¿Donde vive la autorizacion real?", a: "En el backend, por sujeto, recurso y accion." }, { q: "¿Que hace tan peligrosa a XSS?", a: "Que ejecuta codigo en el contexto del navegador de la victima." }],
+        quizzes: {
+          basico: [{ q: "¿Que evita mejor SQLi?", options: ["Prepared statements", "Cambiar el puerto", "Quitar errores", "Minificar JS"], correct: 0, explanation: "Separar datos de instrucciones es la mitigacion principal." }],
+          aplicado: [{ q: "Cambias un ID y ves datos ajenos. ¿Que falla?", options: ["Broken Access Control", "ARP", "TLS", "Hashing"], correct: 0, explanation: "El servidor no autorizo por recurso." }],
+          escenario: [{ q: "Una empresa dice 'tenemos HTTPS, asi que la app es segura'. ¿Que error comete?", options: ["Confunde canal seguro con app segura", "Usa DNS", "No usa CSS", "No usa puertos"], correct: 0, explanation: "HTTPS no corrige logica ni autorizacion." }]
+        }
+      },
+      {
+        id: "m5", title: "Pentesting", stage: "fundamentos", desc: "Metodo, alcance, evidencia, OSINT y reporte.",
+        lessons: [
+          L("m5l1", "Pensar como evaluador", "El valor del pentest esta en el metodo y la claridad del riesgo.", `
+            <h3>Antes del primer paquete</h3>
+            <p>Un pentest serio empieza en alcance, reglas de compromiso y activos criticos. Sin eso, la parte tecnica pierde contexto y puede incluso ser riesgosa para el cliente.</p>
+            <h3>El reporte importa</h3>
+            <p>Un hallazgo vale cuando puedes reproducirlo, explicarlo y remediarlo. Aprender esto desde temprano te da criterio profesional y no solo dependencia de herramientas.</p>
+          `, { title: "Mini lab", steps: ["Imagina un panel admin sin MFA.", "Escribe evidencia, impacto y remediacion en cuatro lineas."], questions: ["¿Que vuelve accionable a un hallazgo?", "¿Por que el reporte es tan importante?"] }, ["Medir valor solo por cuanto 'rompes'.", "Tratar el reporte como un detalle."], R.pentest),
+          L("m5l2", "OSINT, enumeracion y minimo impacto", "No todo escaneo vale igual; la prioridad nace del contexto.", `
+            <h3>OSINT y enumeracion con proposito</h3>
+            <p>Subdominios, tecnologia, proveedores y banners sirven para reducir incertidumbre y formar hipotesis. La idea no es juntar datos por curiosidad, sino pensar mejor.</p>
+            <h3>Proporcionalidad</h3>
+            <p>Demostrar un riesgo no siempre requiere explotarlo al maximo. Una muestra de evidencia bien elegida puede valer mas que una accion ruidosa o destructiva.</p>
+          `, { title: "Mini lab", steps: ["Imagina un dominio con subdominios mail, vpn, old-app y dev-api.", "Ordena que revisarias primero y por que."], questions: ["¿Que pesa mas: criticidad o novedad?", "¿Por que a veces conviene parar antes?"] }, ["Escanear sin pregunta clara.", "Confundir valor tecnico con impacto innecesario."], R.pentest)
+        ],
+        flashcards: [{ q: "¿Cual es el entregable principal de un pentest serio?", a: "Un reporte claro con evidencia, impacto y remediacion." }, { q: "¿Que busca una explotacion responsable?", a: "Demostrar riesgo con evidencia suficiente y minimo impacto." }],
+        quizzes: {
+          basico: [{ q: "¿Que debe existir antes de un pentest?", options: ["Solo Nmap", "Alcance y reglas de compromiso", "Nada", "Solo VPN"], correct: 1, explanation: "Sin alcance claro no hay evaluacion profesional." }],
+          aplicado: [{ q: "¿Que hace mejor a una evidencia?", options: ["Ser ruidosa", "Ser reproducible y clara", "Usar muchas herramientas", "No tener contexto"], correct: 1, explanation: "La claridad manda." }],
+          escenario: [{ q: "Descargas toda la base cuando bastaba una muestra para evidenciar IDOR. ¿Que fallaste?", options: ["Proporcionalidad", "DNS", "TLS", "Hashing"], correct: 0, explanation: "La demostracion debio ser suficiente con minimo impacto." }]
+        }
+      },
+      {
+        id: "m6", title: "Malware y Analisis", stage: "junior", desc: "Triage, comportamiento, estatico, dinamico y laboratorios seguros.",
+        lessons: [
+          L("m6l1", "Tipos de malware y objetivos", "Importa mas la capacidad del malware que solo su etiqueta.", `
+            <h3>Clasificar por objetivo</h3>
+            <p>Ransomware, stealer, loader o RAT son utiles como nombres, pero el analista debe preguntarse que buscan: persistencia, exfiltracion, cifrado, acceso remoto o sabotaje. Esa lectura orienta mejor la respuesta.</p>
+            <h3>Capacidad sobre nombre</h3>
+            <p>Si entiendes comportamiento, no dependes tanto de la familia exacta. Eso te hace mas fuerte ante muestras nuevas.</p>
+          `, { title: "Mini lab", steps: ["Compara ransomware, stealer y RAT.", "Escribe objetivo, persistencia e impacto principal."], questions: ["¿Por que clasificar por objetivo ayuda?", "¿Que dato pedirias primero ante una muestra nueva?"] }, ["Quedarte solo con el nombre de la familia.", "Pensar que una muestra hace una sola cosa."], R.malware),
+          L("m6l2", "Estatica, dinamica y aislamiento", "La seguridad del laboratorio es parte del aprendizaje, no un extra.", `
+            <h3>Dos formas de observar</h3>
+            <p>El analisis estatico mira strings, imports, estructura y ofuscacion sin ejecutar. El dinamico observa procesos, red, persistencia y cambios reales durante ejecucion. La combinacion de ambos vale mas que uno solo.</p>
+            <h3>Aislamiento</h3>
+            <p>No analices malware en tu equipo principal ni con cuentas reales. Snapshots, red controlada y cero credenciales reales son la base minima de un laboratorio serio.</p>
+          `, { title: "Mini lab", steps: ["Haz una checklist con snapshot, red aislada y usuario desechable.", "Escribe por que una carpeta compartida grande es mala idea."], questions: ["¿Que responde mejor el analisis dinamico?", "¿Por que el snapshot importa tanto?"] }, ["Ejecutar primero y pensar despues.", "Analizar muestras en el equipo principal."], R.malware)
+        ],
+        flashcards: [{ q: "¿Que responde mejor el analisis dinamico?", a: "Que hizo la muestra al ejecutarse." }, { q: "¿Que no debes hacer al aprender malware?", a: "Usar tu entorno principal o credenciales reales." }],
+        quizzes: {
+          basico: [{ q: "¿Que hace un stealer?", options: ["Cifra discos", "Roba informacion y credenciales", "Solo reinicia", "Solo hace ping"], correct: 1, explanation: "Los stealers buscan datos valiosos." }],
+          aplicado: [{ q: "Una muestra crea persistencia y se conecta a un dominio raro. ¿Que observas?", options: ["Solo DNS normal", "Persistencia y posible C2", "Solo backup", "Solo UI"], correct: 1, explanation: "Ambos artefactos son coherentes con comportamiento malicioso." }],
+          escenario: [{ q: "Ejecutas una muestra en tu laptop personal con tu cuenta principal. ¿Que rompiste?", options: ["Aislamiento del laboratorio", "Solo TLS", "Solo logs", "Solo DNS"], correct: 0, explanation: "El riesgo central es contaminar tu entorno real." }]
+        }
+      },
+      {
+        id: "m7", title: "Ingenieria Social", stage: "junior", desc: "Phishing, sesion, cultura de reporte y procesos seguros.",
+        lessons: [
+          L("m7l1", "Psicologia y procesos", "La ingenieria social explota contexto humano y procesos debiles.", `
+            <h3>No es solo ingenuidad</h3>
+            <p>Urgencia, autoridad, rutina y contexto incompleto hacen que la gente tome decisiones malas bajo presion. La defensa buena combina entrenamiento y procesos verificables.</p>
+            <h3>Proceso mata engaño</h3>
+            <p>Si existe una verificacion por canal alterno para pagos, cambios urgentes o soporte, el atacante pierde gran parte de su ventaja.</p>
+          `, { title: "Mini lab", steps: ["Piensa en un mensaje urgente del supuesto jefe.", "Escribe una regla de verificacion por otro canal."], questions: ["¿Por que el proceso ayuda tanto como el awareness?", "¿Que gatillo usa un mensaje urgente?"] }, ["Reducir ingenieria social a mala ortografia.", "Creer que awareness sin proceso basta."], R.social),
+          L("m7l2", "Phishing tecnico y sesion", "Hoy muchas campanas buscan sesion valida mas que solo password.", `
+            <h3>Mas alla del login falso</h3>
+            <p>El phishing moderno puede capturar sesion, token o aprobaciones MFA fuera de contexto. Por eso la resistencia real depende de buenos factores, senales de riesgo y deteccion de sesion anomala.</p>
+            <h3>Medir reporte temprano</h3>
+            <p>La cultura madura no solo evita clics; premia avisos tempranos y contextualizados. Eso recorta mucho la ventana de dano.</p>
+          `, { title: "Mini lab", steps: ["Haz dos columnas: robo de credencial y robo de sesion.", "Anota una senal de deteccion para cada una."], questions: ["¿Por que una sesion vale tanto como una password?", "¿Que cambia cuando un usuario reporta rapido?"] }, ["Pensar que cualquier MFA detiene cualquier phishing.", "Medir todo solo por clics."], R.social)
+        ],
+        flashcards: [{ q: "¿Que vuelve fuerte a la ingenieria social?", a: "Explotar urgencia, autoridad y procesos debiles." }, { q: "¿Que deberia premiar una cultura sana?", a: "El reporte temprano de actividad sospechosa." }],
+        quizzes: {
+          basico: [{ q: "¿Que gatillo usa mucho el phishing?", options: ["Urgencia", "Hashing", "DHCP", "Kernel"], correct: 0, explanation: "La urgencia presiona decisiones rapidas." }],
+          aplicado: [{ q: "¿Que mide mejor madurez que solo tasa de clic?", options: ["Tiempo de reporte y calidad del escalado", "Mas wallpapers", "Mas newsletters", "Mas CSS"], correct: 0, explanation: "El reporte rapido cambia la respuesta." }],
+          escenario: [{ q: "Un pago urgente llega por chat del supuesto jefe. ¿Que control ayuda mas?", options: ["Verificacion por canal alterno", "Cambiar DNS", "Cerrar navegador", "Reiniciar PC"], correct: 0, explanation: "El canal alterno rompe el engaño." }]
+        }
+      },
+      {
+        id: "m8", title: "Blue Team y Logs", stage: "junior", desc: "SIEM, contexto, hunting e incident response.",
+        lessons: [
+          L("m8l1", "Logs con contexto", "Tener logs no equivale a entender lo que pasa.", `
+            <h3>Ver no es comprender</h3>
+            <p>Un log aislado dice poco si no sabes de que activo viene, quien es el usuario y que se espera normalmente. El valor de un SIEM nace de contexto y correlacion.</p>
+            <h3>Linea base</h3>
+            <p>Antes de cazar anomalias debes entender normalidad. Ese habito vuelve mucho mas util cualquier alerta.</p>
+          `, { title: "Mini lab", steps: ["Compara un login fallido comun con uno fuera de horario a cuenta privilegiada.", "Escribe que datos extra pedirias."], questions: ["¿Que vuelve util a un log?", "¿Por que la misma alerta cambia segun el contexto?"] }, ["Pensar que mas logs siempre significa mejor defensa.", "Analizar eventos sin contexto."], R.blue),
+          L("m8l2", "Hunting e IR", "El hunting formula hipotesis y la respuesta madura deja lecciones duraderas.", `
+            <h3>Hunting con hipotesis</h3>
+            <p>No busques al azar. Formula preguntas: si roban una cuenta admin, ¿que secuencia dejaria? Si exfiltran por DNS, ¿como se veria? ${GLOSSARY.find(x => x.term === "TTP").term} suele durar mas que un ${GLOSSARY.find(x => x.term === "IOC").term} puntual.</p>
+            <h3>Respuesta y aprendizaje</h3>
+            <p>Preparacion, contencion, erradicacion, recuperacion y lecciones aprendidas importan igual. Sin causa raiz, solo cerraste un ticket.</p>
+          `, { title: "Mini lab", steps: ["Escribe una hipotesis simple sobre uso indebido de una cuenta admin.", "Relaciona dos eventos que la apoyarian."], questions: ["¿Por que las TTPs duran mas que un IOC?", "¿Que diferencia hay entre corregir sintoma y causa?"] }, ["Buscar sin hipotesis.", "Pensar que cerrar el incidente basta sin aprender."], R.blue)
+        ],
+        flashcards: [{ q: "¿Que necesita un log para ser util?", a: "Contexto de activo, usuario, tiempo y normalidad esperada." }, { q: "¿Que hace fuerte al hunting?", a: "Formular hipotesis y validarlas con datos." }],
+        quizzes: {
+          basico: [{ q: "¿Que describe mejor a un SIEM util?", options: ["Solo guarda logs", "Correlaciona datos con contexto", "Solo bloquea", "No requiere tuning"], correct: 1, explanation: "El valor esta en contexto y correlacion." }],
+          aplicado: [{ q: "¿Que suele durar mas para defensa?", options: ["Un IOC puntual", "Una TTP observada", "Un wallpaper", "Un nombre de host"], correct: 1, explanation: "La tecnica suele sobrevivir mas que un artefacto puntual." }],
+          escenario: [{ q: "Tras un incidente cambian una password y no revisan mas. ¿Que falto?", options: ["Lecciones aprendidas y causa raiz", "Mas CSS", "Mas puertos", "Menos logs"], correct: 0, explanation: "Sin causa raiz el riesgo persiste." }]
+        }
+      },
+      {
+        id: "m9", title: "Identidad y Active Directory", stage: "junior", desc: "Credenciales, tickets, privilegios y control de identidad.",
+        lessons: [
+          L("m9l1", "AD como plano de control", "Quien controla identidad suele controlar gran parte del entorno.", `
+            <h3>Mas que usuarios y grupos</h3>
+            <p>Active Directory gobierna autenticacion, autorizacion, politicas y relaciones de confianza. Si una identidad privilegiada cae, el impacto puede propagarse a servidores, endpoints y accesos remotos.</p>
+            <h3>Valor de la cuenta</h3>
+            <p>No todas las cuentas pesan igual. Una cuenta de servicio o admin con mucho alcance puede valer mas para un atacante que muchas cuentas comunes.</p>
+          `, { title: "Mini lab", steps: ["Ordena por impacto: usuario normal, cuenta de servicio con SPN, admin de dominio.", "Explica por que."], questions: ["¿Por que una cuenta de servicio puede ser muy peligrosa?", "¿Que protege en realidad AD?"] }, ["Tratar AD solo como directorio de usuarios.", "No distinguir impacto entre tipos de cuenta."], R.ad),
+          L("m9l2", "Kerberos, privilegios y defensa", "No memorices nombres de tecnicas: entiende la logica del abuso de identidad.", `
+            <h3>Tickets y abuso</h3>
+            <p>${GLOSSARY.find(x => x.term === "Kerberoasting").term} y otras tecnicas muestran que el problema muchas veces no es romper Kerberos, sino abusar cuentas de servicio, privilegios excesivos y malas practicas operativas.</p>
+            <h3>Defensa de identidad</h3>
+            <p>Tiering administrativo, monitoreo de cambios sensibles, MFA donde aplique y revisiones de privilegios reducen mucho el blast radius en entornos corporativos.</p>
+          `, { title: "Mini lab", steps: ["Piensa en una cuenta de servicio con password debil.", "Escribe una mitigacion preventiva y una senal defensiva."], questions: ["¿Por que entender la logica vale mas que memorizar el nombre?", "¿Que hace el tiering administrativo?"] }, ["Memorizar tecnicas sin entender que abusan.", "Administrar todo desde cualquier equipo."], R.ad)
+        ],
+        flashcards: [{ q: "¿Que protege AD realmente?", a: "El plano de identidad y privilegios de gran parte del entorno." }, { q: "¿Que reduce la exposicion de credenciales de alto impacto?", a: "Separacion de privilegios y tiering administrativo." }],
+        quizzes: {
+          basico: [{ q: "¿Que hace tan sensible a AD?", options: ["Solo guarda wallpapers", "Controla identidad y privilegios", "Solo hace DNS", "Solo registra logs"], correct: 1, explanation: "Gobierna autenticacion y privilegios." }],
+          aplicado: [{ q: "¿Por que una cuenta con SPN y password debil es peligrosa?", options: ["Porque ayuda a Kerberoasting", "Porque cambia CSS", "Porque rompe DNS", "Porque apaga el router"], correct: 0, explanation: "Ese tipo de cuenta facilita abuso de tickets." }],
+          escenario: [{ q: "Usar la misma cuenta admin para servidores y navegacion diaria rompe:", options: ["Tiering y separacion de privilegios", "Solo ARP", "Solo hash", "Solo HTML"], correct: 0, explanation: "Se mezclan contextos de alto y bajo riesgo." }]
+        }
+      },
+      {
+        id: "m10", title: "Cloud, CVEs y Criterio", stage: "intermedio", desc: "Permisos en nube, priorizacion y lectura sana de la actualidad.",
+        lessons: [
+          L("m10l1", "Cloud como identidad y configuracion", "En nube el riesgo suele moverse de puertos a permisos, secretos y automatizacion.", `
+            <h3>Nuevo perimetro</h3>
+            <p>En cloud importa tanto quien puede tocar un recurso como que host esta expuesto. Roles IAM, buckets publicos, claves olvidadas y funciones con secretos embebidos son fallos comunes.</p>
+            <h3>Fundamento portable</h3>
+            <p>Si entiendes privilegios, secretos y contexto, ya entiendes gran parte de cloud security. La nube cambia interfaces, no principios.</p>
+          `, { title: "Mini lab", steps: ["Piensa en una app con API, bucket y base de datos en nube.", "Lista identidades humanas y de maquina y cual seria la mas peligrosa si tuviera permisos de mas."], questions: ["¿Que cambia cuando el problema es IAM y no puertos?", "¿Por que secreto embebido y permiso amplio es mala combinacion?"] }, ["Pensar que cloud elimina la necesidad de hardening.", "Seguir mirando solo puertos e ignorar identidades."], R.cloud),
+          L("m10l2", "Como leer CVEs y no ahogarte en ruido", "La prioridad real nace del contexto, no del titular o del CVSS aislado.", `
+            <h3>No toda CVE es tu emergencia</h3>
+            <p>Debes cruzar exposicion, inventario, explotacion activa y controles compensatorios. Un fallo critico en un producto que no usas vale menos que uno medio en una VPN expuesta que si usas.</p>
+            <h3>Rutina sostenible</h3>
+            <p>Separa fundamentos estables de actualidad variable. Lee una noticia y traduce: control de acceso roto, identidad debil, secreto expuesto, fallo de segmentacion. Ese ejercicio convierte titulares en criterio.</p>
+          `, { title: "Mini lab", steps: ["Ordena tres fallos: critica en producto que no usas, media en VPN expuesta, alta en entorno dev aislado.", "Justifica por exposicion e impacto."], questions: ["¿Por que CVSS no basta?", "¿Que fuente mirarias para explotacion conocida?"] }, ["Perseguir toda CVE nueva sin cruzarla con inventario.", "Consumir noticias sin convertirlas en fundamentos."], R.cloud)
+        ],
+        flashcards: [{ q: "¿Que pesa mas que el titular de una CVE?", a: "Exposicion real, inventario, explotacion activa e impacto." }, { q: "¿Que desplaza gran parte del riesgo en cloud?", a: "Permisos, identidades, secretos y configuracion." }],
+        quizzes: {
+          basico: [{ q: "¿Que deberias mirar primero al priorizar una CVE?", options: ["Exposicion e impacto en tu entorno", "El color del dashboard", "El idioma", "El logo"], correct: 0, explanation: "La prioridad nace del contexto real." }],
+          aplicado: [{ q: "¿Que cambia mucho en cloud?", options: ["Ya no hay usuarios", "Identidad y permisos pesan tanto como la red", "No existen secretos", "No hay logs"], correct: 1, explanation: "Gran parte del riesgo se mueve a identidad y automatizacion." }],
+          escenario: [{ q: "Pasas una hora diaria leyendo titulares sin practicar ni estudiar teoria. ¿Que riesgo aparece?", options: ["Mas criterio", "Mas ruido y menos base", "Mas puertos", "Mas hashes"], correct: 1, explanation: "Sin fundamentos, la actualidad te dispersa." }]
+        }
+      }
+    ];
+
+    const LESSON_INDEX = MODULES.flatMap((module) => module.lessons.map((lesson) => ({ ...lesson, moduleId: module.id, moduleTitle: module.title, stage: module.stage })));
+    const FALLBACK_NEWS = [
+      { id: "fallback-1", title: "CISA mantiene KEV como referencia para vulnerabilidades con explotacion activa.", source: "CISA", date: "2026-03-22T03:26:35.000Z", category: "Vulnerabilidad", link: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog" },
+      { id: "fallback-2", title: "MITRE ATT&CK continua ampliando tecnicas observadas en campañas reales.", source: "MITRE", date: "2026-03-20T12:00:00.000Z", category: "APT", link: "https://attack.mitre.org/" }
+    ];
+
+    function getInitialState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          return {
+            completedLessons: parsed.completedLessons || [],
+            lessonStates: parsed.lessonStates || {},
+            lessonNotes: parsed.lessonNotes || {},
+            streak: parsed.streak || 0,
+            lastActiveDate: parsed.lastActiveDate || null,
+            xp: parsed.xp || 0,
+            readNews: parsed.readNews || [],
+            focusMode: parsed.focusMode || false,
+            flashcardQueue: parsed.flashcardQueue || MODULES.flatMap((m) => m.flashcards).map((card) => ({ ...card, dueAt: Date.now() }))
+          };
+        }
+      } catch (error) {}
+      return { completedLessons: [], lessonStates: {}, lessonNotes: {}, streak: 0, lastActiveDate: null, xp: 0, readNews: [], focusMode: false, flashcardQueue: MODULES.flatMap((m) => m.flashcards).map((card) => ({ ...card, dueAt: Date.now() })) };
+    }
+
+    function useAppStore() {
+      const [state, setState] = useState(getInitialState);
+      useEffect(() => { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }, [state]);
+      const touchDay = (prev) => {
+        const today = new Date().toISOString().slice(0, 10);
+        let streak = prev.streak;
+        if (prev.lastActiveDate !== today) {
+          const y = new Date();
+          y.setDate(y.getDate() - 1);
+          const ys = y.toISOString().slice(0, 10);
+          streak = prev.lastActiveDate === ys ? prev.streak + 1 : 1;
+        }
+        return { streak, today };
+      };
+      const markLessonCompleted = (lessonId) => setState((prev) => {
+        const { streak, today } = touchDay(prev);
+        return { ...prev, completedLessons: prev.completedLessons.includes(lessonId) ? prev.completedLessons : [...prev.completedLessons, lessonId], streak, lastActiveDate: today, xp: prev.completedLessons.includes(lessonId) ? prev.xp : prev.xp + 60 };
+      });
+      const setLessonState = (lessonId, status) => setState((prev) => {
+        const { streak, today } = touchDay(prev);
+        return { ...prev, lessonStates: { ...prev.lessonStates, [lessonId]: status }, streak, lastActiveDate: today, xp: prev.xp + 5 };
+      });
+      const saveLessonNote = (lessonId, value) => setState((prev) => ({ ...prev, lessonNotes: { ...prev.lessonNotes, [lessonId]: value } }));
+      const reviewFlashcard = (q, rating) => setState((prev) => ({ ...prev, flashcardQueue: prev.flashcardQueue.map((card) => card.q !== q ? card : { ...card, dueAt: Date.now() + (rating === "again" ? 0 : rating === "hard" ? 3 : 10) * 86400000 }), xp: prev.xp + 5 }));
+      const toggleNewsRead = (id) => setState((prev) => ({ ...prev, readNews: prev.readNews.includes(id) ? prev.readNews.filter((item) => item !== id) : [...prev.readNews, id] }));
+      const toggleFocusMode = () => setState((prev) => ({ ...prev, focusMode: !prev.focusMode }));
+      return { state, markLessonCompleted, setLessonState, saveLessonNote, reviewFlashcard, toggleNewsRead, toggleFocusMode };
+    }
+
+    const AppContext = React.createContext(null);
+    const Card = ({ className = "", children }) => <div className={`glass-panel rounded-2xl p-5 shadow-[0_0_30px_rgba(0,0,0,.28)] ${className}`}>{children}</div>;
+    const Badge = ({ children, color = "text-term-acc" }) => <span className={`text-xs uppercase tracking-[.22em] ${color}`}>{children}</span>;
+    const StatusPill = ({ status }) => {
+      const map = { confundido: "border-red-500/40 text-red-400", repasar: "border-yellow-500/40 text-yellow-300", entendido: "border-sky-400/40 text-sky-300", dominado: "border-term-prim/40 text-term-prim" };
+      return <span className={`px-2 py-1 text-[10px] rounded-full border ${map[status] || "border-term-mut/30 text-term-mut"}`}>{status || "sin estado"}</span>;
+    };
+
+    const NewsPanel = ({ compact = false }) => {
+      const { state, toggleNewsRead } = React.useContext(AppContext);
+      const [news, setNews] = useState([]);
+      const [filter, setFilter] = useState("Todas");
+      useEffect(() => {
+        fetch("noticias.json").then((res) => res.ok ? res.json() : Promise.reject(new Error("no news"))).then((data) => setNews(data)).catch(() => setNews(FALLBACK_NEWS));
+      }, []);
+      const categories = ["Todas", ...Array.from(new Set(news.map((item) => item.category).filter(Boolean)))];
+      const filtered = news.filter((item) => filter === "Todas" || item.category === filter).slice(0, compact ? 5 : 15);
+      const latest = news[0]?.date ? new Date(news[0].date).toLocaleString("es-PE") : "sin fecha";
+      return (
+        <div className="space-y-4">
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <h2 className="text-xl font-bold text-term-prim">Intel Feed</h2>
+              <p className="text-sm text-term-mut mt-2">Ultima actualizacion detectada: {latest}. Usa estas noticias para complementar fundamentos, no para sustituirlos.</p>
+            </div>
+            <div className="flex gap-2 overflow-x-auto hide-scrollbar">
+              {categories.map((item) => <button key={item} onClick={() => setFilter(item)} className={`px-3 py-1.5 rounded-full text-xs border whitespace-nowrap ${filter === item ? "border-term-acc text-term-acc bg-term-acc/10" : "border-term-mut/30 text-term-mut"}`}>{item}</button>)}
+            </div>
+          </div>
+          <div className="space-y-3">
+            {filtered.map((item) => {
+              const read = state.readNews.includes(item.id);
+              return (
+                <Card key={item.id} className={`bg-black/40 ${read ? "opacity-70" : ""}`}>
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <div className="flex flex-wrap gap-2 text-xs text-term-mut mb-2">
+                        <span className="px-2 py-1 rounded-full border border-term-mut/30">{item.category}</span>
+                        <span>{item.source}</span>
+                        <span>{new Date(item.date).toLocaleDateString("es-PE")}</span>
+                      </div>
+                      <a href={item.link} target="_blank" rel="noopener noreferrer" className="font-bold hover:text-term-acc">{item.title}</a>
+                    </div>
+                    <button onClick={() => toggleNewsRead(item.id)} className={`text-xs px-3 py-2 rounded-xl border ${read ? "border-term-prim/40 text-term-prim" : "border-term-mut/30 text-term-mut"}`}>{read ? "Leida" : "Marcar"}</button>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      );
+    };
+
+    const Dashboard = () => {
+      const { state } = React.useContext(AppContext);
+      const navigate = useNavigate();
+      const done = state.completedLessons.length;
+      const total = LESSON_INDEX.length;
+      const progress = Math.round((done / total) * 100);
+      const lessonOfDay = LESSON_INDEX[(new Date().getDate() - 1) % LESSON_INDEX.length];
+      const statusCounts = LESSON_STATES.map((status) => ({ status, count: Object.values(state.lessonStates).filter((value) => value === status).length }));
+      return (
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-6 pb-24">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <Badge>CyberForge Foundations</Badge>
+              <h1 className="text-3xl font-bold text-term-prim mt-2">Guia diaria para aprender ciberseguridad con estructura</h1>
+              <p className="text-sm text-term-mut mt-2 max-w-3xl">La app mezcla teoria estable, mini laboratorios, glosario, errores comunes, quizzes por dificultad, tracks por rol y noticias reales.</p>
+            </div>
+            <Card className="text-center min-w-[140px]">
+              <div className="text-2xl font-black text-orange-400">{state.streak}</div>
+              <div className="text-xs text-term-mut mt-1">dias seguidos</div>
+              <div className="text-xs text-term-acc mt-2">XP {state.xp}</div>
+            </Card>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-4">
+            <Card className="lg:col-span-2">
+              <Badge color="text-term-acc">Leccion del dia</Badge>
+              <h2 className="text-xl font-bold mt-2">{lessonOfDay.moduleTitle}</h2>
+              <p className="text-term-text mt-2">{lessonOfDay.title}</p>
+              <p className="text-sm text-term-mut mt-2">{lessonOfDay.summary}</p>
+              <div className="mt-5">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-term-mut">Progreso total</span>
+                  <span className="text-term-prim font-bold">{progress}%</span>
+                </div>
+                <div className="mt-2 h-3 rounded-full bg-black border border-term-mut/30 overflow-hidden">
+                  <div className="h-full bg-term-prim shadow-[0_0_12px_#00ff41]" style={{ width: `${progress}%` }}></div>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2 mt-5">
+                <button onClick={() => navigate(`/lesson/${lessonOfDay.moduleId}/${lessonOfDay.id}`)} className="px-4 py-2 rounded-xl bg-term-prim text-black font-bold">Abrir leccion</button>
+                <button onClick={() => navigate("/roadmap")} className="px-4 py-2 rounded-xl border border-term-mut/30">Ver ruta</button>
+                <button onClick={() => navigate("/tracks")} className="px-4 py-2 rounded-xl border border-term-mut/30">Explorar tracks</button>
+              </div>
+            </Card>
+
+            <Card>
+              <Badge color="text-term-warn">Seguimiento real</Badge>
+              <div className="space-y-3 mt-4">
+                {statusCounts.map((item) => <div key={item.status} className="flex items-center justify-between"><StatusPill status={item.status} /><span className="text-sm">{item.count}</span></div>)}
+              </div>
+              <div className="mt-5 text-xs text-term-mut">Completadas: {done} de {total} lecciones.</div>
+            </Card>
+          </div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+            {LEVELS.map((level) => <Card key={level.id}><Badge>{level.title}</Badge><p className="text-sm mt-3 text-term-text">{level.focus}</p></Card>)}
+          </div>
+
+          <NewsPanel compact />
+        </motion.div>
+      );
+    };
+
+    const RoadmapView = () => (
+      <div className="space-y-5 pb-24">
+        <div><h2 className="text-2xl font-bold text-term-prim">Ruta por niveles</h2><p className="text-sm text-term-mut mt-2">Esta ruta te dice que estudiar primero y que dejar para despues.</p></div>
+        {LEVELS.map((level, idx) => <Card key={level.id}><Badge>Etapa {idx + 1}</Badge><h3 className="text-xl font-bold mt-2">{level.title}</h3><p className="text-term-text mt-3">{level.focus}</p></Card>)}
+      </div>
+    );
+
+    const GuideView = () => (
+      <div className="space-y-5 pb-24">
+        <div><h2 className="text-2xl font-bold text-term-prim">Como estudiar ciberseguridad</h2><p className="text-sm text-term-mut mt-2">Metodo antes que ansiedad.</p></div>
+        {STUDY_GUIDE.map((block) => <Card key={block.title}><h3 className="text-lg font-bold">{block.title}</h3><div className="mt-4 space-y-3">{block.points.map((point) => <p key={point} className="text-sm text-term-text">- {point}</p>)}</div></Card>)}
+      </div>
+    );
+
+    const TracksView = () => {
+      const navigate = useNavigate();
+      return (
+        <div className="space-y-5 pb-24">
+          <div><h2 className="text-2xl font-bold text-term-prim">Trayectorias por rol</h2><p className="text-sm text-term-mut mt-2">No necesitas estudiar todo con el mismo peso.</p></div>
+          {ROLE_TRACKS.map((track) => (
+            <Card key={track.id}>
+              <h3 className="text-xl font-bold">{track.title}</h3>
+              <p className="text-sm text-term-text mt-3">{track.focus}</p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                {track.recommended.map((moduleId) => {
+                  const module = MODULES.find((item) => item.id === moduleId);
+                  return <button key={moduleId} onClick={() => navigate(`/module/${moduleId}`)} className="px-3 py-2 rounded-xl border border-term-mut/30 hover:border-term-acc text-sm">{module.title}</button>;
+                })}
+              </div>
+            </Card>
+          ))}
+        </div>
+      );
+    };
+
+    const GlossaryView = () => {
+      const [query, setQuery] = useState("");
+      const filtered = GLOSSARY.filter((item) => (`${item.term} ${item.def}`).toLowerCase().includes(query.toLowerCase()));
+      return (
+        <div className="space-y-5 pb-24">
+          <div><h2 className="text-2xl font-bold text-term-prim">Glosario vivo</h2><p className="text-sm text-term-mut mt-2">Cuando un termino te frene, vuelves aqui.</p></div>
+          <Card><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Buscar termino..." className="w-full bg-black border border-term-mut/30 rounded-xl px-4 py-3 outline-none focus:border-term-acc" /></Card>
+          <div className="grid md:grid-cols-2 gap-4">
+            {filtered.map((item) => <Card key={item.term}><div className="font-bold text-term-prim">{item.term}</div><p className="text-sm text-term-text mt-3">{item.def}</p></Card>)}
+          </div>
+        </div>
+      );
+    };
+
+    const ModuleListView = () => {
+      const { state } = React.useContext(AppContext);
+      return (
+        <div className="space-y-5 pb-24">
+          <div><h2 className="text-2xl font-bold text-term-prim">Modulos y lecciones</h2><p className="text-sm text-term-mut mt-2">Cada modulo trae varias lecciones, mini labs, errores comunes y referencias verificables.</p></div>
+          {MODULES.map((module) => (
+            <Card key={module.id}>
+              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                <div>
+                  <Badge>{LEVELS.find((level) => level.id === module.stage)?.title || module.stage}</Badge>
+                  <h3 className="text-xl font-bold mt-2">{module.title}</h3>
+                  <p className="text-sm text-term-mut mt-2">{module.desc}</p>
+                  <div className="mt-4 grid gap-2">
+                    {module.lessons.map((lesson, idx) => (
+                      <Link key={lesson.id} to={`/lesson/${module.id}/${lesson.id}`} className="p-3 rounded-xl border border-term-mut/30 hover:border-term-acc">
+                        <div className="flex items-center justify-between gap-3">
+                          <div>
+                            <div className="font-bold text-sm">{idx + 1}. {lesson.title}</div>
+                            <div className="text-xs text-term-mut mt-1">{lesson.summary}</div>
+                          </div>
+                          <StatusPill status={state.lessonStates[lesson.id]} />
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3 min-w-[200px]">
+                  <Link to={`/module/${module.id}`} className="px-4 py-3 rounded-xl border border-term-mut/30 text-center hover:border-term-acc">Ver modulo</Link>
+                  <Link to={`/quiz/${module.id}`} className="px-4 py-3 rounded-xl bg-term-prim text-black font-bold text-center">Evaluarme</Link>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+      );
+    };
+
+    const ModuleDetailView = () => {
+      const { moduleId } = useParams();
+      const module = MODULES.find((item) => item.id === moduleId);
+      if (!module) return <div>Modulo no encontrado.</div>;
+      return (
+        <div className="space-y-5 pb-24">
+          <div><Badge>{module.title}</Badge><h2 className="text-2xl font-bold text-term-prim mt-2">Vista completa del modulo</h2><p className="text-sm text-term-mut mt-2">{module.desc}</p></div>
+          <Card>
+            <h3 className="font-bold text-term-acc">Lecciones</h3>
+            <div className="mt-4 grid gap-3">
+              {module.lessons.map((lesson) => <Link key={lesson.id} to={`/lesson/${module.id}/${lesson.id}`} className="p-4 rounded-xl border border-term-mut/30 hover:border-term-acc"><div className="font-bold">{lesson.title}</div><div className="text-sm text-term-mut mt-2">{lesson.summary}</div></Link>)}
+            </div>
+          </Card>
+          <Card>
+            <h3 className="font-bold text-term-acc">Errores comunes del modulo</h3>
+            <div className="mt-4 space-y-2">
+              {module.lessons.flatMap((lesson) => lesson.mistakes.slice(0, 1)).map((mistake) => <p key={mistake} className="text-sm text-term-text">- {mistake}</p>)}
+            </div>
+          </Card>
+        </div>
+      );
+    };
+
+    const LessonView = () => {
+      const { moduleId, lessonId } = useParams();
+      const { state, markLessonCompleted, setLessonState, saveLessonNote } = React.useContext(AppContext);
+      const navigate = useNavigate();
+      const module = MODULES.find((item) => item.id === moduleId);
+      const lesson = module?.lessons.find((item) => item.id === lessonId);
+      const note = state.lessonNotes[lessonId] || "";
+      useEffect(() => { window.scrollTo(0, 0); }, [lessonId]);
+      if (!module || !lesson) return <div className="text-red-400">Leccion no encontrada.</div>;
+      const words = lesson.content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+      const minutes = Math.max(4, Math.ceil(words / 180));
+      const currentState = state.lessonStates[lessonId];
+      const completed = state.completedLessons.includes(lessonId);
+      return (
+        <motion.div initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} className="space-y-6 pb-24">
+          <button onClick={() => navigate(-1)} className="text-sm text-term-mut hover:text-white">Volver</button>
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <Badge>{module.title}</Badge>
+              <h1 className="text-3xl font-bold mt-2">{lesson.title}</h1>
+              <p className="text-sm text-term-mut mt-2">{lesson.summary}</p>
+              <div className="text-xs text-term-mut mt-3">Lectura estimada: {minutes} min. Palabras aprox.: {words}.</div>
+            </div>
+            <StatusPill status={currentState} />
+          </div>
+
+          <Card className="prose-custom bg-black/55">
+            <div dangerouslySetInnerHTML={{ __html: lesson.content }} />
+          </Card>
+
+          <Card>
+            <h2 className="font-bold text-term-acc">Seguimiento de comprension</h2>
+            <div className="grid md:grid-cols-4 gap-3 mt-4">
+              {LESSON_STATES.map((status) => <button key={status} onClick={() => setLessonState(lessonId, status)} className={`py-3 rounded-xl border ${currentState === status ? "border-term-acc text-term-acc bg-term-acc/10" : "border-term-mut/30 text-term-text"}`}>{status}</button>)}
+            </div>
+            <button onClick={() => markLessonCompleted(lessonId)} className={`w-full mt-4 py-4 rounded-2xl font-bold ${completed ? "border border-term-prim text-term-prim" : "bg-term-prim text-black"}`}>{completed ? "Leccion completada" : "Marcar como completada"}</button>
+          </Card>
+
+          <Card>
+            <h2 className="font-bold text-term-acc">Mini laboratorio guiado</h2>
+            <p className="text-sm text-term-text mt-3 font-bold">{lesson.lab.title}</p>
+            <div className="mt-3 space-y-2">{lesson.lab.steps.map((step) => <p key={step} className="text-sm text-term-text">- {step}</p>)}</div>
+            <div className="mt-5">
+              <h3 className="font-bold text-term-acc text-sm">Preguntas para consolidar</h3>
+              <div className="mt-3 space-y-2">{lesson.lab.questions.map((question) => <p key={question} className="text-sm text-term-text">- {question}</p>)}</div>
+            </div>
+            <textarea value={note} onChange={(e) => saveLessonNote(lessonId, e.target.value)} placeholder="Escribe aqui lo que entendiste, dudas o hallazgos del mini lab..." className="w-full mt-5 min-h-[140px] bg-black border border-term-mut/30 rounded-2xl px-4 py-3 outline-none focus:border-term-acc"></textarea>
+          </Card>
+
+          <Card>
+            <h2 className="font-bold text-term-acc">Fuentes y recursos</h2>
+            <div className="grid md:grid-cols-3 gap-4 mt-4">
+              <div><div className="font-bold text-sm">Fuente oficial</div><div className="mt-3 space-y-2">{lesson.sources.official.map((item) => <a key={item.url} href={item.url} target="_blank" rel="noopener noreferrer" className="block text-sm text-term-text hover:text-term-acc">{item.title}</a>)}</div></div>
+              <div><div className="font-bold text-sm">Recurso practico</div><div className="mt-3 space-y-2">{lesson.sources.practical.map((item) => <a key={item.url} href={item.url} target="_blank" rel="noopener noreferrer" className="block text-sm text-term-text hover:text-term-acc">{item.title}</a>)}</div></div>
+              <div><div className="font-bold text-sm">Lectura opcional</div><div className="mt-3 space-y-2">{lesson.sources.optional.map((item) => <a key={item.url} href={item.url} target="_blank" rel="noopener noreferrer" className="block text-sm text-term-text hover:text-term-acc">{item.title}</a>)}</div></div>
+            </div>
+          </Card>
+
+          <Card>
+            <h2 className="font-bold text-term-acc">Errores comunes</h2>
+            <div className="mt-4 space-y-2">{lesson.mistakes.map((mistake) => <p key={mistake} className="text-sm text-term-text">- {mistake}</p>)}</div>
+          </Card>
+        </motion.div>
+      );
+    };
+
+    const FlashcardsView = () => {
+      const { state, reviewFlashcard } = React.useContext(AppContext);
+      const [index, setIndex] = useState(0);
+      const [flip, setFlip] = useState(false);
+      const due = useMemo(() => state.flashcardQueue.filter((card) => card.dueAt <= Date.now()), [state.flashcardQueue]);
+      if (!due.length) {
+        return <div className="pb-24"><Card className="max-w-2xl mx-auto text-center"><h2 className="text-2xl font-bold text-term-prim">Repaso al dia</h2><p className="text-sm text-term-mut mt-3">Las tarjetas dificiles vuelven en 3 dias y las faciles en 10 dias.</p></Card></div>;
+      }
+      const card = due[index % due.length];
+      const submit = (rating) => { reviewFlashcard(card.q, rating); setFlip(false); setIndex((prev) => prev + 1); };
+      return (
+        <div className="flex flex-col items-center pt-8 pb-24">
+          <div className="text-xs uppercase tracking-[.22em] text-term-mut mb-4">Flashcards pendientes {Math.min(index + 1, due.length)}/{due.length}</div>
+          <div className="w-full max-w-xl h-80 perspective-1000 cursor-pointer" onClick={() => setFlip(!flip)}>
+            <motion.div className="w-full h-full relative transform-style-3d" animate={{ rotateY: flip ? 180 : 0 }}>
+              <div className="absolute inset-0 backface-hidden glass-panel rounded-3xl flex items-center justify-center p-8 text-center border border-term-acc/30"><div><div className="text-sm text-term-acc mb-4">Pregunta</div><div className="text-2xl font-bold">{card.q}</div></div></div>
+              <div className="absolute inset-0 backface-hidden rotate-y-180 glass-panel rounded-3xl flex items-center justify-center p-8 text-center border border-term-prim/40 bg-term-prim/5"><div><div className="text-sm text-term-prim mb-4">Respuesta</div><div className="text-xl font-bold">{card.a}</div></div></div>
+            </motion.div>
+          </div>
+          {flip && <div className="w-full max-w-xl grid md:grid-cols-3 gap-3 mt-6"><button onClick={() => submit("again")} className="py-3 rounded-xl border border-red-500/40 text-red-400">No lo se</button><button onClick={() => submit("hard")} className="py-3 rounded-xl border border-yellow-500/40 text-yellow-300">Dificil 3 dias</button><button onClick={() => submit("easy")} className="py-3 rounded-xl border border-term-prim/40 text-term-prim">Facil 10 dias</button></div>}
+        </div>
+      );
+    };
+
+    const QuizView = () => {
+      const { moduleId } = useParams();
+      const { markLessonCompleted } = React.useContext(AppContext);
+      const navigate = useNavigate();
+      const module = MODULES.find((item) => item.id === moduleId);
+      const [difficulty, setDifficulty] = useState("basico");
+      const [current, setCurrent] = useState(0);
+      const [score, setScore] = useState(0);
+      const [selected, setSelected] = useState(null);
+      const [answered, setAnswered] = useState(false);
+      const [finished, setFinished] = useState(false);
+      useEffect(() => { setCurrent(0); setScore(0); setSelected(null); setAnswered(false); setFinished(false); }, [difficulty, moduleId]);
+      if (!module) return <div>Modulo no encontrado.</div>;
+      const questions = module.quizzes[difficulty];
+      const question = questions[current];
+      const choose = (idx) => { if (answered) return; setSelected(idx); setAnswered(true); if (idx === question.correct) setScore((prev) => prev + 1); };
+      const next = () => {
+        if (current === questions.length - 1) {
+          setFinished(true);
+          if (score / questions.length >= 0.6) markLessonCompleted(module.lessons[0].id);
+          return;
+        }
+        setCurrent((prev) => prev + 1); setSelected(null); setAnswered(false);
+      };
+      if (finished) {
+        const passed = score / questions.length >= 0.6;
+        return <div className="pb-24"><Card className="max-w-xl mx-auto text-center"><h2 className={`text-3xl font-bold ${passed ? "text-term-prim" : "text-red-400"}`}>{passed ? "Evaluacion superada" : "Necesitas reforzar conceptos"}</h2><p className="text-term-mut mt-3">Resultado {score}/{questions.length} en dificultad {difficulty}.</p><div className="flex gap-3 justify-center mt-6"><button onClick={() => navigate(`/module/${module.id}`)} className="px-5 py-3 rounded-xl border border-term-mut/30">Volver al modulo</button><button onClick={() => navigate(`/lesson/${module.id}/${module.lessons[0].id}`)} className="px-5 py-3 rounded-xl bg-term-prim text-black font-bold">Repasar</button></div></Card></div>;
+      }
+      return (
+        <div className="max-w-3xl mx-auto pb-24">
+          <div className="flex flex-wrap gap-2 mb-6">{["basico", "aplicado", "escenario"].map((item) => <button key={item} onClick={() => setDifficulty(item)} className={`px-4 py-2 rounded-full border text-sm ${difficulty === item ? "border-term-acc text-term-acc bg-term-acc/10" : "border-term-mut/30 text-term-mut"}`}>{item}</button>)}</div>
+          <div className="flex justify-between text-xs text-term-mut mb-3"><span>{module.title}</span><span>{difficulty} {current + 1}/{questions.length}</span></div>
+          <div className="h-2 bg-black rounded-full border border-term-mut/30 overflow-hidden mb-8"><div className="h-full bg-term-acc" style={{ width: `${(current / questions.length) * 100}%` }}></div></div>
+          <h2 className="text-2xl font-bold mb-8">{question.q}</h2>
+          <div className="space-y-3">
+            {question.options.map((option, idx) => {
+              const ok = answered && idx === question.correct;
+              const bad = answered && idx === selected && idx !== question.correct;
+              return <button key={option} onClick={() => choose(idx)} disabled={answered} className={`w-full text-left p-4 rounded-2xl border ${ok ? "border-term-prim text-term-prim bg-term-prim/10" : bad ? "border-red-500 text-red-400 bg-red-500/10" : "border-term-mut/30 hover:border-term-acc"}`}><span className="opacity-60 mr-3">[{["A","B","C","D"][idx]}]</span>{option}</button>;
+            })}
+          </div>
+          {answered && <Card className="mt-6"><div className="font-bold text-term-acc">Explicacion</div><p className="text-sm text-term-text mt-3">{question.explanation}</p></Card>}
+          {answered && <button onClick={next} className="w-full mt-6 py-4 rounded-2xl bg-term-prim text-black font-bold">{current === questions.length - 1 ? "Finalizar" : "Siguiente"}</button>}
+        </div>
+      );
+    };
+
+    const NewsView = () => <div className="pb-24"><NewsPanel /></div>;
+
+    const SettingsView = () => {
+      const { state, toggleFocusMode } = React.useContext(AppContext);
+      const exportData = () => {
+        const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `cyberforge-backup-${new Date().toISOString().slice(0, 10)}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+      };
+      const importData = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          try { localStorage.setItem(STORAGE_KEY, event.target.result); window.location.reload(); } catch (error) { alert("Backup invalido."); }
+        };
+        reader.readAsText(file);
+      };
+      return (
+        <div className="space-y-5 pb-24">
+          <div><h2 className="text-2xl font-bold text-term-prim">Configuracion</h2><p className="text-sm text-term-mut mt-2">Todo tu progreso se guarda localmente en este navegador.</p></div>
+          <Card><div className="flex items-center justify-between gap-4"><div><div className="font-bold">Modo enfoque</div><div className="text-sm text-term-mut mt-2">Reduce distracciones visuales durante lecturas largas.</div></div><button onClick={toggleFocusMode} className={`px-4 py-2 rounded-xl border ${state.focusMode ? "border-term-prim text-term-prim" : "border-term-mut/30 text-term-mut"}`}>{state.focusMode ? "Activo" : "Inactivo"}</button></div></Card>
+          <Card><div className="flex flex-col gap-3"><button onClick={exportData} className="w-full py-3 rounded-xl border border-term-mut/30">Exportar progreso</button><label className="w-full py-3 rounded-xl border border-term-mut/30 text-center cursor-pointer">Importar progreso<input type="file" accept=".json" className="hidden" onChange={importData} /></label><button onClick={() => { localStorage.removeItem(STORAGE_KEY); window.location.reload(); }} className="w-full py-3 rounded-xl border border-red-500/40 text-red-400">Borrar progreso local</button></div></Card>
+        </div>
+      );
+    };
+
+    const Layout = ({ children }) => {
+      const location = useLocation();
+      const navItems = [
+        { path: "/", label: "Inicio", icon: "house" },
+        { path: "/roadmap", label: "Ruta", icon: "milestone" },
+        { path: "/guide", label: "Guia", icon: "book-open" },
+        { path: "/modules", label: "Modulos", icon: "library" },
+        { path: "/glossary", label: "Glosario", icon: "book-a" },
+        { path: "/tracks", label: "Tracks", icon: "compass" },
+        { path: "/flashcards", label: "Flash", icon: "layers" },
+        { path: "/news", label: "Noticias", icon: "newspaper" },
+        { path: "/settings", label: "Config", icon: "settings" }
+      ];
+      useEffect(() => { lucide.createIcons(); });
+      return (
+        <div className="min-h-screen max-w-6xl mx-auto px-4 md:px-8 pt-6 pb-28 relative z-10">
+          <AnimatePresence mode="wait">
+            <motion.div key={location.pathname} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}>
+              {children}
+            </motion.div>
+          </AnimatePresence>
+          <nav className="fixed bottom-0 left-0 right-0 glass-panel border-t border-term-mut/20 rounded-t-3xl px-2 py-3 z-50">
+            <div className="max-w-6xl mx-auto flex gap-1 overflow-x-auto hide-scrollbar">
+              {navItems.map((item) => {
+                const active = location.pathname === item.path || (item.path !== "/" && location.pathname.startsWith(item.path));
+                return <Link key={item.path} to={item.path} className={`min-w-[80px] flex flex-col items-center gap-1 px-3 py-2 rounded-xl ${active ? "text-term-prim" : "text-term-mut"}`}><i data-lucide={item.icon} className="w-5 h-5"></i><span className="text-[10px] uppercase">{item.label}</span></Link>;
+              })}
+            </div>
+          </nav>
+        </div>
+      );
+    };
+
+    const MainApp = () => {
+      const store = useAppStore();
+      useEffect(() => { document.body.style.background = store.state.focusMode ? "#040404" : ""; }, [store.state.focusMode]);
+      return (
+        <AppContext.Provider value={store}>
+          <HashRouter>
+            <Layout>
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/roadmap" element={<RoadmapView />} />
+                <Route path="/guide" element={<GuideView />} />
+                <Route path="/tracks" element={<TracksView />} />
+                <Route path="/glossary" element={<GlossaryView />} />
+                <Route path="/modules" element={<ModuleListView />} />
+                <Route path="/module/:moduleId" element={<ModuleDetailView />} />
+                <Route path="/lesson/:moduleId/:lessonId" element={<LessonView />} />
+                <Route path="/flashcards" element={<FlashcardsView />} />
+                <Route path="/quiz/:moduleId" element={<QuizView />} />
+                <Route path="/news" element={<NewsView />} />
+                <Route path="/settings" element={<SettingsView />} />
+              </Routes>
+            </Layout>
+          </HashRouter>
+        </AppContext.Provider>
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<MainApp />);
+  </script>
+</body>
+</html>

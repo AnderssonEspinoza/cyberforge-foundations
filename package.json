@@ -1,0 +1,13 @@
+{
+  "name": "cyberforge",
+  "version": "1.1.0",
+  "description": "Plataforma de microaprendizaje de ciberseguridad con feed de noticias reales",
+  "main": "scraper.js",
+  "scripts": {
+    "scrape": "node scraper.js",
+    "start": "node scraper.js"
+  },
+  "dependencies": {
+    "rss-parser": "^3.13.0"
+  }
+}
