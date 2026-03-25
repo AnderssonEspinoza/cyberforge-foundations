@@ -1,13 +1,343 @@
 [
   {
     "id": "aHR0cHM6Ly93d3cuaW",
-    "title": "Dos nuevos avisos de seguridad",
-    "link": "https://www.incibe.es/node/612496",
+    "title": "BIAR TECHNOLOGY SL",
+    "link": "https://www.incibe.es/node/612832",
     "source": "INCIBE",
     "lang": "es",
-    "date": "2026-03-24T10:35:39.000Z",
-    "description": "Dos nuevos avisos de seguridad Índice Múltiples vulnerabilidades en VMware Tanzu Múltiples vulnerabilidades en productos de Citrix Múltiples vulnerabilidades en VMware Tanzu Fecha24/03/2026 Importancia5 - Crítica Recursos Afectados Tanzu Kubernetes Runtime; VMware Tanzu Application Service; VMware Tanzu Data Intelligence; VMware Tanzu Data Services; VMware Tanzu Data Services Pack; VMware Tanzu Data Suite; VMware Tanzu for Postgres; VMware Tanzu Gemfire; VMware Tanzu Kubernetes Grid Integrated Edition; VMware Tanzu Platform; VMware Tanzu Platform - Cloud Foundry; VMware Tanzu Platform Core; VMware Tanzu Platform Data; VMware Tanzu Platform - Kubernetes; Vmware Tanzu Platform - SM; VMware Tanzu SQL. Descripción Broadcom ha publicado 5 avisos de seguridad donde informan de un total de 124 vulnerabilidades, 11 de ellas críticas, 60 altas, 4 bajas y 49 medias. En caso de explotarse estas vulnerabilidades se puede ejecutar comandos arbitrarios, introducir nuevas variables de entorno o leer archivos confidenciales, entre otras acciones. Solución Actualizar a la última versión. Detalle Las vulnerabilidades de severidad crítica son las siguientes, clasificadas por tipo de vulnerabilidad: Problemas con la autenticación: CVE-2025-55130. Problemas con los certificados: CVE-2025-68121. Problemas de inyección, de comandos, de código, etc.: CVE-2023-29405; CVE-2023-29404; CVE-2023-29402; CVE-2023-24540; CVE-2023-24538; CVE-2023-24531. Otros, no especificado: CVE-2025-22871; CVE-2024-45337; CVE-2024-24790; CVE-2023-24531. El resto de vulnerabilidades se pueden consultar en los enlaces de las referencias. Múltiples vulnerabilidades en productos de Citrix Fecha24/03/2026 Importancia5 - Crítica Recursos Afectados NetScaler ADC y NetScaler Gateway 14.1 anterior a 14.1-66.59; NetScaler ADC y NetScaler Gateway 13.1 anterior a 13.1-62.23; NetScaler ADC FIPS y NDcPP anterior a 13.1-37.262. Descripción Citrix ha informado de dos vulnerabilidades, una de severidad crítica y otra alta que, en caso de se explotadas, podrían permitir la mezcla de sesiones y la sobre-lectura de memoria. Solución Actualizar los productos a alguna de las siguientes versiones: NetScaler ADC y NetScaler Gateway 14.1-66.59 y versiones posteriores; NetScaler ADC y NetScaler Gateway 13.1-62.23 y versiones posteriores de la 13.1; NetScaler ADC 13.1-FIPS y 13.1-NDcPP 13.1.37.262 y versiones posteriores de 13.1-FIPS y 13.1-NDcPP. Detalle CVE-2026-3055: una validación insuficiente de entradas cuando se configura como proveedor de identidades SAML provoca una sobre-lectura de memoria. CVE-2026-4368: cuando el dispositivo está configurado como puerta de enlace (gateway) -SSL VPN, ICA Proxy, CVPN, RDP Proxy- o como servidor virtual AAA principal, puede producirse una condición de carrera, lo que provoca una confusión en las sesiones de usuario. Mar, 24/03/2026 - 11:35",
+    "date": "2026-03-25T10:40:09.000Z",
+    "description": "BIAR TECHNOLOGY SL Mié, 25/03/2026 - 11:40 Entidad colaboradora Centro Europeo de Empresas e Innovación de Navarra (CEIN) Estado elemento En curso Fecha inicio Dom, 01/03/2026 - 09:00 Fecha fin Vie, 15/05/2026 - 20:00 Dirección PG INDUSTRIAL TALLUTXE I (Navarra) Provincia Navarra Tipo de sección Aceleración /Aceleración exprés Tipo de subsección Aceleración expres",
+    "category": "General"
+  },
+  {
+    "id": "aHR0cHM6Ly93d3cuaW",
+    "title": "APMEN Asociación PYMES del Metal de Navarra",
+    "link": "https://www.incibe.es/node/612831",
+    "source": "INCIBE",
+    "lang": "es",
+    "date": "2026-03-25T10:38:34.000Z",
+    "description": "APMEN Asociación PYMES del Metal de Navarra Mié, 25/03/2026 - 11:38 Entidad colaboradora Centro Europeo de Empresas e Innovación de Navarra (CEIN) Estado elemento En curso Fecha inicio Dom, 01/03/2026 - 09:00 Fecha fin Vie, 15/05/2026 - 20:00 Dirección C/ Pedro I nº1 entreplanta derecha. Pamplona (Navarra) Provincia Navarra Tipo de sección Aceleración /Aceleración exprés Tipo de subsección Aceleración expres",
+    "category": "General"
+  },
+  {
+    "id": "aHR0cHM6Ly93d3cuaW",
+    "title": "Alba Renova S.L.",
+    "link": "https://www.incibe.es/node/612830",
+    "source": "INCIBE",
+    "lang": "es",
+    "date": "2026-03-25T10:37:26.000Z",
+    "description": "Alba Renova S.L. Mié, 25/03/2026 - 11:37 Entidad colaboradora Centro Europeo de Empresas e Innovación de Navarra (CEIN) Estado elemento En curso Fecha inicio Dom, 01/03/2026 - 09:00 Fecha fin Vie, 15/05/2026 - 20:00 Dirección Avenida Estella 42, Tafalla (Navarra) Provincia Navarra Tipo de sección Aceleración /Aceleración exprés Tipo de subsección Aceleración expres",
+    "category": "General"
+  },
+  {
+    "id": "aHR0cHM6Ly93d3cuaW",
+    "title": "Tres nuevos avisos de seguridad",
+    "link": "https://www.incibe.es/node/612829",
+    "source": "INCIBE",
+    "lang": "es",
+    "date": "2026-03-25T10:33:24.000Z",
+    "description": "Tres nuevos avisos de seguridad Índice Inyección de shell remota en GitHub Actions de Langflow Múltiples vulnerabilidades en las imágenes de contenedor MQ Operator y Queue Manager de IBM Múltiples vulnerabilidades en Squid Inyección de shell remota en GitHub Actions de Langflow Fecha25/03/2026 Importancia5 - Crítica Recursos Afectados El paquete 'logspace-ai/langflow' en todas las versiones anteriores a 1.3.5. Descripción Huseyingulsin ha reportado 1 vulnerabilidad crítica que, en caso de ser explotada, podría permitir a un atacante no autenticado la inyección remota de shell en varios flujos de trabajo de GitHub Actions del repositorio Langflow. Solución Se recomienda actualizar el paquete a la versión 1.9.0. Detalle CVE-2026-33475: vulnerabilidad de inyección remota de shell sin autenticación en varios flujos de trabajo GitHub Actions del repositorio Langflow. La interpolación no sanitiza las variables de contexto de GitHub. La explotación exitosa de esta vulnerabilidad podría permitir a un atacante inyectar y ejecutar comandos de shell arbitrarios a través de un nombre de rama o título de solicitud de extracción malicioso, provocando a su vez, la exfiltración de secretos, la manipulación de la infraestructura o el compromiso de la cadena de suministro durante la ejecución de CI/CD. Múltiples vulnerabilidades en las imágenes de contenedor MQ Operator y Queue Manager de IBM Fecha25/03/2026 Importancia5 - Crítica Recursos Afectados Operador de IBM MQ: SC2: versiones comprendidas entre v3.2.0 y v3.2.22; CD: versiones v3.3.0, v3.4.0, v3.4.1, v3.5.0, v3.8.0, v3.8.1, v3.9.0, y las versiones comprendidas entre v3.5.1 y v3.5.3, v3.6.0 y v3.6.4 y v3.7.0 y v3.7.2; LTS: versiones comprendidas entre v2.0.0 y 2.0.29. IBM proporcionó imágenes de contenedores MQ Advanced: SC2: versiones 9.4.0.6-r1, 9.4.0.6-r2, 9.4.0.7-r1, 9.4.0.10-r1, 9.4.0.10-r2, 9.4.0.11-r1, 9.4.0.11-r2, 9.4.0.11-r3, 9.4.0.12-r1, 9.4.0.15-r1 - 9.4.0.15-r4, 9.4.0.16-r1 y 9.4.0.16-r2, 9.4.0.17-r1, 9.4.0.17-r2; CD: 9.4.1.0-r1, 9.4.1.0-r2, 9.4.1.1-r1, 9.4.2.0-r1, 9.4.2.0-r2, 9.4.2.1-r1, 9.4.2.1-r2, 9.4.3.0-r1, 9.4.3.0-r2, 9.4.3.1-r1 - 9.4.3.1-r3, 9.4.4.0-r1 - 9.4.4.0-r4, 9.4.4.1-r1 y 9.4.5.0-r1; LTS: 9.3.0.0-r1, 9.3.0.0-r2, 9.3.0.0-r3, 9.3.0.1-r1, 9.3.0.1-r2, 9.3.0.1-r3, 9.3.0.1-r4, 9.3.0.3-r1, 9.3.0.4-r1, 9.3.0.4-r2, 9.3.0.5-r1, 9.3.0.5-r2, 9.3.0.5-r3, 9.3.0.6-r1, 9.3.0.10-r1, 9.3.0.10-r2, 9.3.0.11-r1, 9.3.0.11-r2, 9.3.0.15-r1, 9.3.0.16-r1, 9.3.0.16-r2, 9.3.0.17-r1, 9.3.0.17-r2, 9.3.0.17-r3, 9.3.0.20-r1, 9.3.0.20-r2, 9.3.0.21-r1, 9.3.0.21-r2, 9.3.0.21-r3, 9.3.0.25-r1, 9.4.0.0-r1, 9.4.0.0-r2, 9.4.0.0-r3, 9.4.0.5-r1 y 9.4.0.5-r2. Descripción IBM ha reportado 35 vulnerabilidades; 1 crítica, 15 altas y 19 medias que, en caso de ser explotadas, podrían permitir a atacantes comprometer la seguridad de los contenedores. Solución Se recomienda aplicar las imágenes de contenedor más recientes. Para ello, consulte el enlace de las referencias. Detalle CVE-2025-68121: vulnerabilidad crítica que se da durante la reanudación de una sesión en 'crypto/tls', si se modifican los campos ClientCAs o RootCAs de la configuración subyacente entre el handshake inicial y el reanudado, el handshake reanudado podría tener éxito cuando debería haber fallado. Esto ocurre cuando se modifica la configuración mediante 'Config.Clone' o 'Config.GetConfigForClient'. Como resultado, un cliente o servidor podría reanudar una sesión con una parte con la que no se habría reanudado en la conexión inicial. Múltiples vulnerabilidades en Squid Fecha25/03/2026 Importancia5 - Crítica Recursos Afectados Squid, versiones anteriores a la 7.5. Descripción Squid ha informado de 3 vulnerabilidades, 1 de severidad crítica, 1 alta y 1 media que, en caso de ser explotadas, podrían provocar la denegación de servicio del producto al gestionar tráfico ICP. Solución Actualizar el producto a la versión 7.5. Como medidas de mitigación alternativas también se puede realizar alguna de las siguientes acciones, con realizar una de ellas no es necesario realizar la otra: No permitir el soporte ICP; Deshabilitar explícitamente ICP mediante 'icp_port 0'. Importante: No es posible resolver el problema impidiendo las consultas ICP utilizando las reglas 'icp_access' Detalle CVE-2026-33526 y CVE-2026-32748: un atacante en remoto puede llevar a cabo un ataque de denegación de servicio fiable y repetible contra el servicio Squid, empleando el protocolo ICP. El ataque está limitado a instalaciones de Squid que tengan explícitamente habilitado el soporte ICP; es decir, aquellas que su configuración para 'icp_port' es distinta de cero. La vulnerabilidad de severidad media tiene asignado el identificador CVE-2026-33515 y su detalle se puede consultar en el enlace de las referencias. Mié, 25/03/2026 - 11:33",
     "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly93d3cuaW",
+    "title": "Tres nuevos avisos de SCI",
+    "link": "https://www.incibe.es/node/612828",
+    "source": "INCIBE",
+    "lang": "es",
+    "date": "2026-03-25T10:16:58.000Z",
+    "description": "Tres nuevos avisos de SCI Índice Rutas de archivo sin comillas en SANUPS de SANYO DENKI CO., LTD. Múltiples vulnerabilidades en productos de Codesys Múltiples vulnerabilidades Plant iT/Brewmaxx de Schneider Electric Rutas de archivo sin comillas en SANUPS de SANYO DENKI CO., LTD. Fecha25/03/2026 Importancia4 - Alta Recursos Afectados SOFTWARE SANUPS INDEPENDIENTE versión 1.0.1 a versión 1.1.4; SOFTWARE SANUPS versión 2.0.0 a versión 2.0.2 y versión 1.0.0 a versión 1.1.4. Descripción Kazuma Matsumoto, de GMO Cybersecurity by IERAE, Inc., ha informado sobre una vulnerabilidad de severidad alta que podría permitir a un atacante ejecutar código arbitrario. Solución Actualizar el software a la última versión: Para SANUPS SOFTWARE STANDALONE versión 1.0.1 y de la versión 1.1.0 a la versión 1.1.4: SOFTWARE SANUPS INDEPENDIENTE versión 1.1.5. Para el SOFTWARE SANUPS versión 2.0.0 a versión 2.0.2: SOFTWARE SANUPS versión 2.0.3. Para las versiones de SANUPS SOFTWARE desde la 1.0.0 hasta la 1.1.4, sustituir por la versión 3.0.1. Detalle CVE-2026-33253: el producto afectado registra los servicios de Windows con rutas de archivo sin comillas. Un usuario con permiso de escritura en el directorio raíz de la unidad del sistema puede ejecutar código arbitrario con SYSTEM privilegios. Múltiples vulnerabilidades en productos de Codesys Fecha25/03/2026 Importancia5 - Crítica Recursos Afectados Los siguientes productos en sus versiones anteriores a la 3.5.22.0: CODESYS Control RTE (SL); CODESYS Control RTE (for Beckhoff CX) SL; CODESYS Control Win (SL); CODESYS HMI (SL); CODESYS Runtime Toolkit. Los siguientes productos en sus versiones anteriores a la 4.21.0.0: CODESYS Control for BeagleBone SL; CODESYS Control for emPC-A/iMX6 SL; CODESYS Control for IOT2000 SL; CODESYS Control for Linux ARM SL; CODESYS Control for Linux SL; CODESYS Control for PFC100 SL; CODESYS Control for PFC200 SL; CODESYS Control for PLCnext SL; CODESYS Control for Raspberry Pi SL; CODESYS Control for WAGO Touch Panels 600 SL; CODESYS Virtual Control SL. Descripción CODESYS en coordinación con CERT@VDE han publicado 2 vulnerabilidades de severidad alta que, en caso de ser explotadas, podrían provocar la caída del dispositivo y la instalación de aplicaciones arbitrarias de arranque para controlar el código que se ejecuta en el controlador. Solución Actualizar los siguientes productos a la versión 3.5.22.0: CODESYS Control RTE (SL); CODESYS Control RTE (for Beckhoff CX) SL; CODESYS Control Win (SL); CODESYS HMI (SL); CODESYS Runtime Toolkit; Actualizar los siguientes productos a la versión 4.21.0.0. prevista para el segundo cuatrimestre del 2026: CODESYS Control for BeagleBone SL; CODESYS Control for emPC-A/iMX6 SL; CODESYS Control for IOT2000 SL; CODESYS Control for Linux ARM SL; CODESYS Control for Linux SL; CODESYS Control for PFC100 SL; CODESYS Control for PFC200 SL; CODESYS Control for PLCnext SL; CODESYS Control for Raspberry Pi SL; CODESYS Control for WAGO Touch Panels 600 SL; CODESYS Virtual Control SL. Detalle CVE-2025-41660: un atacante en remoto con pocos privilegios puede reemplazar la aplicación de arranque del sistema CODESYS Control runtime, lo que deriva en la ejecución de código no autorizado. Para ello es suficiente con que el atacante forme parte del grupo \"Service\", sin necesidad de pertenecer a un grupo con mayores privilegios como \"Administrador\" o \"Desarrollador\". CVE-2025-3509: un atacante en remoto no autenticado puede controlar el formato de las cadenas de los mensajes procesados por el log Audit del sistema CODESYS Control runtime, esto puede derivar potencialmente en una condición de denegación de servicio. Múltiples vulnerabilidades Plant iT/Brewmaxx de Schneider Electric Fecha25/03/2026 Importancia5 - Crítica Recursos Afectados Plant iT/Brewmaxx 9.60 y versiones posteriores. Descripción Schneider Electric ha reportado 4 vulnerabilidades: 1 de severidad crítica, otra de severidad alta y 2 medias que, en caso de ser explotadas, podrían conllevar el riesgo de una escalada de privilegios, lo que podría resultar en la ejecución remota de código. Solución Instalación del parche de mitigación: ProLeiT-2025-001 a través del soporte de ProLeiT. Detalle Para las vulnerabilidades de severidad crítica y alta, el producto afectado utiliza Redis, una base de datos en memoria de código abierto. Las versiones 8.2.1 e inferiores permiten que un usuario autenticado utilice un script Lua especialmente diseñado para: CVE-2025-49844: manipular el recolector de basura, provocar un error de uso de memoria liberada y, potencialmente, conducir a la ejecución remota de código. CVE-2025-46817: manipular diferentes objetos LUA y, potencialmente, ejecutar su propio código en el contexto de otro usuario. Para las vulnerabilidades de severidad media se ha asignad los identificadores CVE-2025-46818 y CVE-2025-46819. Mié, 25/03/2026 - 11:16",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly93d3cuaW",
+    "title": "Marzo 2026",
+    "link": "https://www.incibe.es/node/612826",
+    "source": "INCIBE",
+    "lang": "es",
+    "date": "2026-03-25T09:34:54.000Z",
+    "description": "Marzo 2026 Índice El 26 de marzo participa con tu centro educativo en nuestro taller online sobre experiencias digitales con la IA ¿Deberían preocuparles a las familias los videojuegos online? Fallos de control permiten acceder a contenido pornográfico en un centro escolar El juego viral autolesivo de las Líneas Rojas que se extiende entre menores Un menor es objetivo de una red de reventa de productos falsificados Comentarios en Tiktok esconden enlaces con contenido de abuso sexual infantil Adolescente acosada por un adulto tras el uso indebido de sus datos personales El 26 de marzo participa con tu centro educativo en nuestro taller online sobre experiencias digitales con la IA El día 26 de marzo anímate y participa con tu centro educativo en el taller online que hemos preparado para alumnado desde 6º de primaria y toda la ESO, con motivo del Día de Internet Segura 2026 (#SID2026). Leer más... ¿Deberían preocuparles a las familias los videojuegos online? El entorno online se ha convertido en el principal medio de socialización de las nuevas generaciones, esto incluye videojuegos como Roblox, Fortnite, Brawl Stars o Minecraft que, en muchas ocasiones, conforman una parte importante de la vida social de nuestros hijos/as, ya que pueden interactuar con otras personas mientras juegan. Leer más... Fallos de control permiten acceder a contenido pornográfico en un centro escolar La falta de supervisión y control en el entorno educativo puede provocar situaciones como la de este caso real, en el que un menor accedió, en horario lectivo, a contenidos inadecuados desde un ordenador del centro que no tenía ningún mecanismo de protección. Leer más... El juego viral autolesivo de las Líneas Rojas que se extiende entre menores Un juego viral autolesivo es difundido entre menores a través de redes sociales, generando alerta. Este caso real, muestra cómo contenidos aparentemente inofensivos pueden esconder riesgos y la importancia de supervisar y orientar el acceso a plataformas digitales. Leer más... Un menor es objetivo de una red de reventa de productos falsificados Es habitual que los menores manifiesten interés por emprender o generar ingresos, pero hay que ser precavidos. Este caso real evidencia cómo una oferta de trabajo atractiva puede inducir a involucrarse en prácticas fraudulentas, llegando incluso a cometer un delito. Leer más... Comentarios en Tiktok esconden enlaces con contenido de abuso sexual infantil A menudo, lo peligroso se disfraza de lo cotidiano. En este caso real, un menor encontró enlaces hacia contenido de abuso sexual infantil ocultos en comentarios de videos inocentes de TikTok. Lejos de ser un caso aislado, es un patrón recurrente y preocupante. Leer más... Adolescente acosada por un adulto tras el uso indebido de sus datos personales Los problemas de ciberseguridad pueden surgir en cualquier contexto, como en este caso real en el que, a raíz de realizar un pedido por Internet, una menor termina siendo acosada por un adulto que se aprovecha de sus datos personales obtenidos a través de su trabajo. Leer más... Mié, 25/03/2026 - 10:34",
+    "category": "General"
+  },
+  {
+    "id": "aHR0cHM6Ly9jdmVmZW",
+    "title": "CVE-2026-3608 - Stack overflow in Kea daemons",
+    "link": "https://cvefeed.io/vuln/detail/CVE-2026-3608",
+    "source": "CVE Feed",
+    "lang": "en",
+    "date": "2026-03-25T09:16:25.000Z",
+    "description": "CVE ID :CVE-2026-3608 Published : March 25, 2026, 9:16 a.m. | 1 hour, 8 minutes ago Description :Sending a maliciously crafted message to the kea-ctrl-agent, kea-dhcp-ddns, kea-dhcp4, or kea-dhcp6 daemons over any configured API socket or HA listener can cause the receiving daemon to exit with a stack overflow error. This issue affects Kea versions 2.6.0 through 2.6.4 and 3.0.0 through 3.0.2. Severity: 7.5 | HIGH Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly91bmFhbG",
+    "title": "Ransomware Interlock explota Zero-Day crítico en Cisco FMC (CVE-2026-20131)",
+    "link": "https://unaaldia.hispasec.com/2026/03/ransomware-interlock-explota-zero-day-critico-en-cisco-fmc-cve-2026-20131.html?utm_source=rss&utm_medium=rss&utm_campaign=ransomware-interlock-explota-zero-day-critico-en-cisco-fmc-cve-2026-20131",
+    "source": "Una al Dia",
+    "lang": "es",
+    "date": "2026-03-25T08:41:52.000Z",
+    "description": "El equipo de respuesta a incidentes de Cisco (PSIRT) ha emitido un parche de emergencia extraordinario para abordar una vulnerabilidad de severidad crítica (CVSS 10.0) en su plataforma Cisco Secure Firewall Management Center (FMC). El fallo, catalogado como CVE-2026-20131, permite a un atacante remoto no autenticado ejecutar comandos arbitrarios con privilegios de root en el […] La entrada Ransomware Interlock explota Zero-Day crítico en Cisco FMC (CVE-2026-20131) se publicó primero en Una Al Día.",
+    "category": "Ransomware"
+  },
+  {
+    "id": "aHR0cHM6Ly9jdmVmZW",
+    "title": "CVE-2026-32326 - SHARP Routers Authentication Bypass Vulnerability",
+    "link": "https://cvefeed.io/vuln/detail/CVE-2026-32326",
+    "source": "CVE Feed",
+    "lang": "en",
+    "date": "2026-03-25T08:16:22.000Z",
+    "description": "CVE ID :CVE-2026-32326 Published : March 25, 2026, 8:16 a.m. | 2 hours, 8 minutes ago Description :SHARP routers do not perform authentication for some web APIs. The device information may be retrieved without authentication. If the administrative password of the device is left as the initial one, the device may be taken over. Severity: 6.9 | MEDIUM Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly93d3cuaW",
+    "title": "Boletín de vulnerabilidades",
+    "link": "https://www.incibe.es/node/612816",
+    "source": "INCIBE",
+    "lang": "es",
+    "date": "2026-03-25T07:20:01.000Z",
+    "description": "Boletín de vulnerabilidades Vulnerabilidades con productos recientemente documentados: No hay vulnerabilidades nuevas para los productos a los que está suscrito. Otras vulnerabilidades de los productos a los que usted está suscrito, y cuya información ha sido actualizada recientemente: Vulnerabilidad en hexpm (CVE-2026-21621) Severidad: ALTA Fecha de publicación: 05/03/2026 Fecha de última actualización: 25/03/2026 Mié, 25/03/2026 - 08:20",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly90aGVoYW",
+    "title": "FCC Bans New Foreign-Made Routers Over Supply Chain and Cyber Risk Concerns",
+    "link": "https://thehackernews.com/2026/03/fcc-bans-new-foreign-made-routers-over.html",
+    "source": "The Hacker News",
+    "lang": "en",
+    "date": "2026-03-25T07:11:00.000Z",
+    "description": "The U.S. Federal Communications Commission (FCC) said on Monday that it was banning the import of new, foreign-made consumer routers, citing \"unacceptable\" risks to cyber and national security. The action was designed to safeguard Americans and the underlying communications networks the country relies on, FCC Chairman Brendan Carr said in a post on X. The development means that new models of",
+    "category": "General"
+  },
+  {
+    "id": "aHR0cHM6Ly9jdmVmZW",
+    "title": "CVE-2026-33253 - SANYO DENKI CO., LTD. SANUPS SOFTWARE Privilege Escalation Vulnerability",
+    "link": "https://cvefeed.io/vuln/detail/CVE-2026-33253",
+    "source": "CVE Feed",
+    "lang": "en",
+    "date": "2026-03-25T06:16:28.000Z",
+    "description": "CVE ID :CVE-2026-33253 Published : March 25, 2026, 6:16 a.m. | 4 hours, 8 minutes ago Description :SANUPS SOFTWARE provided by SANYO DENKI CO., LTD. registers Windows services with unquoted file paths. A user with the write permission on the root directory of the system drive may execute arbitrary code with SYSTEM privilege. Severity: 6.7 | MEDIUM Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly9jdmVmZW",
+    "title": "CVE-2026-2343 - PeproDev Ultimate Invoice <= 2.2.5 - Unauthenticated Invoice Archive Download",
+    "link": "https://cvefeed.io/vuln/detail/CVE-2026-2343",
+    "source": "CVE Feed",
+    "lang": "en",
+    "date": "2026-03-25T06:16:28.000Z",
+    "description": "CVE ID :CVE-2026-2343 Published : March 25, 2026, 6:16 a.m. | 4 hours, 8 minutes ago Description :The PeproDev Ultimate Invoice WordPress plugin through 2.2.5 has a bulk download invoices action that generates ZIP archives containing exported invoice PDFs. The ZIP files are named predictably making it possible to brute force and retreive PII. Severity: 0.0 | NA Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly9jdmVmZW",
+    "title": "CVE-2026-26306 - OM Workspace DLL Loading Vulnerability",
+    "link": "https://cvefeed.io/vuln/detail/CVE-2026-26306",
+    "source": "CVE Feed",
+    "lang": "en",
+    "date": "2026-03-25T06:16:28.000Z",
+    "description": "CVE ID :CVE-2026-26306 Published : March 25, 2026, 6:16 a.m. | 4 hours, 8 minutes ago Description :The installer for OM Workspace (Windows Edition) Ver 2.4 and earlier insecurely loads Dynamic Link Libraries (DLLs), which could allow an attacker to execute arbitrary code with the privileges of the user invoking the installer. Severity: 7.8 | HIGH Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly9jdmVmZW",
+    "title": "CVE-2026-2072 - Cross-Site Scripting vulnerability in Hitachi Infrastructure Analytics Advisor and Hitachi Ops Center Analyzer",
+    "link": "https://cvefeed.io/vuln/detail/CVE-2026-2072",
+    "source": "CVE Feed",
+    "lang": "en",
+    "date": "2026-03-25T03:16:05.000Z",
+    "description": "CVE ID :CVE-2026-2072 Published : March 25, 2026, 3:16 a.m. | 7 hours, 9 minutes ago Description :Cross-Site Scripting vulnerability in Hitachi Infrastructure Analytics Advisor (Analytics probe component), Hitachi Ops Center Analyzer.This issue affects Hitachi Infrastructure Analytics Advisor:; Hitachi Ops Center Analyzer: from 10.0.0-00 before 11.0.5-00. Severity: 8.2 | HIGH Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly9jdmVmZW",
+    "title": "CVE-2026-1166 - Open Redirect Vulnerability in Hitachi Ops Center Administrator",
+    "link": "https://cvefeed.io/vuln/detail/CVE-2026-1166",
+    "source": "CVE Feed",
+    "lang": "en",
+    "date": "2026-03-25T03:16:05.000Z",
+    "description": "CVE ID :CVE-2026-1166 Published : March 25, 2026, 3:16 a.m. | 7 hours, 9 minutes ago Description :Open Redirect vulnerability in Hitachi Ops Center Administrator.This issue affects Hitachi Ops Center Administrator: from 10.2.0 before 11.0.8. Severity: 4.3 | MEDIUM Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly93d3cuaW",
+    "title": "Boletín de vulnerabilidades",
+    "link": "https://www.incibe.es/node/612725",
+    "source": "INCIBE",
+    "lang": "es",
+    "date": "2026-03-25T03:00:01.000Z",
+    "description": "Boletín de vulnerabilidades Vulnerabilidades con productos recientemente documentados: No hay vulnerabilidades nuevas para los productos a los que está suscrito. Otras vulnerabilidades de los productos a los que usted está suscrito, y cuya información ha sido actualizada recientemente: Vulnerabilidad en la función do_extract_currentfile en minizip (CVE-2014-9485) Severidad: MEDIA Fecha de publicación: 16/01/2018 Fecha de última actualización: 24/03/2026 Vulnerabilidad en la función cil_reset_classpermission en el compilador CIL en SELinux (CVE-2021-36086) Severidad: BAJA Fecha de publicación: 01/07/2021 Fecha de última actualización: 24/03/2026 Vulnerabilidad en knock (CVE-2020-36941) Severidad: MEDIA Fecha de publicación: 27/01/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en SyncBreeze (CVE-2020-36946) Severidad: ALTA Fecha de publicación: 27/01/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Windows SMB Server (CVE-2026-26128) Severidad: ALTA Fecha de publicación: 10/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Windows Kernel Elevation (CVE-2026-26132) Severidad: ALTA Fecha de publicación: 10/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Splunk (CVE-2026-20164) Severidad: MEDIA Fecha de publicación: 11/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Splunk (CVE-2026-20165) Severidad: MEDIA Fecha de publicación: 11/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Splunk (CVE-2026-20166) Severidad: MEDIA Fecha de publicación: 11/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en openclaw (CVE-2026-32302) Severidad: ALTA Fecha de publicación: 13/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en apostrophe de apostrophecms (CVE-2026-32730) Severidad: ALTA Fecha de publicación: 18/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en import-export de apostrophecms (CVE-2026-32731) Severidad: CRÍTICA Fecha de publicación: 18/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en romeo de ctfer-io (CVE-2026-32737) Severidad: ALTA Fecha de publicación: 18/03/2026 Fecha de última actualización: 25/03/2026 Vulnerabilidad en Romeo (CVE-2026-32805) Severidad: ALTA Fecha de publicación: 18/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en QRadar SIEM de IBM (CVE-2025-36051) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en QRadar SIEM de IBM (CVE-2026-1276) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Microsoft 365 Copilot (CVE-2026-24299) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Microsoft 365 Copilot's Business Chat (CVE-2026-26137) Severidad: CRÍTICA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Microsoft Purview de Microsoft (CVE-2026-26138) Severidad: ALTA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Microsoft Purview de Microsoft (CVE-2026-26139) Severidad: ALTA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en discourse (CVE-2026-27166) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 25/03/2026 Vulnerabilidad en discourse (CVE-2026-27454) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 25/03/2026 Vulnerabilidad en discourse (CVE-2026-27491) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 25/03/2026 Vulnerabilidad en discourse (CVE-2026-27570) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 25/03/2026 Vulnerabilidad en discourse (CVE-2026-27740) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 25/03/2026 Vulnerabilidad en OpenClaw (CVE-2026-32005) Severidad: ALTA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en OpenClaw (CVE-2026-32006) Severidad: BAJA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en OpenClaw (CVE-2026-32007) Severidad: ALTA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en OpenClaw (CVE-2026-32016) Severidad: ALTA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en OpenClaw (CVE-2026-32017) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en OpenClaw (CVE-2026-32023) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en discourse (CVE-2026-32099) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en discourse (CVE-2026-33355) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en discourse (CVE-2026-33393) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en discourse (CVE-2026-33394) Severidad: BAJA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en discourse (CVE-2026-33410) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Discourse (CVE-2026-33395) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Discourse (CVE-2026-33408) Severidad: BAJA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Discourse (CVE-2026-30888) Severidad: BAJA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Discourse (CVE-2026-30889) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Discourse (CVE-2026-30891) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Discourse (CVE-2026-31805) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Discourse (CVE-2026-31869) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Discourse (CVE-2026-32114) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Micronaut Framework (CVE-2026-33012) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Micronaut Framework (CVE-2026-33013) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Langflow (CVE-2026-33017) Severidad: CRÍTICA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Mié, 25/03/2026 - 04:00",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly9jdmVmZW",
+    "title": "CVE-2026-4784 - code-projects Simple Laundry System Parameter checkcheckout.php sql injection",
+    "link": "https://cvefeed.io/vuln/detail/CVE-2026-4784",
+    "source": "CVE Feed",
+    "lang": "en",
+    "date": "2026-03-25T02:16:06.000Z",
+    "description": "CVE ID :CVE-2026-4784 Published : March 25, 2026, 2:16 a.m. | 8 hours, 9 minutes ago Description :A vulnerability was found in code-projects Simple Laundry System 1.0. This affects an unknown function of the file /checkcheckout.php of the component Parameter Handler. The manipulation of the argument serviceId results in sql injection. It is possible to launch the attack remotely. The exploit has been made public and could be used. Severity: 7.5 | HIGH Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly9jdmVmZW",
+    "title": "CVE-2026-4766 - Easy Image Gallery <= 1.5.3 - Authenticated (Contributor+) Stored Cross-Site Scripting via Gallery Shortcode Post Meta",
+    "link": "https://cvefeed.io/vuln/detail/CVE-2026-4766",
+    "source": "CVE Feed",
+    "lang": "en",
+    "date": "2026-03-25T02:16:06.000Z",
+    "description": "CVE ID :CVE-2026-4766 Published : March 25, 2026, 2:16 a.m. | 8 hours, 9 minutes ago Description :The Easy Image Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the Gallery shortcode post meta field in all versions up to, and including, 1.5.3. This is due to insufficient input sanitization and output escaping on user-supplied gallery shortcode values. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Severity: 6.4 | MEDIUM Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly9jdmVmZW",
+    "title": "CVE-2026-4783 - itsourcecode College Management System Parameter add-single-student-results.php sql injection",
+    "link": "https://cvefeed.io/vuln/detail/CVE-2026-4783",
+    "source": "CVE Feed",
+    "lang": "en",
+    "date": "2026-03-25T01:17:13.000Z",
+    "description": "CVE ID :CVE-2026-4783 Published : March 25, 2026, 1:17 a.m. | 9 hours, 8 minutes ago Description :A vulnerability has been found in itsourcecode College Management System 1.0. The impacted element is an unknown function of the file /admin/add-single-student-results.php of the component Parameter Handler. The manipulation of the argument course_code leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used. Severity: 6.5 | MEDIUM Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly9jdmVmZW",
+    "title": "CVE-2026-28895 - Apple iOS Biometric Authentication Bypass",
+    "link": "https://cvefeed.io/vuln/detail/CVE-2026-28895",
+    "source": "CVE Feed",
+    "lang": "en",
+    "date": "2026-03-25T01:17:12.000Z",
+    "description": "CVE ID :CVE-2026-28895 Published : March 25, 2026, 1:17 a.m. | 9 hours, 8 minutes ago Description :The issue was addressed with improved checks. This issue is fixed in iOS 26.4 and iPadOS 26.4. An attacker with physical access to an iOS device with Stolen Device Protection enabled may be able to access biometrics-gated Protected Apps with the passcode. Severity: 0.0 | NA Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly9jdmVmZW",
+    "title": "CVE-2026-28894 - Apple iOS Denial-of-Service Vulnerability",
+    "link": "https://cvefeed.io/vuln/detail/CVE-2026-28894",
+    "source": "CVE Feed",
+    "lang": "en",
+    "date": "2026-03-25T01:17:12.000Z",
+    "description": "CVE ID :CVE-2026-28894 Published : March 25, 2026, 1:17 a.m. | 9 hours, 8 minutes ago Description :A denial-of-service issue was addressed with improved input validation. This issue is fixed in iOS 26.4 and iPadOS 26.4, macOS Sequoia 15.7.5, macOS Sonoma 14.8.5, macOS Tahoe 26.4. A remote attacker may be able to cause a denial-of-service. Severity: 0.0 | NA Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly93d3cuaW",
+    "title": "Boletín de vulnerabilidades",
+    "link": "https://www.incibe.es/node/612643",
+    "source": "INCIBE",
+    "lang": "es",
+    "date": "2026-03-24T23:00:01.000Z",
+    "description": "Boletín de vulnerabilidades Vulnerabilidades con productos recientemente documentados: No hay vulnerabilidades nuevas para los productos a los que está suscrito. Otras vulnerabilidades de los productos a los que usted está suscrito, y cuya información ha sido actualizada recientemente: Vulnerabilidad en kernel de Linux (CVE-2024-35861) Severidad: ALTA Fecha de publicación: 19/05/2024 Fecha de última actualización: 24/03/2026 Vulnerabilidad en kernel de Linux (CVE-2024-35863) Severidad: ALTA Fecha de publicación: 19/05/2024 Fecha de última actualización: 24/03/2026 Vulnerabilidad en kernel de Linux (CVE-2024-41096) Severidad: ALTA Fecha de publicación: 29/07/2024 Fecha de última actualización: 24/03/2026 Vulnerabilidad en kernel de Linux (CVE-2024-42136) Severidad: ALTA Fecha de publicación: 30/07/2024 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Splunk (CVE-2026-20163) Severidad: ALTA Fecha de publicación: 11/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en SuiteCRM (CVE-2026-29096) Severidad: ALTA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en SuiteCRM (CVE-2026-29097) Severidad: ALTA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en SuiteCRM (CVE-2026-29098) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en SuiteCRM (CVE-2026-29099) Severidad: ALTA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en AVideo-Encoder (CVE-2026-33024) Severidad: CRÍTICA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en AVideo-Encoder (CVE-2026-33025) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en WWBN AVideo (CVE-2026-33035) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Mesop (CVE-2026-33054) Severidad: CRÍTICA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Tekton Pipelines (CVE-2026-33022) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en tar-rs (CVE-2026-33056) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Mesop (CVE-2026-33057) Severidad: CRÍTICA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Stirling-PDF (CVE-2026-27625) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Claude Code (CVE-2026-33068) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Uptime Kuma (CVE-2026-33130) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Traefik (CVE-2026-32305) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Traefik (CVE-2026-32595) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Mié, 25/03/2026 - 00:00",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly9oYWNrcm",
+    "title": "HackerOne, Mazda, Infinite Campus and Dutch Ministry Hit by Data Breaches",
+    "link": "https://hackread.com/hackerone-mazda-infinite-campus-dutch-ministry-data-breaches/",
+    "source": "HackRead",
+    "lang": "en",
+    "date": "2026-03-24T22:54:11.000Z",
+    "description": "HackerOne, Mazda, Infinite Campus and the Dutch Ministry report data breaches, exposing employee and partner data across multiple sectors worldwide.",
+    "category": "Brechas"
+  },
+  {
+    "id": "aHR0cHM6Ly9oYWNrcm",
+    "title": "Understanding Wiz’s Approach to Securing the AI Supply Chain",
+    "link": "https://hackread.com/understanding-wizs-approach-securing-ai-supply-chain/",
+    "source": "HackRead",
+    "lang": "en",
+    "date": "2026-03-24T19:12:11.000Z",
+    "description": "As organizations race to deploy AI, securing the rapidly expanding ecosystem of models, data, and dependencies has become a critical priority, much of which can be addressed by Wiz’s CNAPP solution.",
+    "category": "General"
+  },
+  {
+    "id": "aHR0cHM6Ly93d3cuaW",
+    "title": "Boletín de vulnerabilidades",
+    "link": "https://www.incibe.es/node/612536",
+    "source": "INCIBE",
+    "lang": "es",
+    "date": "2026-03-24T19:00:01.000Z",
+    "description": "Boletín de vulnerabilidades Vulnerabilidades con productos recientemente documentados: No hay vulnerabilidades nuevas para los productos a los que está suscrito. Otras vulnerabilidades de los productos a los que usted está suscrito, y cuya información ha sido actualizada recientemente: Vulnerabilidad en strukturag libde265 commit d9fea9d (CVE-2025-61147) Severidad: MEDIA Fecha de publicación: 23/02/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en openwrt (CVE-2026-30871) Severidad: CRÍTICA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en openwrt (CVE-2026-30872) Severidad: CRÍTICA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en openwrt (CVE-2026-30873) Severidad: BAJA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en SuiteCRM (CVE-2026-29100) Severidad: ALTA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en SuiteCRM (CVE-2026-29101) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en SuiteCRM (CVE-2026-29102) Severidad: ALTA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en SuiteCRM (CVE-2026-29103) Severidad: CRÍTICA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en SuiteCRM (CVE-2026-29104) Severidad: BAJA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en SuiteCRM (CVE-2026-29105) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en SuiteCRM (CVE-2026-29106) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Sliver (CVE-2026-32941) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Egress Policy (CVE-2026-32946) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Vulnerabilidad en Harden-Runner (CVE-2026-32947) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 24/03/2026 Mar, 24/03/2026 - 20:00",
+    "category": "Vulnerabilidad"
+  },
+  {
+    "id": "aHR0cHM6Ly9oYWNrcm",
+    "title": "All AI and Security Teams Need Transparent Data Pipelines",
+    "link": "https://hackread.com/ai-security-teams-transparent-data-pipelines/",
+    "source": "HackRead",
+    "lang": "en",
+    "date": "2026-03-24T18:43:46.000Z",
+    "description": "Transparent AI data pipelines help organizations verify sources, reduce errors, meet regulations, and build trust by making outputs auditable and reliable.",
+    "category": "General"
+  },
+  {
+    "id": "aHR0cHM6Ly90aGVoYW",
+    "title": "TeamPCP Backdoors LiteLLM Versions 1.82.7–1.82.8 via Trivy CI/CD Compromise",
+    "link": "https://thehackernews.com/2026/03/teampcp-backdoors-litellm-versions.html",
+    "source": "The Hacker News",
+    "lang": "en",
+    "date": "2026-03-24T18:21:00.000Z",
+    "description": "TeamPCP, the threat actor behind the recent compromises of Trivy and KICS, has now compromised a popular Python package named litellm, pushing two malicious versions containing a credential harvester, a Kubernetes lateral movement toolkit, and a persistent backdoor. Multiple security vendors, including Endor Labs and JFrog, revealed that litellm versions 1.82.7 and 1.82.8 were published on March",
+    "category": "Brechas"
+  },
+  {
+    "id": "aHR0cHM6Ly9oYWNrcm",
+    "title": "OVHcloud Founder Denies Massive 590TB Data Breach Claims",
+    "link": "https://hackread.com/ovhcloud-founder-denies-590tb-data-breach-claims/",
+    "source": "HackRead",
+    "lang": "en",
+    "date": "2026-03-24T17:42:21.000Z",
+    "description": "OVHcloud denies breach after hacker claims 600TB data theft affecting millions of sites, with experts doubting authenticity due to weak proof",
+    "category": "Brechas"
+  },
+  {
+    "id": "aHR0cHM6Ly90aGVoYW",
+    "title": "Tax Search Ads Deliver ScreenConnect Malware Using Huawei Driver to Disable EDR",
+    "link": "https://thehackernews.com/2026/03/tax-search-ads-deliver-screenconnect.html",
+    "source": "The Hacker News",
+    "lang": "en",
+    "date": "2026-03-24T17:05:00.000Z",
+    "description": "A large-scale malvertising campaign active since January 2026 has been observed targeting U.S.-based individuals searching for tax-related documents to serve rogue installers for ConnectWise ScreenConnect that drop a tool named HwAudKiller to blind security programs using the bring your own vulnerable driver (BYOVD) technique. \"The campaign abuses Google Ads to serve rogue ScreenConnect (",
+    "category": "General"
+  },
+  {
+    "id": "aHR0cHM6Ly90aGVoYW",
+    "title": "5 Learnings from the First-Ever Gartner Market Guide for Guardian Agents",
+    "link": "https://thehackernews.com/2026/03/5-learnings-from-first-ever-gartner.html",
+    "source": "The Hacker News",
+    "lang": "en",
+    "date": "2026-03-24T16:36:05.000Z",
+    "description": "On February 25, 2026, Gartner published its inaugural Market Guide for Guardian Agents, marking an important milestone for this emerging category. For those unfamiliar with the various Gartner report types, “a Market Guide defines a market and explains what clients can expect it to do in the short term. With the focus on early, more chaotic markets, a Market Guide does not rate or position",
+    "category": "General"
+  },
+  {
+    "id": "aHR0cHM6Ly90aGVoYW",
+    "title": "Hackers Use Fake Resumes to Steal Enterprise Credentials and Deploy Crypto Miner",
+    "link": "https://thehackernews.com/2026/03/hackers-use-fake-resumes-to-steal.html",
+    "source": "The Hacker News",
+    "lang": "en",
+    "date": "2026-03-24T16:35:00.000Z",
+    "description": "An ongoing phishing campaign is targeting French-speaking corporate environments with fake resumes that lead to the deployment of cryptocurrency miners and information stealers. \"The campaign uses highly obfuscated VBScript files disguised as resume/CV documents, delivered through phishing emails,\" Securonix researchers Shikha Sangwan, Akshay Gaikwad, and Aaron Beardslee said in a report shared",
+    "category": "Brechas"
+  },
+  {
+    "id": "aHR0cHM6Ly9oYWNrcm",
+    "title": "FBI Warns of Iran’s Handala Hack Group Using Fake Apps to Spy on Windows Users",
+    "link": "https://hackread.com/fbi-iran-handala-hack-group-fake-apps-spy-windows/",
+    "source": "HackRead",
+    "lang": "en",
+    "date": "2026-03-24T16:18:50.000Z",
+    "description": "The FBI has issued a warning about Iran-linked Handala Hack Group, targeting Windows users through fake versions of WhatsApp and Telegram.",
+    "category": "General"
+  },
+  {
+    "id": "aHR0cHM6Ly91bmFhbG",
+    "title": "Crunchyroll investiga un presunto robo de datos tras la filtración de millones de tickets de soporte",
+    "link": "https://unaaldia.hispasec.com/2026/03/crunchyroll-investiga-un-presunto-robo-de-datos-tras-la-filtracion-de-millones-de-tickets-de-soporte.html?utm_source=rss&utm_medium=rss&utm_campaign=crunchyroll-investiga-un-presunto-robo-de-datos-tras-la-filtracion-de-millones-de-tickets-de-soporte",
+    "source": "Una al Dia",
+    "lang": "es",
+    "date": "2026-03-24T12:06:13.000Z",
+    "description": "Crunchyroll está investigando las afirmaciones de un atacante que asegura haber exfiltrado cerca de 8 millones de tickets de soporte con unos 6,8 millones de correos únicos. La compañía sostiene que, por ahora, cree que el alcance se limitaría principalmente a información de atención al cliente y dice no haber visto indicios de acceso persistente […] La entrada Crunchyroll investiga un presunto robo de datos tras la filtración de millones de tickets de soporte se publicó primero en Una Al Día.",
+    "category": "General"
   },
   {
     "id": "aHR0cHM6Ly90aGVoYW",
@@ -15,19 +345,29 @@
     "link": "https://thehackernews.com/2026/03/the-hidden-cost-of-cybersecurity.html",
     "source": "The Hacker News",
     "lang": "en",
-    "date": "2026-03-24T10:00:00.000Z",
+    "date": "2026-03-24T12:01:00.000Z",
     "description": "Cybersecurity has changed fast. Roles are more specialized, and tooling is more advanced. On paper, this should make organizations more secure. But in practice, many teams struggle with the same basic problems they faced years ago: unclear risk priorities, misaligned tooling decisions, and difficulty explaining security issues in terms the business understands. These challenges do not",
     "category": "General"
   },
   {
-    "id": "aHR0cHM6Ly93d3cuaW",
-    "title": "Respuesta institucional tras el incidente de datos en el Centro Oncológico de la Universidad de Hawái",
-    "link": "https://www.incibe.es/incibe-cert/publicaciones/bitacora-de-seguridad/respuesta-institucional-tras-el-incidente-de-datos-en-el-centro",
-    "source": "INCIBE",
-    "lang": "es",
-    "date": "2026-03-24T09:57:29.000Z",
-    "description": "Respuesta institucional tras el incidente de datos en el Centro Oncológico de la Universidad de Hawái 24/03/2026 Mar, 24/03/2026 - 10:57 El caso de la filtración de datos en el Centro Oncológico de la Universidad de Hawái se hizo público a finales de febrero de 2026, cuando se detectó actividad sospechosa en sus sistemas. La institución anunció oficialmente el ciberataque el 27 de febrero de 2026, tras completar una investigación preliminar sobre el alcance del incidente. En ese momento se confirmó que se trataba de un ataque de tipo ransomware dirigido a sistemas vinculados a investigación epidemiológica. La divulgación se produjo después de meses de análisis forense digital, lo que retrasó la notificación pública, pero permitió dimensionar mejor el impacto. El ataque comprometió bases de datos que contenían información sensible de aproximadamente 1,2 millones de personas, incluyendo participantes en estudios y registros históricos utilizados para investigación. Entre los datos expuestos se encuentran números de la Seguridad Social, identificaciones oficiales y otra información personal procedente, en parte, de registros públicos antiguos. A pesar de la magnitud, la universidad indicó que los sistemas clínicos y los datos de pacientes en tratamiento no se vieron afectados, limitándose el incidente al ámbito de la investigación. Tras detectar la intrusión, la institución aisló los sistemas afectados, contrató expertos externos en ciberseguridad y trabajó en la recuperación de los datos, incluyendo negociaciones con los atacantes. Asimismo, se notificó a los afectados y se ofrecieron servicios gratuitos de monitorización de crédito como medida de mitigación del riesgo. Actualmente, el incidente se encuentra en una fase de seguimiento y gestión de consecuencias, con la Universidad de Hawái reforzando sus protocolos de seguridad y colaborando con autoridades para investigar lo sucedido. Aunque no se ha confirmado públicamente el uso indebido de los datos filtrados, el volumen y la sensibilidad de la información expuesta mantienen el riesgo latente para los afectados. Además, han comenzado a surgir investigaciones legales que podrían derivar en demandas colectivas, lo que añade presión institucional para garantizar transparencia y responsabilidad. Referencias 02/03/2026 therecord.media University of Hawaiʻi Cancer Center confirms data leak following ransomware attack 03/03/2026 scworld.com Ransomware attack exposes 1.2 million University of Hawaii Cancer Center récords 03/03/2026 prnewswire.com DATA BREACH ALERT: Edelson Lechtzin LLP is Investigating Claims on Behalf of Persons Affected by the University of Hawaii Cancer Center Data Breach 28/02/2026 hawaiinewsnow.com UH Cancer Center warns of cyberattack that possibly exposed sensitive data Etiquetas Cibercrimen Filtración de datos Ransomware Sector sanitario - salud",
-    "category": "Ransomware"
+    "id": "aHR0cHM6Ly90aGVoYW",
+    "title": "Ghost Campaign Uses 7 npm Packages to Steal Crypto Wallets and Credentials",
+    "link": "https://thehackernews.com/2026/03/ghost-campaign-uses-7-npm-packages-to.html",
+    "source": "The Hacker News",
+    "lang": "en",
+    "date": "2026-03-24T12:00:00.000Z",
+    "description": "Cybersecurity researchers have uncovered a new set of malicious npm packages that are designed to steal cryptocurrency wallets and sensitive data. The activity is being tracked by ReversingLabs as the Ghost campaign. The list of identified packages, all published by a user named mikilanjillo, is below - react-performance-suite react-state-optimizer-core react-fast-utilsa ai-fast-auto-trader",
+    "category": "Brechas"
+  },
+  {
+    "id": "aHR0cHM6Ly9oYWNrcm",
+    "title": "DarkSword iPhone Exploit Leaked Online, Hundreds of Millions at Risk",
+    "link": "https://hackread.com/darksword-iphone-exploit-leaked-online/",
+    "source": "HackRead",
+    "lang": "en",
+    "date": "2026-03-24T11:37:50.000Z",
+    "description": "DarkSword exploit leak puts up to 270 million iPhones at risk, with hackers able to access data through…",
+    "category": "Brechas"
   },
   {
     "id": "aHR0cHM6Ly90aGVoYW",
@@ -35,69 +375,9 @@
     "link": "https://thehackernews.com/2026/03/teampcp-hacks-checkmarx-github-actions.html",
     "source": "The Hacker News",
     "lang": "en",
-    "date": "2026-03-24T09:29:00.000Z",
+    "date": "2026-03-24T10:38:00.000Z",
     "description": "Two more GitHub Actions workflows have become the latest to be compromised by credential-stealing malware by a threat actor known as TeamPCP, the cloud-native cybercriminal operation also behind the Trivy supply chain attack. The workflows, both maintained by the supply chain security company Checkmarx, are listed below - checkmarx/ast-github-action checkmarx/kics-github-action Cloud security",
     "category": "Brechas"
-  },
-  {
-    "id": "aHR0cHM6Ly93d3cuaW",
-    "title": "Dos nuevos avisos de SCI",
-    "link": "https://www.incibe.es/node/612489",
-    "source": "INCIBE",
-    "lang": "es",
-    "date": "2026-03-24T09:18:38.000Z",
-    "description": "Dos nuevos avisos de SCI Índice Múltiples vulnerabilidades en productos de Helmholz Múltiples vulnerabilidades en productos de MB connect line Múltiples vulnerabilidades en productos de Helmholz Fecha24/03/2026 Importancia5 - Crítica Recursos Afectados Helmholtz myREX24V2 y miREX24V2.virtual, versiones de firmware: 2.19.3 y anteriores. Descripción CERT@VDE en colaboración con Helmholz GmbH & Co. KG ha publicado dos vulnerabilidades: una de severidad crítica y otra de severidad alta que, de ser explotadas, podrían permitir a un atacante ejecutar código remoto o realizar una inyección SQL. Solución Actualizar la instancia myREX24V2/myREX24V2.virtual a la versión 2.19.4. Detalle CVE-2026-32968: vulnerabilidad de severidad crítica que debido a la neutralización incorrecta de elementos especiales utilizados en un comando del sistema operativo. Un atacante remoto no autenticado, podría explotar una vulnerabilidad de ejecución remota de código (RCE) en el módulo com_mb24sysapi, lo que resultaría en el compromiso total del sistema. Esta vulnerabilidad es una variante de ataque de CVE-2020-10383. CVE-2026-32969: vulnerabilidad de severidad alta. Un atacante remoto no autenticado, podría explotar una vulnerabilidad de inyección SQL ciega previa a la autenticación en el método de autenticación del endpoint 'userinfo' debido a una neutralización incorrecta de elementos especiales en un comando SQL SELECT. Esto puede resultar en una pérdida total de confidencialidad. Múltiples vulnerabilidades en productos de MB connect line Fecha24/03/2026 Importancia5 - Crítica Recursos Afectados MB connect line mbCONNECT24 y mymbCONNECT24, versiones de firmware: 2.19.3 y anteriores. Descripción CERT@VDE en colaboración con MB connect line GmbH ha publicado dos vulnerabilidades: una de severidad crítica y otra de severidad alta que, de ser explotadas, podrían permitir a un atacante ejecutar código remoto o realizar una inyección SQL. Solución Actualizar la instancia mbCONNECT24/mymbCONNECT24 a la versión 2.19.4. Detalle CVE-2026-32968: vulnerabilidad de severidad crítica que debido a la neutralización incorrecta de elementos especiales utilizados en un comando del sistema operativo. Un atacante remoto no autenticado, podría explotar una vulnerabilidad de ejecución remota de código (RCE) en el módulo com_mb24sysapi, lo que resultaría en el compromiso total del sistema. Esta vulnerabilidad es una variante de ataque de CVE-2020-10383. CVE-2026-32969: vulnerabilidad de severidad alta. Un atacante remoto no autenticado, podría explotar una vulnerabilidad de inyección SQL ciega previa a la autenticación en el método de autenticación del endpoint 'userinfo' debido a una neutralización incorrecta de elementos especiales en un comando SQL SELECT. Esto puede resultar en una pérdida total de confidencialidad. Mar, 24/03/2026 - 10:18",
-    "category": "Vulnerabilidad"
-  },
-  {
-    "id": "aHR0cHM6Ly93d3cuaW",
-    "title": "Dos nuevos avisos para empresas",
-    "link": "https://www.incibe.es/node/612488",
-    "source": "INCIBE",
-    "lang": "es",
-    "date": "2026-03-24T09:17:39.000Z",
-    "description": "Dos nuevos avisos para empresas Índice Múltiples vulnerabilidades en Archer AX53 de TP-Link Múltiples vulnerabilidades en productos de TP-Link Múltiples vulnerabilidades en Archer AX53 de TP-Link Fecha23/03/2026 Importancia4 - Alta Recursos Afectados Archer AX53 v1 en todas las versiones anteriores a la 251029. Descripción TP-Link ha informado sobre 2 vulnerabilidades de severidad alta que afectan al producto Archer AX53. Si las vulnerabilidades persisten en el producto afectado, podrían facilitar a un atacante inyectar y ejecutar comandos, interrumpir el servicio y obtener el control total del dispositivo. Solución Se recomienda actualizar el producto a su última versión disponible para evitar que las vulnerabilidades persistan en el dispositivo afectado. Para ello, consultar el enlace de las referencias. Detalle La primera vulnerabilidad se trata de una inyección de comandos en el servicio mscd y se debe a un manejo insuficiente de la entrada, lo que permite la redirección de registros a archivos arbitrarios y la concatenación de contenido de archivos no validados en comandos de shell. La explotación exitosa de esta vulnerabilidad podría permitir a un atacante autenticado inyectar y ejecutar comandos arbitrarios y obtener control total del dispositivo. La segunda vulnerabilidad se trata de una sanitización insuficiente de la entrada en la función de manejo de sondeo de red donde los parámetros no validados pueden desencadenar un desbordamiento de búfer basado en la pila. La explotación exitosa de esta vulnerabilidad podría permitir a un atacante provoca el bloqueo del servicio, ejecutar código remoto u obtener el control total del dispositivo. Múltiples vulnerabilidades en productos de TP-Link Fecha24/03/2026 Importancia4 - Alta Recursos Afectados Archer NX600 v3.0: versiones anteriores a 1.3.0 Build 260309; Archer NX600 v2.0: versiones anteriores a 1.3.0 Build 260311; Archer NX600 v1.0: versiones anteriores a 1.4.0 Build 260311; Archer NX500 v2.0: versiones anteriores a 1.5.0 Build 260309; Archer NX500 v1.0: versiones anteriores a 1.3.0 Build 260311; Archer NX210 v3.0: versiones anteriores a 1.3.0 Build 260309; Archer NX210 v2.0 y v2.20: versiones anteriores a 1.3.0 Build 260311; Archer NX200 v3.0: versiones anteriores a 1.3.0 Build 260309; Archer NX200 v2.20: versiones anteriores a 1.3.0 Build 260311; Archer NX200 v2.0: versiones anteriores a 1.3.0 Build 260311; Archer NX200 v1.0: versiones anteriores a 1.8.0 Build 260311; TP-Link TD-W8961N, versiones anteriores a V4_250925. Descripción TP-Link ha informado sobre 5 vulnerabilidades de severidades altas en varios de sus productos. Si estas vulnerabilidades persisten en los dispositivos afectados, podrían permitir a un atacante afectar a la confidencialidad, la integridad y la disponibilidad del dispositivo, entre otras. Solución Se recomienda actualizar los firmwares a sus respectivas últimas versiones. Para ello, consultar los enlaces de las referencias. Detalle La primera vulnerabilidad se trata de la ausencia de una comprobación en la autenticación del servidor HTTP para ciertos endpoints CGI que permite el acceso no autenticado. Un atacante podría aprovechar esta vulnerabilidad para realizar acciones HTTP privilegiadas sin autenticación. La segunda y tercera vulnerabilidad se basan en la inyección de comandos en la ruta CLI, la cual se debe a un manejo inadecuado de la entrada de comandos de la interfaz de línea de comandos (CLI) con privilegios administrativos. Un atacante autenticado con privilegios administrativos podría ejecutar comandos arbitrarios en el sistema operativo y afectar, por ende, la integridad y la disponibilidad del dispositivo. La cuarta vulnerabilidad se debe a una clave criptográfica integrada en su mecanismo de configuración que permite descifrar y volver a cifrar los datos de configuración del dispositivo. Un atacante autenticado podría aprovechar esta vulnerabilidad para comprometer la confidencialidad y la integridad de dichos datos, con el simple hecho de descifrar los archivos de configuración, modificarlos y volver a cifrarlos. La quinta vulnerabilidad se da en el componente 'httpd' del producto TD-W8961N debido a una sanitización de entrada incorrecta. Un atacante podría provocar que solicitudes manipuladas desencadenen un error de procesamiento lo que provoca la caída del servicio 'httpd' y la interrupción del servicio. Mar, 24/03/2026 - 10:17",
-    "category": "General"
-  },
-  {
-    "id": "aHR0cHM6Ly9jdmVmZW",
-    "title": "CVE-2026-4649 - Auth bypass in Apache Artemis allows reading all internal messages",
-    "link": "https://cvefeed.io/vuln/detail/CVE-2026-4649",
-    "source": "CVE Feed",
-    "lang": "en",
-    "date": "2026-03-24T09:16:39.000Z",
-    "description": "CVE ID :CVE-2026-4649 Published : March 24, 2026, 9:16 a.m. | 1 hour, 6 minutes ago Description :Apache Artemis before version 2.52.0 is affected by an authentication bypass flaw which allows reading all messages exchanged via the broker and injection of new message ( CVE-2026-27446 https://www.cve.org/CVERecord ). Since KNIME Business Hub uses Apache Artemis it is also affected by the issue. However, since Apache Artemis is not exposed to the outside it requires at least normal user privileges and the ability to execute workflows in an executor. Such a user can install and register a federated mirror without authentication to the original Apache Artemis instance and thereby read all internal messages and inject new messages. The issue affects all versions of KNIME Business Hub. A fixed version of Apache Artemis is shipped with versions 1.18.0, 1.17.4, and 1.16.3. We recommend updating to a fixed version as soon as possible since no workaround is known. Severity: 5.3 | MEDIUM Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
-    "category": "Vulnerabilidad"
-  },
-  {
-    "id": "aHR0cHM6Ly9jdmVmZW",
-    "title": "CVE-2026-3509 - CODESYS Control Audit Log Format String DoS",
-    "link": "https://cvefeed.io/vuln/detail/CVE-2026-3509",
-    "source": "CVE Feed",
-    "lang": "en",
-    "date": "2026-03-24T08:16:01.000Z",
-    "description": "CVE ID :CVE-2026-3509 Published : March 24, 2026, 8:16 a.m. | 2 hours, 7 minutes ago Description :An unauthenticated remote attacker may be able to control the format string of messages processed by the Audit Log of the CODESYS Control runtime system, potentially resulting in a denial‑of‑service (DoS) condition. Severity: 7.5 | HIGH Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
-    "category": "Vulnerabilidad"
-  },
-  {
-    "id": "aHR0cHM6Ly9jdmVmZW",
-    "title": "CVE-2026-32642 - Apache Artemis, Apache ActiveMQ Artemis: Temporary address auto-created for OpenWire consumer without createAddress permission",
-    "link": "https://cvefeed.io/vuln/detail/CVE-2026-32642",
-    "source": "CVE Feed",
-    "lang": "en",
-    "date": "2026-03-24T08:16:01.000Z",
-    "description": "CVE ID :CVE-2026-32642 Published : March 24, 2026, 8:16 a.m. | 2 hours, 7 minutes ago Description :Incorrect Authorization (CWE-863) vulnerability in Apache Artemis, Apache ActiveMQ Artemis exists when an application using the OpenWire protocol attempts to create a non-durable JMS topic subscription on an address that doesn't exist with an authenticated user which has the \"createDurableQueue\" permission but does not have the \"createAddress\" permission and address auto-creation is disabled. In this circumstance, a temporary address will be created whereas the attempt to create the non-durable subscription should instead fail since the user is not authorized to create the corresponding address. When the OpenWire connection is closed the address is removed. This issue affects Apache Artemis: from 2.50.0 through 2.52.0; Apache ActiveMQ Artemis: from 2.0.0 through 2.44.0. Users are recommended to upgrade to version 2.53.0, which fixes the issue. Severity: 2.3 | LOW Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
-    "category": "Vulnerabilidad"
-  },
-  {
-    "id": "aHR0cHM6Ly9jdmVmZW",
-    "title": "CVE-2025-41660 - CODESYS Control Boot Application Replacement Enables Code Execution",
-    "link": "https://cvefeed.io/vuln/detail/CVE-2025-41660",
-    "source": "CVE Feed",
-    "lang": "en",
-    "date": "2026-03-24T08:16:00.000Z",
-    "description": "CVE ID :CVE-2025-41660 Published : March 24, 2026, 8:16 a.m. | 2 hours, 7 minutes ago Description :A low-privileged remote attacker may be able to replace the boot application of the CODESYS Control runtime system, enabling unauthorized code execution. Severity: 8.8 | HIGH Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
-    "category": "Vulnerabilidad"
   },
   {
     "id": "aHR0cHM6Ly9oYWNrcm",
@@ -110,46 +390,6 @@
     "category": "General"
   },
   {
-    "id": "aHR0cHM6Ly9jdmVmZW",
-    "title": "CVE-2026-4756 - Out-of-bounds Write in MolotovCherry Android-ImageMagick7",
-    "link": "https://cvefeed.io/vuln/detail/CVE-2026-4756",
-    "source": "CVE Feed",
-    "lang": "en",
-    "date": "2026-03-24T07:16:07.000Z",
-    "description": "CVE ID :CVE-2026-4756 Published : March 24, 2026, 7:16 a.m. | 3 hours, 7 minutes ago Description :Out-of-bounds Write vulnerability in MolotovCherry Android-ImageMagick7.This issue affects Android-ImageMagick7: before 7.1.2-11. Severity: 7.8 | HIGH Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
-    "category": "Vulnerabilidad"
-  },
-  {
-    "id": "aHR0cHM6Ly9jdmVmZW",
-    "title": "CVE-2026-4755 - CWE-20 in MolotovCherry Android-ImageMagick7",
-    "link": "https://cvefeed.io/vuln/detail/CVE-2026-4755",
-    "source": "CVE Feed",
-    "lang": "en",
-    "date": "2026-03-24T07:16:07.000Z",
-    "description": "CVE ID :CVE-2026-4755 Published : March 24, 2026, 7:16 a.m. | 3 hours, 7 minutes ago Description :CWE-20 vulnerability in MolotovCherry Android-ImageMagick7.This issue affects Android-ImageMagick7: before 7.1.2-11. Severity: 9.8 | CRITICAL Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
-    "category": "Vulnerabilidad"
-  },
-  {
-    "id": "aHR0cHM6Ly9jdmVmZW",
-    "title": "CVE-2026-4754 - CWE-79 in MolotovCherry Android-ImageMagick7",
-    "link": "https://cvefeed.io/vuln/detail/CVE-2026-4754",
-    "source": "CVE Feed",
-    "lang": "en",
-    "date": "2026-03-24T07:16:07.000Z",
-    "description": "CVE ID :CVE-2026-4754 Published : March 24, 2026, 7:16 a.m. | 3 hours, 7 minutes ago Description :CWE-79 vulnerability in MolotovCherry Android-ImageMagick7.This issue affects Android-ImageMagick7: before 7.1.2-11. Severity: 6.1 | MEDIUM Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
-    "category": "Vulnerabilidad"
-  },
-  {
-    "id": "aHR0cHM6Ly9jdmVmZW",
-    "title": "CVE-2026-33852 - Missing Release of Memory after Effective Lifetime in MolotovCherry Android-ImageMagick7",
-    "link": "https://cvefeed.io/vuln/detail/CVE-2026-33852",
-    "source": "CVE Feed",
-    "lang": "en",
-    "date": "2026-03-24T07:16:07.000Z",
-    "description": "CVE ID :CVE-2026-33852 Published : March 24, 2026, 7:16 a.m. | 3 hours, 7 minutes ago Description :Missing Release of Memory after Effective Lifetime vulnerability in MolotovCherry Android-ImageMagick7.This issue affects Android-ImageMagick7: before 7.1.2-11. Severity: 7.5 | HIGH Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
-    "category": "Vulnerabilidad"
-  },
-  {
     "id": "aHR0cHM6Ly90aGVoYW",
     "title": "U.S. Sentences Russian Hacker to 6.75 Years for Role in $9M Ransomware Damage",
     "link": "https://thehackernews.com/2026/03/us-sentences-russian-hacker-to-675.html",
@@ -160,56 +400,6 @@
     "category": "Ransomware"
   },
   {
-    "id": "aHR0cHM6Ly93d3cuaW",
-    "title": "Boletín de vulnerabilidades",
-    "link": "https://www.incibe.es/node/612466",
-    "source": "INCIBE",
-    "lang": "es",
-    "date": "2026-03-24T06:20:01.000Z",
-    "description": "Boletín de vulnerabilidades Vulnerabilidades con productos recientemente documentados: No hay vulnerabilidades nuevas para los productos a los que está suscrito. Otras vulnerabilidades de los productos a los que usted está suscrito, y cuya información ha sido actualizada recientemente: Vulnerabilidad en PJSIP (CVE-2026-32942) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en PJSIP (CVE-2026-32945) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Mar, 24/03/2026 - 07:20",
-    "category": "Vulnerabilidad"
-  },
-  {
-    "id": "aHR0cHM6Ly9jdmVmZW",
-    "title": "CVE-2026-4753 - Out-of-bounds Read in slajerek RetroDebugger",
-    "link": "https://cvefeed.io/vuln/detail/CVE-2026-4753",
-    "source": "CVE Feed",
-    "lang": "en",
-    "date": "2026-03-24T06:16:23.000Z",
-    "description": "CVE ID :CVE-2026-4753 Published : March 24, 2026, 6:16 a.m. | 4 hours, 7 minutes ago Description :Out-of-bounds Read vulnerability in slajerek RetroDebugger.This issue affects RetroDebugger: before v0.64.72. Severity: 9.1 | CRITICAL Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
-    "category": "Vulnerabilidad"
-  },
-  {
-    "id": "aHR0cHM6Ly9jdmVmZW",
-    "title": "CVE-2026-4752 - Use After Free in No-Chicken Echo-Mate",
-    "link": "https://cvefeed.io/vuln/detail/CVE-2026-4752",
-    "source": "CVE Feed",
-    "lang": "en",
-    "date": "2026-03-24T06:16:23.000Z",
-    "description": "CVE ID :CVE-2026-4752 Published : March 24, 2026, 6:16 a.m. | 4 hours, 7 minutes ago Description :Use After Free vulnerability in No-Chicken Echo-Mate.This issue affects Echo-Mate: before V250329. Severity: 6.4 | MEDIUM Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
-    "category": "Vulnerabilidad"
-  },
-  {
-    "id": "aHR0cHM6Ly9jdmVmZW",
-    "title": "CVE-2026-4751 - NULL Pointer Dereference in tmate-io tmate",
-    "link": "https://cvefeed.io/vuln/detail/CVE-2026-4751",
-    "source": "CVE Feed",
-    "lang": "en",
-    "date": "2026-03-24T06:16:23.000Z",
-    "description": "CVE ID :CVE-2026-4751 Published : March 24, 2026, 6:16 a.m. | 4 hours, 7 minutes ago Description :NULL Pointer Dereference vulnerability in tmate-io tmate.This issue affects tmate: before 2.4.0. Severity: 5.3 | MEDIUM Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
-    "category": "Vulnerabilidad"
-  },
-  {
-    "id": "aHR0cHM6Ly9jdmVmZW",
-    "title": "CVE-2026-4750 - Out-of-bounds Read in fabiangreffrath woof",
-    "link": "https://cvefeed.io/vuln/detail/CVE-2026-4750",
-    "source": "CVE Feed",
-    "lang": "en",
-    "date": "2026-03-24T06:16:23.000Z",
-    "description": "CVE ID :CVE-2026-4750 Published : March 24, 2026, 6:16 a.m. | 4 hours, 7 minutes ago Description :Out-of-bounds Read vulnerability in fabiangreffrath woof.This issue affects woof: before woof_15.3.0. Severity: 9.1 | CRITICAL Visit the link for more details, such as CVSS details, affected products, timeline, and more...",
-    "category": "Vulnerabilidad"
-  },
-  {
     "id": "aHR0cHM6Ly90aGVoYW",
     "title": "Citrix Urges Patching Critical NetScaler Flaw Allowing Unauthenticated Data Leaks",
     "link": "https://thehackernews.com/2026/03/citrix-urges-patching-critical.html",
@@ -217,16 +407,6 @@
     "lang": "en",
     "date": "2026-03-24T05:59:00.000Z",
     "description": "Citrix has released security updates to address two vulnerabilities in NetScaler ADC and NetScaler Gateway, including a critical flaw that could be exploited to leak sensitive data from the application. The vulnerabilities are listed below - CVE-2026-3055 (CVSS score: 9.3) - Insufficient input validation leading to memory overread CVE-2026-4368 (CVSS score: 7.7) - Race condition leading to user",
-    "category": "Vulnerabilidad"
-  },
-  {
-    "id": "aHR0cHM6Ly93d3cuaW",
-    "title": "Boletín de vulnerabilidades",
-    "link": "https://www.incibe.es/node/612369",
-    "source": "INCIBE",
-    "lang": "es",
-    "date": "2026-03-24T02:20:01.000Z",
-    "description": "Boletín de vulnerabilidades Vulnerabilidades con productos recientemente documentados: No hay vulnerabilidades nuevas para los productos a los que está suscrito. Otras vulnerabilidades de los productos a los que usted está suscrito, y cuya información ha sido actualizada recientemente: Vulnerabilidad en Red Hat (CVE-2026-2443) Severidad: MEDIA Fecha de publicación: 13/02/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en YAML::Syck de TODDR (CVE-2026-4177) Severidad: CRÍTICA Fecha de publicación: 16/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en glpi de glpi-project (CVE-2026-25937) Severidad: MEDIA Fecha de publicación: 18/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en glpi-inventory-plugin de glpi-project (CVE-2026-26001) Severidad: ALTA Fecha de publicación: 18/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en sentry de getsentry (CVE-2026-26004) Severidad: MEDIA Fecha de publicación: 18/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en pyopenssl de pyca (CVE-2026-27448) Severidad: BAJA Fecha de publicación: 18/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en pyopenssl de pyca (CVE-2026-27459) Severidad: ALTA Fecha de publicación: 18/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en lam de LDAPAccountManager (CVE-2026-27894) Severidad: ALTA Fecha de publicación: 18/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en lam de LDAPAccountManager (CVE-2026-27895) Severidad: MEDIA Fecha de publicación: 18/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en xiaoheiFS de danvei233 (CVE-2026-28673) Severidad: ALTA Fecha de publicación: 18/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en xiaoheiFS de danvei233 (CVE-2026-28674) Severidad: ALTA Fecha de publicación: 18/03/2026 Fecha de última actualización: 23/03/2026 Mar, 24/03/2026 - 03:20",
     "category": "Vulnerabilidad"
   },
   {
@@ -250,16 +430,6 @@
     "category": "General"
   },
   {
-    "id": "aHR0cHM6Ly93d3cuaW",
-    "title": "Boletín de vulnerabilidades",
-    "link": "https://www.incibe.es/node/612327",
-    "source": "INCIBE",
-    "lang": "es",
-    "date": "2026-03-23T22:00:01.000Z",
-    "description": "Boletín de vulnerabilidades Vulnerabilidades con productos recientemente documentados: No hay vulnerabilidades nuevas para los productos a los que está suscrito. Otras vulnerabilidades de los productos a los que usted está suscrito, y cuya información ha sido actualizada recientemente: CVE-2007-2976 Severidad: Pendiente de análisis Fecha de publicación: 01/06/2007 Fecha de última actualización: 23/03/2026 Vulnerabilidad en index.pdp en BLUEPAGE CMS (CVE-2008-6027) Severidad: Pendiente de análisis Fecha de publicación: 03/02/2009 Fecha de última actualización: 23/03/2026 Vulnerabilidad en gestor de contenidos Bluepage CMS (CVE-2008-6039) Severidad: Pendiente de análisis Fecha de publicación: 03/02/2009 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Qualcomm, Inc. (CVE-2024-33065) Severidad: ALTA Fecha de publicación: 07/10/2024 Fecha de última actualización: 23/03/2026 Vulnerabilidad en 1000 Projects Bookstore Management System 1.0 (CVE-2024-10844) Severidad: MEDIA Fecha de publicación: 05/11/2024 Fecha de última actualización: 23/03/2026 Vulnerabilidad en 1000 Projects Bookstore Management System 1.0 (CVE-2024-10845) Severidad: MEDIA Fecha de publicación: 05/11/2024 Fecha de última actualización: 23/03/2026 Vulnerabilidad en 1000 Projects Bookstore Management System 1.0 (CVE-2024-10996) Severidad: MEDIA Fecha de publicación: 08/11/2024 Fecha de última actualización: 23/03/2026 Vulnerabilidad en 1000 Projects Bookstore Management System 1.0 (CVE-2024-10997) Severidad: MEDIA Fecha de publicación: 08/11/2024 Fecha de última actualización: 23/03/2026 Vulnerabilidad en 1000 Projects Bookstore Management System 1.0 (CVE-2024-10998) Severidad: MEDIA Fecha de publicación: 08/11/2024 Fecha de última actualización: 23/03/2026 Vulnerabilidad en mattermost Desktop App (CVE-2026-1046) Severidad: ALTA Fecha de publicación: 16/02/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en ADB Explorer (CVE-2026-27115) Severidad: ALTA Fecha de publicación: 20/02/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Elixir.Hexpm.Store.Local (CVE-2026-23939) Severidad: MEDIA Fecha de publicación: 26/02/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Centreon (CVE-2026-2749) Severidad: CRÍTICA Fecha de publicación: 27/02/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Centreon Open Tickets on Central Server (CVE-2026-2750) Severidad: CRÍTICA Fecha de publicación: 27/02/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en hexpm (CVE-2026-21619) Severidad: BAJA Fecha de publicación: 27/02/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en wpDiscuz de gVectors (CVE-2026-22191) Severidad: MEDIA Fecha de publicación: 13/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en QRadar de IBM (CVE-2025-13995) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en QRadar SIEM de IBM (CVE-2025-15051) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en OpenWrt (CVE-2026-30874) Severidad: BAJA Fecha de publicación: 19/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Admidio (CVE-2026-32755) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Admidio (CVE-2026-32816) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Admidio (CVE-2026-32818) Severidad: MEDIA Fecha de publicación: 19/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en SuiteCRM (CVE-2026-29108) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en SuiteCRM (CVE-2026-29109) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en SuiteCRM (CVE-2026-29189) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Admidio (CVE-2026-32756) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Admidio (CVE-2026-32757) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en File Browser (CVE-2026-32761) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en SiYuan (CVE-2026-32767) Severidad: CRÍTICA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en phpseclib's AES-CBC unpadding susceptible to padding oracle timing attack (CVE-2026-32935) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en SiYuan (CVE-2026-32938) Severidad: CRÍTICA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en DataEase (CVE-2026-32939) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en SiYuan (CVE-2026-32940) Severidad: CRÍTICA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en SQLBot (CVE-2026-32949) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en SQLBot (CVE-2026-32950) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en ERP (CVE-2026-32954) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Nest (CVE-2026-33011) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Online Frozen Foods Ordering System (CVE-2026-4469) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Online Frozen Foods Ordering System (CVE-2026-4470) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Online Frozen Foods Ordering System (CVE-2026-4471) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Online Frozen Foods Ordering System (CVE-2026-4472) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en fast-xml-parser (CVE-2026-33036) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en WWBN AVideo (CVE-2026-33037) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en WWBN AVideo (CVE-2026-33038) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en WWBN AVideo (CVE-2026-33039) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en libp2p-rust (CVE-2026-33040) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en WWBN AVideo (CVE-2026-33041) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en WWBN AVideo (CVE-2026-33043) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en tar-rs (CVE-2026-33055) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en University Management System (CVE-2026-4474) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Free5GC (CVE-2026-33064) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Free5GC (CVE-2026-33065) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Free5GC (CVE-2026-33191) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Qwik (CVE-2026-32701) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en SiYuan (CVE-2026-33066) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en SiYuan (CVE-2026-33067) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en PJSIP (CVE-2026-33069) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en FileRise (CVE-2026-33070) Severidad: BAJA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en FileRise (CVE-2026-33071) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en FileRise (CVE-2026-33072) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en FastGPT (CVE-2026-33075) Severidad: CRÍTICA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Filament (CVE-2026-33080) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Free5GC (CVE-2026-33192) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en PinchTab (CVE-2026-33081) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en pypdf (CVE-2026-33123) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Frigate (CVE-2026-33124) Severidad: ALTA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Greenshot (CVE-2026-25792) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en zitadel (CVE-2026-33132) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Lun, 23/03/2026 - 23:00",
-    "category": "Vulnerabilidad"
-  },
-  {
     "id": "aHR0cHM6Ly90aGVoYW",
     "title": "North Korean Hackers Abuse VS Code Auto-Run Tasks to Deploy StoatWaffle Malware",
     "link": "https://thehackernews.com/2026/03/north-korean-hackers-abuse-vs-code-auto.html",
@@ -268,16 +438,6 @@
     "date": "2026-03-23T18:09:00.000Z",
     "description": "The North Korean threat actors behind the Contagious Interview campaign, also tracked as WaterPlum, have been attributed to a malware family tracked as StoatWaffle that's distributed via malicious Microsoft Visual Studio Code (VS Code) projects. The use of VS Code \"tasks.json\" to distribute malware is a relatively new tactic adopted by the threat actor since December 2025, with the attacks",
     "category": "General"
-  },
-  {
-    "id": "aHR0cHM6Ly93d3cuaW",
-    "title": "Boletín de vulnerabilidades",
-    "link": "https://www.incibe.es/node/612293",
-    "source": "INCIBE",
-    "lang": "es",
-    "date": "2026-03-23T17:40:01.000Z",
-    "description": "Boletín de vulnerabilidades Vulnerabilidades con productos recientemente documentados: No hay vulnerabilidades nuevas para los productos a los que está suscrito. Otras vulnerabilidades de los productos a los que usted está suscrito, y cuya información ha sido actualizada recientemente: Vulnerabilidad en serverless (CVE-2025-69256) Severidad: ALTA Fecha de publicación: 30/12/2025 Fecha de última actualización: 23/03/2026 Vulnerabilidad en el módulo IM-LgicDesigner de intra-mart Aoccel Platform (CVE-2026-27776) Severidad: ALTA Fecha de publicación: 27/02/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en OpenClaw (CVE-2026-28482) Severidad: ALTA Fecha de publicación: 05/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Splunk (CVE-2026-20162) Severidad: MEDIA Fecha de publicación: 11/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en OpenProject de opf (CVE-2026-31974) Severidad: BAJA Fecha de publicación: 11/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Red Hat (CVE-2026-3099) Severidad: MEDIA Fecha de publicación: 12/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en XooGallery de Xooscripts (CVE-2019-25521) Severidad: ALTA Fecha de publicación: 12/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en XooGallery de Xooscripts (CVE-2019-25522) Severidad: ALTA Fecha de publicación: 12/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en XooGallery de Xooscripts (CVE-2019-25523) Severidad: ALTA Fecha de publicación: 12/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en XooGallery de Xooscripts (CVE-2019-25524) Severidad: ALTA Fecha de publicación: 12/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Netartmedia PHP Mall (CVE-2019-25540) Severidad: ALTA Fecha de publicación: 12/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Netartmedia PHP Mall (CVE-2019-25541) Severidad: ALTA Fecha de publicación: 12/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en AION de HCL (CVE-2025-52636) Severidad: BAJA Fecha de publicación: 16/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en AION de HCL (CVE-2025-52642) Severidad: BAJA Fecha de publicación: 16/03/2026 Fecha de última actualización: 23/03/2026 Vulnerabilidad en Online Doctor Appointment System (CVE-2026-4473) Severidad: MEDIA Fecha de publicación: 20/03/2026 Fecha de última actualización: 23/03/2026 Lun, 23/03/2026 - 18:40",
-    "category": "Vulnerabilidad"
   },
   {
     "id": "aHR0cHM6Ly9oYWNrcm",
@@ -290,26 +450,6 @@
     "category": "General"
   },
   {
-    "id": "aHR0cHM6Ly93d3cuaW",
-    "title": "Seguridad en la liga de los ciberfuturos extraordinarios",
-    "link": "https://www.incibe.es/node/612256",
-    "source": "INCIBE",
-    "lang": "es",
-    "date": "2026-03-23T14:00:06.000Z",
-    "description": "Seguridad en la liga de los ciberfuturos extraordinarios Lun, 23/03/2026 - 15:00 Entidad colaboradora Immune Coding Institute, S.L. Estado elemento Programado Fecha inicio Jue, 09/04/2026 - 11:00 Fecha fin Jue, 09/04/2026 - 13:00 Dirección Cruz Roja Asturias. C/ Martinez Vigil 36 33010 Oviedo Provincia Asturias Tipo de sección Ideación/captación Tipo de subsección Charla",
-    "category": "APT"
-  },
-  {
-    "id": "aHR0cHM6Ly93d3cuaW",
-    "title": "Seguridad en la liga de los ciberfuturos extraordinarios",
-    "link": "https://www.incibe.es/node/612255",
-    "source": "INCIBE",
-    "lang": "es",
-    "date": "2026-03-23T13:59:06.000Z",
-    "description": "Seguridad en la liga de los ciberfuturos extraordinarios Lun, 23/03/2026 - 14:59 Entidad colaboradora Immune Coding Institute, S.L. Estado elemento Programado Fecha inicio Mié, 08/04/2026 - 09:00 Fecha fin Mié, 08/04/2026 - 11:00 Dirección Cruz Roja Asturias. C/ Martinez Vigil 36 33010 Oviedo Provincia Asturias Tipo de sección Ideación/captación Tipo de subsección Charla",
-    "category": "APT"
-  },
-  {
     "id": "aHR0cHM6Ly90aGVoYW",
     "title": "⚡ Weekly Recap: CI/CD Backdoor, FBI Buys Location Data, WhatsApp Ditches Numbers & More",
     "link": "https://thehackernews.com/2026/03/weekly-recap-cicd-backdoor-fbi-buys.html",
@@ -320,26 +460,6 @@
     "category": "General"
   },
   {
-    "id": "aHR0cHM6Ly9oYWNrcm",
-    "title": "Police Shut Down 373,000 Dark Web Sites in Single-Operator CSAM Network",
-    "link": "https://hackread.com/police-shut-down-dark-web-sites-csam-network/",
-    "source": "HackRead",
-    "lang": "en",
-    "date": "2026-03-23T12:36:37.000Z",
-    "description": "Police shut down 373K dark web sites in a one-man CSAM and cybercrime network run by a 35-year-old man in China, with global probe ongoing.",
-    "category": "General"
-  },
-  {
-    "id": "aHR0cHM6Ly90aGVoYW",
-    "title": "We Found Eight Attack Vectors Inside AWS Bedrock. Here's What Attackers Can Do with Them",
-    "link": "https://thehackernews.com/2026/03/we-found-eight-attack-vectors-inside.html",
-    "source": "The Hacker News",
-    "lang": "en",
-    "date": "2026-03-23T11:55:00.000Z",
-    "description": "AWS Bedrock is Amazon's platform for building AI-powered applications. It gives developers access to foundation models and the tools to connect those models directly to enterprise data and systems. That connectivity is what makes it powerful – but it’s also what makes Bedrock a target. When an AI agent can query your Salesforce instance, trigger a Lambda function, or pull from a SharePoint",
-    "category": "Cloud"
-  },
-  {
     "id": "aHR0cHM6Ly91bmFhbG",
     "title": "Explotación activa de CVE-2025-32975 permite tomar el control de Quest KACE SMA sin parchear",
     "link": "https://unaaldia.hispasec.com/2026/03/explotacion-activa-de-cve-2025-32975-permite-tomar-el-control-de-quest-kace-sma-sin-parchear.html?utm_source=rss&utm_medium=rss&utm_campaign=explotacion-activa-de-cve-2025-32975-permite-tomar-el-control-de-quest-kace-sma-sin-parchear",
@@ -347,56 +467,6 @@
     "lang": "es",
     "date": "2026-03-23T11:04:49.000Z",
     "description": "Arctic Wolf ha detectado actividad compatible con la explotación en curso de CVE-2025-32975 (severidad CVSS 10.0) contra instancias Quest KACE SMA sin parchear y expuestas a Internet. El fallo permite un bypass de autenticación y puede acabar en control administrativo y movimientos laterales hacia sistemas críticos, incluidos controladores de dominio y plataformas de backups. Una […] La entrada Explotación activa de CVE-2025-32975 permite tomar el control de Quest KACE SMA sin parchear se publicó primero en Una Al Día.",
-    "category": "Vulnerabilidad"
-  },
-  {
-    "id": "aHR0cHM6Ly9oYWNrcm",
-    "title": "Why Your Weather-Powered Design Tool Needs More Than Just an API Key",
-    "link": "https://hackread.com/weather-powered-design-tool-api-key/",
-    "source": "HackRead",
-    "lang": "en",
-    "date": "2026-03-23T11:01:39.000Z",
-    "description": "Weather-powered design tools need more than an API key. Learn how authentication, access control, and server-side calls keep…",
-    "category": "General"
-  },
-  {
-    "id": "aHR0cHM6Ly90aGVoYW",
-    "title": "Microsoft Warns IRS Phishing Hits 29,000 Users, Deploys RMM Malware",
-    "link": "https://thehackernews.com/2026/03/microsoft-warns-irs-phishing-hits-29000.html",
-    "source": "The Hacker News",
-    "lang": "en",
-    "date": "2026-03-23T10:55:00.000Z",
-    "description": "Microsoft has warned of fresh campaigns that are capitalizing on the upcoming tax season in the U.S. to harvest credentials and deliver malware. The email campaigns take advantage of the urgency and time-sensitive nature of emails to send phishing messages masquerading as refund notices, payroll forms, filing reminders, and requests from tax professionals to deceive recipients into opening",
-    "category": "Brechas"
-  },
-  {
-    "id": "aHR0cHM6Ly9oYWNrcm",
-    "title": "Global Crackdown Dismantles 4 Botnets Behind Major DDoS Attacks",
-    "link": "https://hackread.com/crackdown-dismantles-4-botnets-ddos-attacks/",
-    "source": "HackRead",
-    "lang": "en",
-    "date": "2026-03-23T10:04:34.000Z",
-    "description": "Global crackdown dismantles Aisuru, KimWolf, JackSkid and Mossad botnets behind major DDoS attack campaigns targeting millions of devices worldwide.",
-    "category": "General"
-  },
-  {
-    "id": "aHR0cHM6Ly90aGVoYW",
-    "title": "Trivy Hack Spreads Infostealer via Docker, Triggers Worm and Kubernetes Wiper",
-    "link": "https://thehackernews.com/2026/03/trivy-hack-spreads-infostealer-via.html",
-    "source": "The Hacker News",
-    "lang": "en",
-    "date": "2026-03-23T08:31:00.000Z",
-    "description": "Cybersecurity researchers have uncovered malicious artifacts distributed via Docker Hub following the Trivy supply chain attack, highlighting the widening blast radius across developer environments. The last known clean release of Trivy on Docker Hub is 0.69.3. The malicious versions 0.69.4, 0.69.5, and 0.69.6 have since been removed from the container image library. \"New image tags 0.69.5 and",
-    "category": "General"
-  },
-  {
-    "id": "aHR0cHM6Ly90aGVoYW",
-    "title": "Hackers Exploit CVE-2025-32975 (CVSS 10.0) to Hijack Unpatched Quest KACE SMA Systems",
-    "link": "https://thehackernews.com/2026/03/hackers-exploit-cve-2025-32975-cvss-100.html",
-    "source": "The Hacker News",
-    "lang": "en",
-    "date": "2026-03-23T06:15:00.000Z",
-    "description": "Threat actors are suspected to be exploiting a maximum-severity security flaw impacting Quest KACE Systems Management Appliance (SMA), according to Arctic Wolf. The cybersecurity company said it observed malicious activity starting the week of March 9, 2026, in customer environments that's consistent with the exploitation of CVE-2025-32975 on unpatched SMA systems exposed to the internet. It's",
     "category": "Vulnerabilidad"
   },
   {
@@ -410,26 +480,6 @@
     "category": "Vulnerabilidad"
   },
   {
-    "id": "aHR0cHM6Ly90aGVoYW",
-    "title": "FBI Warns Russian Hackers Target Signal, WhatsApp in Mass Phishing Attacks",
-    "link": "https://thehackernews.com/2026/03/fbi-warns-russian-hackers-target-signal.html",
-    "source": "The Hacker News",
-    "lang": "en",
-    "date": "2026-03-21T13:17:00.000Z",
-    "description": "Threat actors affiliated with Russian Intelligence Services are conducting phishing campaigns to compromise commercial messaging applications (CMAs) like WhatsApp and Signal to seize control of accounts belonging to individuals with high intelligence value, the U.S. Cybersecurity and Infrastructure Security Agency (CISA) and Federal Bureau of Investigation (FBI) said Friday. \"The campaign",
-    "category": "Brechas"
-  },
-  {
-    "id": "aHR0cHM6Ly90aGVoYW",
-    "title": "Oracle Patches Critical CVE-2026-21992 Enabling Unauthenticated RCE in Identity Manager",
-    "link": "https://thehackernews.com/2026/03/oracle-patches-critical-cve-2026-21992.html",
-    "source": "The Hacker News",
-    "lang": "en",
-    "date": "2026-03-21T10:24:00.000Z",
-    "description": "Oracle has released security updates to address a critical security flaw impacting Identity Manager and Web Services Manager that could be exploited to achieve remote code execution. The vulnerability, tracked as CVE-2026-21992, carries a CVSS score of 9.8 out of a maximum of 10.0. \"This vulnerability is remotely exploitable without authentication,\" Oracle said in an advisory. \"If successfully",
-    "category": "Vulnerabilidad"
-  },
-  {
     "id": "aHR0cHM6Ly91bmFhbG",
     "title": "Filtración en Navia expone datos personales de 2,7 millones de usuarios en EE.UU.",
     "link": "https://unaaldia.hispasec.com/2026/03/filtracion-en-navia-expone-datos-personales-de-27-millones-de-usuarios-en-ee-uu.html?utm_source=rss&utm_medium=rss&utm_campaign=filtracion-en-navia-expone-datos-personales-de-27-millones-de-usuarios-en-ee-uu",
@@ -437,36 +487,6 @@
     "lang": "es",
     "date": "2026-03-21T07:37:51.000Z",
     "description": "Navia Benefit Solutions ha sufrido una brecha de datos que ha expuesto información sensible de 2,7 millones de personas. Aunque no se comprometieron datos financieros ni de reclamaciones, sí se vieron afectados nombres, fechas de nacimiento, números de seguro social y otros datos vinculados a la gestión de beneficios. El reciente incidente de seguridad que […] La entrada Filtración en Navia expone datos personales de 2,7 millones de usuarios en EE.UU. se publicó primero en Una Al Día.",
-    "category": "General"
-  },
-  {
-    "id": "aHR0cHM6Ly9oYWNrcm",
-    "title": "Hacker Group LAPSUS$ Claims Alleged AstraZeneca Data Breach",
-    "link": "https://hackread.com/hacker-group-lapsus-astrazeneca-data-breach/",
-    "source": "HackRead",
-    "lang": "en",
-    "date": "2026-03-20T21:25:06.000Z",
-    "description": "LAPSUS$ claims it breached AstraZeneca, offering alleged source code, credentials, cloud configs, and employee data for sale in leaked samples.",
-    "category": "Brechas"
-  },
-  {
-    "id": "aHR0cHM6Ly9oYWNrcm",
-    "title": "Why Image Format Conversion Is Becoming a Practical Issue in Web Security and Performance",
-    "link": "https://hackread.com/image-format-conversion-web-security-performance/",
-    "source": "HackRead",
-    "lang": "en",
-    "date": "2026-03-20T14:03:41.000Z",
-    "description": "WebP boosts performance raises compatibility issues, making image format conversion to PNG essential for secure, flexible, and efficient web workflows today.",
-    "category": "General"
-  },
-  {
-    "id": "aHR0cHM6Ly9oYWNrcm",
-    "title": "New Fake Zoom Meeting Invite Scam Spreads Malware on Windows PCs",
-    "link": "https://hackread.com/fake-zoom-meeting-invite-scam-windows-pc-malware/",
-    "source": "HackRead",
-    "lang": "en",
-    "date": "2026-03-20T13:33:04.000Z",
-    "description": "Cybersecurity researchers at Sublime Security have discovered a new scam that uses realistic, interactive JavaScript-based Zoom meeting invites to trick users into installing malware.",
     "category": "General"
   },
   {
@@ -517,26 +537,6 @@
     "lang": "es",
     "date": "2026-03-15T16:18:49.000Z",
     "description": "Investigadores de Blue Voyant han descubierto que atacantes se hacen pasar por el departamento de informática a través de Microsoft Teams para conseguir acceso remoto a los equipos e instalar un malware llamado A0Backdoor. El ataque comienza enviando al correo electrónico del empleado mensajes de spam. Al rato, contactan con esa misma persona por Microsoft […] La entrada Atacantes suplantan al soporte técnico en Microsoft Teams para desplegar el malware A0 Backdoor en empresas financieras y sanitarias se publicó primero en Una Al Día.",
-    "category": "General"
-  },
-  {
-    "id": "aHR0cHM6Ly91bmFhbG",
-    "title": "SQLi autenticada en Koha pone en riesgo la base de datos desde la interfaz de personal",
-    "link": "https://unaaldia.hispasec.com/2026/03/sqli-autenticada-en-koha-pone-en-riesgo-la-base-de-datos-desde-la-interfaz-de-personal.html?utm_source=rss&utm_medium=rss&utm_campaign=sqli-autenticada-en-koha-pone-en-riesgo-la-base-de-datos-desde-la-interfaz-de-personal",
-    "source": "Una al Dia",
-    "lang": "es",
-    "date": "2026-03-14T09:52:42.000Z",
-    "description": "El CVE-2026-31844, publicado el 11 de marzo de 2026, describe una vulnerabilidad de inyección SQL autenticada en Koha que afecta a la interfaz de personal y, en concreto, al módulo de gestión de sugerencias. El fallo reside en el tratamiento del parámetro displayby dentro de suggestion.pl, lo que permite que un usuario de staff con […] La entrada SQLi autenticada en Koha pone en riesgo la base de datos desde la interfaz de personal se publicó primero en Una Al Día.",
-    "category": "Vulnerabilidad"
-  },
-  {
-    "id": "aHR0cHM6Ly91bmFhbG",
-    "title": "Ericsson en EE. UU. informa de una brecha de datos tras el hackeo de un proveedor externo",
-    "link": "https://unaaldia.hispasec.com/2026/03/ericsson-en-ee-uu-informa-de-una-brecha-de-datos-tras-el-hackeo-de-un-proveedor-externo.html?utm_source=rss&utm_medium=rss&utm_campaign=ericsson-en-ee-uu-informa-de-una-brecha-de-datos-tras-el-hackeo-de-un-proveedor-externo",
-    "source": "Una al Dia",
-    "lang": "es",
-    "date": "2026-03-10T07:06:39.000Z",
-    "description": "Ericsson Inc. (EE. UU.) ha notificado una brecha de datos vinculada al hackeo de un proveedor de servicios que almacenaba información personal. La exposición podría incluir SSN, documentos de identidad, datos financieros y médicos, y la compañía ofrece protección de identidad gratuita. Ericsson Inc. en Estados Unidos ha comunicado una brecha de datos después de […] La entrada Ericsson en EE. UU. informa de una brecha de datos tras el hackeo de un proveedor externo se publicó primero en Una Al Día.",
     "category": "General"
   }
 ]
