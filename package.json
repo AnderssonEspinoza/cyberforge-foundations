@@ -1,13 +1,28 @@
 {
-  "name": "cyberforge",
-  "version": "1.1.0",
-  "description": "Plataforma de microaprendizaje de ciberseguridad con feed de noticias reales",
-  "main": "scraper.js",
+  "name": "cyberforge-foundations",
+  "version": "2.0.0",
+  "private": false,
+  "description": "Open source cybersecurity microlearning app with study paths, guided labs and automated news updates.",
+  "type": "module",
   "scripts": {
-    "scrape": "node scraper.js",
-    "start": "node scraper.js"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "scrape": "node scraper.js"
   },
   "dependencies": {
+    "framer-motion": "^12.23.24",
+    "lucide-react": "^0.542.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.1",
     "rss-parser": "^3.13.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "vite": "^7.1.3"
   }
 }

@@ -1,119 +1,124 @@
-# CyberForge
+# CyberForge Foundations
 
-CyberForge es una app de microaprendizaje de ciberseguridad pensada para estudiar en bloques cortos, sin perder profundidad tecnica. La aplicacion separa dos capas:
+[English README](./README-en.md)
 
-- Fundamentos estables: redes, sistemas, criptografia, web, pentesting, malware, ingenieria social, blue team, Active Directory y cloud.
-- Actualidad variable: noticias y avisos reales que se cargan desde `noticias.json` o se actualizan con `scraper.js`.
+CyberForge Foundations es una app open source de microaprendizaje en ciberseguridad pensada para estudiar desde movil o desktop en sesiones cortas. Combina fundamentos tecnicos estables, laboratorios guiados, rutas por nivel, seguimiento local del progreso y un feed de noticias reales que se actualiza con un scraper RSS.
 
-## Que incluye hoy
+## Stack
 
-- `index.html`: app deployable en un solo archivo con React, Tailwind, React Router y Framer Motion por CDN.
-- `scraper.js`: agrega noticias reales desde RSS de ciberseguridad y genera `noticias.json`.
-- `noticias.json`: feed inicial para que la app funcione incluso antes de ejecutar el scraper.
-- Persistencia local con `localStorage`: progreso, racha, flashcards, noticias leidas y ajustes.
-- Exportacion e importacion del progreso en JSON.
+- React + Vite
+- React Router
+- Tailwind CSS
+- Framer Motion
+- Node.js para el scraper de noticias
+- `localStorage` para progreso local del usuario
 
-## Como actualizar noticias
+## Lo que incluye
 
-### Opcion 1: manual
+- 10 modulos base con lecciones, errores comunes, fuentes y mini laboratorios
+- Ruta por niveles: Nivel 0, Fundamentos, Junior e Intermedio
+- Trayectorias por rol: Blue Team, Pentesting, AppSec y Cloud Security
+- Glosario vivo y guia de estudio
+- Flashcards con repeticion espaciada
+- Quizzes por dificultad: basico, aplicado y escenario
+- Feed de noticias reales generado desde RSS
+- Exportacion e importacion de progreso
 
-Si estas trabajando localmente, refrescas noticias con:
+## Estructura
 
-```bash
-npm run scrape
+```text
+.
+|- public/
+|  `- noticias.json
+|- scripts/
+|  `- scraper.js
+|- src/
+|  |- components/
+|  |- data/
+|  |- layouts/
+|  |- pages/
+|  |- services/
+|  `- utils/
+|- .github/workflows/
+|  `- update-news.yml
+|- CONTRIBUTING.md
+|- LICENSE
+|- README-en.md
+`- README.md
 ```
 
-### Opcion 2: automatica para usarla desde el celular
-
-El proyecto ya incluye el workflow [`.github/workflows/update-news.yml`](/home/andersson/Escritorio/app-ciberseguridad/.github/workflows/update-news.yml).
-
-Si subes esta carpeta a GitHub y publicas la app desde ese repositorio, GitHub Actions puede actualizar `noticias.json` automaticamente una vez al dia, sin que tengas que entrar al codigo ni correr comandos desde tu telefono.
-
-Eso es lo mas comodo para uso movil:
-
-1. subes el proyecto a GitHub,
-2. activas GitHub Actions,
-3. publicas la carpeta en GitHub Pages, Netlify o Vercel,
-4. el workflow refresca `noticias.json` por ti diariamente.
-
-## Instalacion del feed de noticias
-
-1. Entra a la carpeta del proyecto.
-2. Instala dependencias:
+## Instalacion local
 
 ```bash
 npm install
 ```
 
-3. Genera o refresca el feed:
+## Desarrollo
+
+```bash
+npm run dev
+```
+
+Vite levantara un servidor local, normalmente en `http://localhost:5173`.
+
+## Build de produccion
+
+```bash
+npm run build
+```
+
+## Actualizar noticias
+
+Manual:
 
 ```bash
 npm run scrape
 ```
 
-Esto sobrescribe `noticias.json` con noticias mas recientes tomadas de los feeds configurados.
+Ese comando actualiza:
 
-## Ejecutar la app
+- `noticias.json`
+- `public/noticias.json`
 
-Como `index.html` usa `fetch("noticias.json")`, conviene abrirla con un servidor local en lugar de hacer doble clic directo.
+## Actualizacion automatica
 
-Opcion A:
+El repositorio incluye el workflow [`.github/workflows/update-news.yml`](./.github/workflows/update-news.yml), que ejecuta el scraper diariamente y tambien permite lanzarlo manualmente desde GitHub Actions.
 
-```bash
-python3 -m http.server 8000
-```
+Si publicas el proyecto en Vercel o Netlify conectado al repo, los cambios en `public/noticias.json` se desplegaran automaticamente despues de cada ejecucion exitosa del workflow.
 
-Luego abre:
+## Uso recomendado
 
-`http://localhost:8000/index.html`
+1. Empieza por la ruta `Nivel 0 -> Fundamentos`.
+2. Marca cada leccion como `confundido`, `repasar`, `entendido` o `dominado`.
+3. Haz el mini laboratorio antes de pasar al quiz.
+4. Usa el feed de noticias para conectar teoria con casos reales.
+5. Complementa la app con laboratorios externos y documentacion oficial.
 
-Opcion B:
+## Contribuir
 
-Usa Live Server de VS Code o despliega la carpeta completa en Netlify / Vercel.
+Las contribuciones son bienvenidas. Antes de abrir un Pull Request, revisa [CONTRIBUTING.md](./CONTRIBUTING.md).
 
-## Notas importantes
+Ideas de contribucion utiles:
 
-- El contenido de estudio esta redactado para darte una base solida y util, pero las noticias y CVEs dependen de la fecha del feed.
-- Para mantener actualidad, ejecuta el scraper con frecuencia.
-- La app no pretende sustituir laboratorios, documentacion oficial ni advisories del fabricante; su objetivo es ordenar el estudio y priorizar lo importante.
+- mejorar accesibilidad y navegacion movil
+- ampliar lecciones o recursos verificables
+- agregar nuevas fuentes RSS confiables
+- mejorar quizzes y laboratorios guiados
+- refinar estilos, rendimiento o arquitectura
 
-## Estructura del proyecto
+## Licencia
 
-- `index.html`: interfaz, rutas, contenido y persistencia.
-- `scraper.js`: lector de RSS y generador de `noticias.json`.
-- `package.json`: dependencias y scripts.
-- `noticias.json`: noticias iniciales o generadas.
+Este proyecto usa la licencia MIT. Revisa [LICENSE](./LICENSE).
 
-## Recomendacion de uso
+## Topics sugeridos para GitHub
 
-Haz una sesion corta al dia:
+Agrega estos topics en la seccion `About` del repositorio para mejorar descubrimiento:
 
-1. Lee la leccion del dia.
-2. Revisa 2 o 3 noticias del feed.
-3. Haz flashcards pendientes.
-4. Cierra con el quiz del modulo cuando te sientas listo.
-
-## Publicarlo en GitHub
-
-Si quieres usarlo principalmente desde el celular, lo ideal es:
-
-1. subir este proyecto a GitHub,
-2. activar GitHub Actions,
-3. publicar la carpeta en GitHub Pages, Netlify o Vercel,
-4. dejar que el workflow actualice `noticias.json` automaticamente cada dia.
-
-Si ya tienes GitHub configurado en tu maquina, puedes iniciar y subir el repo con:
-
-```bash
-git init
-git add .
-git commit -m "Initial CyberForge foundations app"
-```
-
-Luego conectas tu repositorio remoto y haces push.
-
-Si usas `gh` autenticado, tambien puedes crear el repo desde terminal con algo como:
-
-```bash
-gh repo create cyberforge --public --source=. --remote=origin --push
-```
+- `cybersecurity`
+- `microlearning`
+- `react`
+- `vite`
+- `education`
+- `open-source`
+- `javascript`
+- `tailwindcss`
