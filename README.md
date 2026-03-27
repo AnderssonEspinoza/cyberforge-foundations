@@ -28,6 +28,14 @@ ZeroDay es una app open source de microaprendizaje en ciberseguridad pensada par
 
 ```text
 .
+|- .github/
+|  |- CODEOWNERS
+|  |- ISSUE_TEMPLATE/
+|  |- pull_request_template.md
+|  `- workflows/
+|     |- ci.yml
+|     `- update-news.yml
+|- CONTENT_GUIDE.md
 |- public/
 |  `- noticias.json
 |- scripts/
@@ -39,12 +47,13 @@ ZeroDay es una app open source de microaprendizaje en ciberseguridad pensada par
 |  |- pages/
 |  |- services/
 |  `- utils/
-|- .github/workflows/
-|  `- update-news.yml
 |- CONTRIBUTING.md
 |- LICENSE
+|- MAINTAINER_SETUP.md
 |- README-en.md
-`- README.md
+|- README.md
+`- docs/
+   `- issue-drafts.md
 ```
 
 ## Instalacion local
@@ -119,16 +128,3 @@ Ideas de contribucion utiles:
 ## Licencia
 
 Este proyecto usa la licencia MIT. Revisa [LICENSE](./LICENSE).
-
-## Topics sugeridos para GitHub
-
-Agrega estos topics en la seccion `About` del repositorio para mejorar descubrimiento:
-
-- `cybersecurity`
-- `microlearning`
-- `react`
-- `vite`
-- `education`
-- `open-source`
-- `javascript`
-- `tailwindcss`
