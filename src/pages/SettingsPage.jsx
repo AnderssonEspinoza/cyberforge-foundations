@@ -9,7 +9,7 @@ export default function SettingsPage() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `cyberforge-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    link.download = `zeroday-backup-${new Date().toISOString().slice(0, 10)}.json`;
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -20,7 +20,7 @@ export default function SettingsPage() {
     const reader = new FileReader();
     reader.onload = (e) => {
       try {
-        localStorage.setItem("cyberforge_foundations_v4", e.target.result);
+        localStorage.setItem("zeroday_learner_v1", e.target.result);
         window.location.reload();
       } catch (error) {
         alert("Backup invalido.");
@@ -55,7 +55,7 @@ export default function SettingsPage() {
             Importar progreso
             <input type="file" accept=".json" className="hidden" onChange={importData} />
           </label>
-          <button onClick={() => { localStorage.removeItem("cyberforge_foundations_v4"); window.location.reload(); }} className="w-full py-3 rounded-xl border border-red-500/40 text-red-400">
+          <button onClick={() => { localStorage.removeItem("zeroday_learner_v1"); window.location.reload(); }} className="w-full py-3 rounded-xl border border-red-500/40 text-red-400">
             Borrar progreso local
           </button>
         </div>

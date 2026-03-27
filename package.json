@@ -1,8 +1,8 @@
 {
-  "name": "cyberforge-foundations",
+  "name": "zeroday-learner",
   "version": "2.0.0",
   "private": false,
-  "description": "Open source cybersecurity microlearning app with study paths, guided labs and automated news updates.",
+  "description": "ZeroDay is an open source cybersecurity microlearning app with study paths, guided labs and automated news updates.",
   "type": "module",
   "scripts": {
     "dev": "vite",

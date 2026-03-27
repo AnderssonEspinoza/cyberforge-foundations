@@ -1,8 +1,8 @@
-# CyberForge Foundations
+# ZeroDay
 
 [README en espanol](./README.md)
 
-CyberForge Foundations is an open source cybersecurity microlearning app designed for short study sessions on mobile or desktop. It combines stable technical foundations, guided labs, level-based learning paths, local progress tracking, and a real news feed generated from RSS sources.
+ZeroDay is an open source cybersecurity microlearning app designed for short study sessions on mobile or desktop. It combines stable technical foundations, guided labs, level-based learning paths, local progress tracking, and a real news feed generated from RSS sources.
 
 ## Stack
 

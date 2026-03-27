@@ -1,4 +1,4 @@
-# Contributing to CyberForge Foundations
+# Contributing to ZeroDay
 
 Thanks for considering a contribution. The goal of this project is to make cybersecurity learning more accessible, structured, and practical.
 

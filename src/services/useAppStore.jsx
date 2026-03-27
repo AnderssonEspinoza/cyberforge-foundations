@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const STORAGE_KEY = "cyberforge_foundations_v4";
+const STORAGE_KEY = "zeroday_learner_v1";
 const AppStoreContext = createContext(null);
 
 function getInitialState(modules) {

@@ -17,8 +17,8 @@ export default function DashboardPage() {
     <div className="space-y-6 pb-24">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <Badge>CyberForge Foundations</Badge>
-          <h1 className="text-3xl font-bold text-term-prim mt-2">Guia diaria para aprender ciberseguridad con estructura</h1>
+          <Badge>ZeroDay</Badge>
+          <h1 className="text-3xl font-bold text-term-prim mt-2">Aprende ciberseguridad todos los dias</h1>
           <p className="text-sm text-term-mut mt-2 max-w-3xl">Fundamentos, mini labs, glosario, quizzes por dificultad, tracks por rol y noticias reales en una base open source mantenible.</p>
         </div>
         <Card className="text-center min-w-[140px]">
