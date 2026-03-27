@@ -5,10 +5,53 @@ import { Badge, Card, StatusPill } from "../components/ui";
 import { useAppStore } from "../services/useAppStore";
 
 export function RoadmapPage() {
+  const { state } = useAppStore();
   return (
     <div className="space-y-5 pb-24">
       <div><h2 className="text-2xl font-bold text-term-prim">Ruta por niveles</h2><p className="text-sm text-term-mut mt-2">Esta ruta te dice que estudiar primero y que dejar para despues.</p></div>
-      {LEVELS.map((level, idx) => <Card key={level.id}><Badge>Etapa {idx + 1}</Badge><h3 className="text-xl font-bold mt-2">{level.title}</h3><p className="text-term-text mt-3">{level.focus}</p></Card>)}
+      {LEVELS.map((level, idx) => {
+        const modules = MODULES.filter((module) => level.modules.includes(module.id));
+        const completedLessons = modules.flatMap((module) => module.lessons).filter((lesson) => state.completedLessons.includes(lesson.id)).length;
+        const totalLessons = modules.flatMap((module) => module.lessons).length;
+        const nextModule = modules.find((module) => module.lessons.some((lesson) => !state.completedLessons.includes(lesson.id))) || modules[0];
+
+        return (
+          <Card key={level.id}>
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+              <div className="flex-1">
+                <Badge>Etapa {idx + 1}</Badge>
+                <h3 className="text-xl font-bold mt-2">{level.title}</h3>
+                <p className="text-term-text mt-3">{level.focus}</p>
+                <div className="text-xs text-term-mut mt-3">Avance de esta etapa: {completedLessons}/{totalLessons} lecciones completadas.</div>
+                <div className="mt-4 grid gap-2">
+                  {modules.map((module) => {
+                    const moduleDone = module.lessons.filter((lesson) => state.completedLessons.includes(lesson.id)).length;
+                    return (
+                      <Link key={module.id} to={`/module/${module.id}`} className="p-3 rounded-xl border border-term-mut/30 hover:border-term-acc">
+                        <div className="flex items-center justify-between gap-3">
+                          <div>
+                            <div className="font-bold text-sm">{module.title}</div>
+                            <div className="text-xs text-term-mut mt-1">{module.desc}</div>
+                          </div>
+                          <div className="text-xs text-term-mut whitespace-nowrap">{moduleDone}/{module.lessons.length}</div>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="flex flex-col gap-3 min-w-[220px]">
+                <Link to={`/module/${nextModule.id}`} className="px-4 py-3 rounded-xl bg-term-prim text-black font-bold text-center">
+                  Ir a esta etapa
+                </Link>
+                <Link to={`/lesson/${nextModule.id}/${nextModule.lessons[0].id}`} className="px-4 py-3 rounded-xl border border-term-mut/30 text-center hover:border-term-acc">
+                  Abrir primera leccion
+                </Link>
+              </div>
+            </div>
+          </Card>
+        );
+      })}
     </div>
   );
 }

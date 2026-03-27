@@ -5,6 +5,7 @@ Thanks for considering a contribution. The goal of this project is to make cyber
 ## Before you start
 
 - Read the main [README.md](./README.md).
+- Read [CONTENT_GUIDE.md](./CONTENT_GUIDE.md) if you will edit lessons, glossary, quizzes, or labs.
 - Check open issues before starting work.
 - Prefer small, focused Pull Requests.
 
@@ -26,10 +27,21 @@ npm run scrape
 - `src/components/`: reusable UI pieces
 - `src/layouts/`: shared layout shells
 - `src/pages/`: route-level screens
-- `src/data/`: hardcoded learning content and metadata
+- `src/data/coreData.js`: glossary, levels, study guide, and role tracks
+- `src/data/modules.js`: modules, lessons, flashcards, and quizzes
+- `src/data/appData.js`: stable export layer consumed by the app
 - `src/services/`: state, persistence, and feed access
 - `scripts/`: Node scripts such as the RSS scraper
 - `public/`: static assets deployed as-is
+
+## Branch workflow
+
+1. Create a branch from `main`.
+2. Make focused changes.
+3. Run `npm run build`.
+4. Open a Pull Request back to `main`.
+
+Do not push directly to `main`. The repository is intended to be reviewed through Pull Requests.
 
 ## Contribution guidelines
 
@@ -39,6 +51,7 @@ npm run scrape
 - When adding cybersecurity content, use accurate and verifiable sources.
 - When adding links or references, prefer official documentation or high-quality primary sources.
 - Avoid placeholders and incomplete fake content.
+- Keep educational content aligned with `CONTENT_GUIDE.md`.
 
 ## Pull Request checklist
 

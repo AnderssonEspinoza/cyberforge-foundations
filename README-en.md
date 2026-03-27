@@ -98,6 +98,8 @@ If the project is deployed through Vercel or Netlify and connected to this repos
 
 Contributions are welcome. Please read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a Pull Request.
 
+If you plan to expand lessons, quizzes, glossary entries, or labs, also read [CONTENT_GUIDE.md](./CONTENT_GUIDE.md).
+
 Good contribution ideas:
 
 - improve accessibility and mobile navigation
@@ -105,6 +107,14 @@ Good contribution ideas:
 - add trustworthy RSS sources
 - improve quizzes and guided labs
 - refine styling, performance, or architecture
+
+## Collaboration workflow
+
+- Always work from your own branch.
+- Open a Pull Request into `main`.
+- CI validates the production build.
+- `CODEOWNERS` requests maintainer review automatically.
+- Recommended branch protection settings are documented in [MAINTAINER_SETUP.md](./MAINTAINER_SETUP.md).
 
 ## License
 

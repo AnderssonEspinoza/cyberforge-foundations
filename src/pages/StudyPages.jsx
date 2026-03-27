@@ -5,6 +5,16 @@ import { useAppStore } from "../services/useAppStore";
 import { Badge, Card, StatusPill } from "../components/ui";
 import NewsPanel from "../components/NewsPanel";
 
+function normalizeLessonNote(note) {
+  if (!note) return { understood: "", confused: "", nextStep: "" };
+  if (typeof note === "string") return { understood: note, confused: "", nextStep: "" };
+  return {
+    understood: note.understood || "",
+    confused: note.confused || "",
+    nextStep: note.nextStep || "",
+  };
+}
+
 export function ModuleDetailPage() {
   const { moduleId } = useParams();
   const module = MODULES.find((item) => item.id === moduleId);
@@ -26,13 +36,17 @@ export function LessonPage() {
   const navigate = useNavigate();
   const module = MODULES.find((item) => item.id === moduleId);
   const lesson = module?.lessons.find((item) => item.id === lessonId);
-  const note = state.lessonNotes[lessonId] || "";
+  const note = normalizeLessonNote(state.lessonNotes[lessonId]);
   useEffect(() => window.scrollTo(0, 0), [lessonId]);
   if (!module || !lesson) return <div className="text-red-400">Leccion no encontrada.</div>;
   const words = lesson.content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
   const minutes = Math.max(4, Math.ceil(words / 180));
   const currentState = state.lessonStates[lessonId];
   const completed = state.completedLessons.includes(lessonId);
+  const updateNoteField = (field, value) => {
+    saveLessonNote(lessonId, { ...note, [field]: value });
+  };
+  const hasNotes = Boolean(note.understood.trim() || note.confused.trim() || note.nextStep.trim());
   return (
     <div className="space-y-6 pb-24">
       <button onClick={() => navigate(-1)} className="text-sm text-term-mut hover:text-white">Volver</button>
@@ -56,7 +70,32 @@ export function LessonPage() {
         <p className="text-sm text-term-text mt-3 font-bold">{lesson.lab.title}</p>
         <div className="mt-3 space-y-2">{lesson.lab.steps.map((step) => <p key={step} className="text-sm text-term-text">- {step}</p>)}</div>
         <div className="mt-5"><h3 className="font-bold text-term-acc text-sm">Preguntas para consolidar</h3><div className="mt-3 space-y-2">{lesson.lab.questions.map((question) => <p key={question} className="text-sm text-term-text">- {question}</p>)}</div></div>
-        <textarea value={note} onChange={(e) => saveLessonNote(lessonId, e.target.value)} placeholder="Escribe aqui lo que entendiste, dudas o hallazgos del mini lab..." className="w-full mt-5 min-h-[140px] bg-black border border-term-mut/30 rounded-2xl px-4 py-3 outline-none focus:border-term-acc"></textarea>
+        <div className="mt-5 rounded-2xl border border-term-mut/30 bg-black/40 p-4 space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h3 className="font-bold text-sm text-term-acc">Bitacora de aprendizaje</h3>
+              <p className="text-xs text-term-mut mt-1">Se guarda automaticamente en este dispositivo. Te sirve para volver luego a tus dudas y siguientes pasos.</p>
+            </div>
+            <div className="text-xs text-term-prim">{hasNotes ? "Nota guardada" : "Sin nota todavia"}</div>
+          </div>
+          <div>
+            <div className="text-xs uppercase tracking-[.18em] text-term-mut mb-2">Que entendi</div>
+            <textarea value={note.understood} onChange={(e) => updateNoteField("understood", e.target.value)} placeholder="Resume con tus palabras la idea principal de esta leccion." className="w-full min-h-[110px] bg-black border border-term-mut/30 rounded-2xl px-4 py-3 outline-none focus:border-term-acc"></textarea>
+          </div>
+          <div>
+            <div className="text-xs uppercase tracking-[.18em] text-term-mut mb-2">Que me confundio</div>
+            <textarea value={note.confused} onChange={(e) => updateNoteField("confused", e.target.value)} placeholder="Escribe dudas, partes borrosas o algo que necesites repasar." className="w-full min-h-[110px] bg-black border border-term-mut/30 rounded-2xl px-4 py-3 outline-none focus:border-term-acc"></textarea>
+          </div>
+          <div>
+            <div className="text-xs uppercase tracking-[.18em] text-term-mut mb-2">Siguiente paso</div>
+            <textarea value={note.nextStep} onChange={(e) => updateNoteField("nextStep", e.target.value)} placeholder="Ejemplo: repetir el mini lab, releer esta parte o buscar una fuente oficial." className="w-full min-h-[90px] bg-black border border-term-mut/30 rounded-2xl px-4 py-3 outline-none focus:border-term-acc"></textarea>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <button onClick={() => setLessonState(lessonId, "repasar")} className="px-4 py-2 rounded-xl border border-yellow-500/40 text-yellow-300">Marcar para repasar</button>
+            <button onClick={() => setLessonState(lessonId, "entendido")} className="px-4 py-2 rounded-xl border border-term-prim/40 text-term-prim">Marcar como entendido</button>
+            <button onClick={() => navigate("/settings#notes")} className="px-4 py-2 rounded-xl border border-term-mut/30">Ver mis notas</button>
+          </div>
+        </div>
       </Card>
       <Card>
         <h2 className="font-bold text-term-acc">Fuentes y recursos</h2>

@@ -98,6 +98,8 @@ Si publicas el proyecto en Vercel o Netlify conectado al repo, los cambios en `p
 
 Las contribuciones son bienvenidas. Antes de abrir un Pull Request, revisa [CONTRIBUTING.md](./CONTRIBUTING.md).
 
+Si vas a ampliar contenido educativo, revisa tambien [CONTENT_GUIDE.md](./CONTENT_GUIDE.md).
+
 Ideas de contribucion utiles:
 
 - mejorar accesibilidad y navegacion movil
@@ -105,6 +107,14 @@ Ideas de contribucion utiles:
 - agregar nuevas fuentes RSS confiables
 - mejorar quizzes y laboratorios guiados
 - refinar estilos, rendimiento o arquitectura
+
+## Flujo de colaboracion
+
+- Trabaja siempre desde una rama propia.
+- Abre un Pull Request hacia `main`.
+- El workflow de CI validara el build.
+- `CODEOWNERS` solicita review del mantenedor.
+- Las reglas de proteccion recomendadas estan en [MAINTAINER_SETUP.md](./MAINTAINER_SETUP.md).
 
 ## Licencia
 
