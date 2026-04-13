@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import { AppStoreProvider, useAppStore } from "./services/useAppStore";
@@ -10,11 +11,12 @@ import SettingsPage from "./pages/SettingsPage";
 function AppRoutes() {
   const { state } = useAppStore();
 
-  if (state.focusMode) {
-    document.body.style.background = "#040404";
-  } else {
-    document.body.style.background = "";
-  }
+  useEffect(() => {
+    document.body.style.background = state.focusMode ? "#040404" : "";
+    return () => {
+      document.body.style.background = "";
+    };
+  }, [state.focusMode]);
 
   return (
     <MainLayout>
